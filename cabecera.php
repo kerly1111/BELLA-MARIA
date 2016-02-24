@@ -32,7 +32,7 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="">Inicio</a></li>
+                    <li ><a href="">INICIO</a></li>
                     <li ><a href="">GAD</a></li>
                     <li ><a href="">BELLA MARIA</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
@@ -45,6 +45,7 @@
                     <li ><a href="portfolio.html">TURISMO</a></li>
                     <li ><a href="portfolio.html">EVENTOS</a></li>
                     <li ><a href="portfolio.html">TRANSPARENCIA</a></li>
+                    <li ><a href="portfolio.html">UBICACIÓN</a></li>
                     <li ><a href="portfolio.html">CONTACTANOS</a></li>
                 </ul>
             </div>
