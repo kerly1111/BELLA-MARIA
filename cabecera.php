@@ -38,7 +38,9 @@
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
 
                     <ul class="dropdown-menu">
-                    <li class="active"><a href="index.html">Inicio</a></li>
+                    <li class="active"><a href="index.php">Inicio</a></li>
+                    <li class="active"><a href="index.php">Inicio</a></li>
+                    <li class="active"><a href="index.php">Inicio</a></li>
                     </ul>
 
                     </li>
@@ -120,5 +122,9 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="href='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+<script type="text/javascript" src="js/gmaps.js"></script>
+
 </body>
 </html>
