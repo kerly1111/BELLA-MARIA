@@ -711,6 +711,7 @@ ul.tag-cloud li {
 }
 .navbar-inverse {
   border: none;
+  
 }
 .navbar-inverse .navbar-brand {
   font-family: 'Bubbler One', sans-serif;
@@ -761,11 +762,12 @@ ul.tag-cloud li {
 .navbar-inverse .navbar-nav .dropdown-menu > li:focus > a{
   background-color: rgba(255, 204, 0, 0.3);
 }
+
 .navbar-inverse .navbar-nav .dropdown-menu > li:last-child > a {
   border-radius: 0 0 3px 3px;
 }
 .navbar-inverse .navbar-nav .dropdown-menu > li.divider {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
