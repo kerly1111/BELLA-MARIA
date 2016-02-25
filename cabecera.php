@@ -11,6 +11,7 @@
     <link href="css/prettyPhoto.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link href="css/bellaMaria.css" rel="stylesheet">
       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -19,7 +20,41 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 <body>
-    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+    <header class="navbar navbar-superior navbar-fixed-top" role="banner">
+        <div class="collapse navbar-collapse margen-tope-nav col-md-3" >
+        <script languaje="JavaScript"> 
+        var mydate=new Date() 
+        var year=mydate.getYear() 
+        if (year < 1000) 
+        year+=1900 
+        var day=mydate.getDay() 
+        var month=mydate.getMonth() 
+        var daym=mydate.getDate() 
+        if (daym<10) 
+        daym="0"+daym 
+        var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
+        var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+        document.write("<font color='black' face='Georgia' style='font-size:11pt'>"+dayarray[day]+" "+daym+" del "+montharray[month]+" de "+year+"</font>") 
+        </script>
+
+        <div id="TT_vhYkEk1Ek1Ej2cGA7fzZrDDZLWlA1f2E1Ykzjy3rZlAomIGIG">
+        </div>
+        <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vhYkEk1Ek1Ej2cGA7fzZrDDZLWlA1f2E1Ykzjy3rZlAomIGIG">
+        </script><!-- END: Custom advanced (www.pluginaria.com) -->
+        </div>   
+        <div  class="collapse navbar-collapse margen-tope-buscar col-md-3 navbar-right" >
+        <i class="glyphicon glyphicon-search"></i>
+        <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text" size="40" value="Buscar...">
+
+        </div>
+        <div class="input-group">
+                            <input type="text" class="form-control" autocomplete="off" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+                            </span>
+                        </div>
+    </header>
+<!--    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -107,9 +142,9 @@
                         </div>
                     </div>
                 </div><!--/.item-->
-            </div><!--/.carousel-inner-->
-        </div><!--/.carousel-->
-        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+ <!--           </div><!--/.carousel-inner-->
+  <!--      </div><!--/.carousel-->
+   <!--     <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
             <i class="icon-angle-left"></i>
         </a>
         <a class="next hidden-xs" href="#main-slider" data-slide="next">

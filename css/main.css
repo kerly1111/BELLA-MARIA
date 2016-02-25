@@ -760,7 +760,9 @@ ul.tag-cloud li {
 }
 .navbar-inverse .navbar-nav .dropdown-menu > li:hover > a,
 .navbar-inverse .navbar-nav .dropdown-menu > li:focus > a{
-  background-color: rgba(255, 204, 0, 0.3);
+  background-color: rgba(255, 204, 0, 1);
+  color: #006600;
+  font-weight: bold;
 }
 
 .navbar-inverse .navbar-nav .dropdown-menu > li:last-child > a {
