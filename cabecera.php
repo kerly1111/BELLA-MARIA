@@ -21,7 +21,8 @@
 </head><!--/head-->
 <body>
     <header class="navbar navbar-superior navbar-fixed-top" role="banner">
-        <div class="collapse navbar-collapse margen-tope-nav col-md-3" >
+    <form class="form-inline col-md-3 " role="form">
+        <div class="collapse navbar-collapse margen-tope-nav" >
         <script languaje="JavaScript"> 
         var mydate=new Date() 
         var year=mydate.getYear() 
@@ -42,17 +43,16 @@
         <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vhYkEk1Ek1Ej2cGA7fzZrDDZLWlA1f2E1Ykzjy3rZlAomIGIG">
         </script><!-- END: Custom advanced (www.pluginaria.com) -->
         </div>   
-        <div  class="collapse navbar-collapse margen-tope-buscar col-md-3 navbar-right" >
-        <i class="glyphicon glyphicon-search"></i>
-        <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text" size="40" value="Buscar...">
+     </form>
 
+        <form class="form-inline navbar-right col-md-4" role="form">
+        <div class="form-group margen-tope-buscar">
+           <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text" size="40" placeholder="Buscar...">
+           <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
         </div>
-        <div class="input-group">
-                            <input type="text" class="form-control" autocomplete="off" placeholder="Search">
-                            <span class="input-group-btn">
-                                <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
-                            </span>
-                        </div>
+        </form>
+            
+
     </header>
 <!--    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
         <div class="container">
