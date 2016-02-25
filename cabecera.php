@@ -89,8 +89,8 @@
  
     <div id="secundario">
     <div class="center panel panel-default sizeDescripcion">
-    <h1>BELLA MARIA CONSTRUYE CANCHA</h1>
-    <hr>
+    <div class="margenLinea"> <h1>BELLA MARIA CONSTRUYE CANCHA</h1>
+    <hr></div>
      sldnsjdsfnkdsfjskfn snfkjsdnfjsfd ldsnkdnskjfnksdnfksnkfn  jsfnjks sjkdbksbfkjsbfjksjdbfjdf kjsdjksdjfnsf  nksjnfkjsdnfksn fksdsdas dasdasdasdas dasdadasdadadad daaddd ddddddddd ddddddddd ddddddddddd addddddd ddddddddddd dddddddddddd adddddddddd dddddddddsd aaaaaaa
        </div>
     </div>
