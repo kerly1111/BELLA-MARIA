@@ -12,6 +12,8 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bellaMaria.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
+
       
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
@@ -22,7 +24,7 @@
 <body>
     <header class="navbar navbar-superior navbar-fixed-top" role="banner">
     <form class="form-inline col-md-3 " role="form">
-        <div class="collapse navbar-collapse margen-tope-nav" >
+        <div class="collapse navbar-collapse margen-tope-nav margenFecha" >
         <script languaje="JavaScript"> 
         var mydate=new Date() 
         var year=mydate.getYear() 
@@ -44,17 +46,59 @@
         </script><!-- END: Custom advanced (www.pluginaria.com) -->
         </div>   
      </form>
-
-        <form class="form-inline navbar-right col-md-4" role="form">
+        <form class="form-inline navbar-right margenBuscar" role="form">
         <div class="form-group margen-tope-buscar">
            <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text" size="40" placeholder="Buscar...">
            <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
+           
         </div>
         </form>
-            
-
     </header>
-<!--    <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
+
+
+     
+  <div id="contenido" class="margenNoticias">
+    <div id="principal" class="separador">
+     <section id="main-slider" class="no-margin">
+        <div class="carousel slide wet-asphalt">
+            <ol class="carousel-indicators">
+                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
+                <li data-target="#main-slider" data-slide-to="1"></li>
+                <li data-target="#main-slider" data-slide-to="2"></li>
+                <li data-target="#main-slider" data-slide-to="3"></li>
+                <li data-target="#main-slider" data-slide-to="4"></li>
+                <li data-target="#main-slider" data-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active" style="width: 1200px; height: 400px; background-image: url(imagenes/bg1.jpg)" ></div><!--/.item-->
+                <div class="item " style="width: 1200px; height: 400px; background-image: url(imagenes/bg2.jpg)"></div><!--/.item-->
+                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
+                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)" ></div><!--/.item-->
+                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
+                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
+            </div><!--/.carousel-inner-->
+        </div><!--/.carousel-->
+        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+            <i class="icon-angle-left"></i>
+        </a>
+        <a class="next hidden-xs" href="#main-slider" data-slide="next">
+            <i class="icon-angle-right"></i>
+        </a>
+    </section><!--/#main-slider-->
+    </div>
+ 
+    <div id="secundario">
+    <div class="center panel panel-default sizeDescripcion">
+    <h1>BELLA MARIA CONSTRUYE CANCHA</h1>
+    <hr>
+     sldnsjdsfnkdsfjskfn snfkjsdnfjsfd ldsnkdnskjfnksdnfksnkfn  jsfnjks sjkdbksbfkjsbfjksjdbfjdf kjsdjksdjfnsf  nksjnfkjsdnfksn fksdsdas dasdasdasdas dasdadasdadadad daaddd ddddddddd ddddddddd ddddddddddd addddddd ddddddddddd dddddddddddd adddddddddd dddddddddsd aaaaaaa
+       </div>
+    </div>
+  </div>
+
+  <div id="LimpiarLayut">
+  
+    <div class="navbar navbar-inverse  wet-asphalt" role="banner">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,7 +107,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.php"><img src="images/logo.png" alt="logo"></a>
+               
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
@@ -87,7 +131,9 @@
                 </ul>
             </div>
         </div>
-    </header><!--/header-->
+    </div>
+    </div>
+    <!--/header-->
 <!--   <section id="main-slider" class="no-margin">
         <div class="carousel slide wet-asphalt">
             <ol class="carousel-indicators">
@@ -151,12 +197,11 @@
             <i class="icon-angle-right"></i>
         </a>
     </section><!--/#main-slider-->
-
-
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/bootstrap.js"></script>
     <script type="text/javascript" src="href='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'"></script>
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
 <script type="text/javascript" src="js/gmaps.js"></script>

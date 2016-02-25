@@ -8,3 +8,35 @@ margin-bottom: 10px
 .margen-tope-buscar{
 margin-top: 15px;
 }
+.margenBuscar{
+margin-right: 40px;	
+}
+.margenFecha{
+margin-left: 20px;	
+}
+.margenNoticias{
+margin-right: 50px;
+margin-left: 80px;
+}
+.sizeDescripcion{
+height: 400px;
+width: 120%;
+}
+.separador{
+	margin-right: 2%;
+}
+#contenido #principal {
+  float: left;
+  width: 60%;
+}
+#contenido #secundario {
+  float: left;
+  width: 30%;
+}
+#LimpiarLayut {
+  clear: both;
+}
+.logoSize{
+height: 10%;
+width: 10%;
+}
