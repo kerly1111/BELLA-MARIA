@@ -44,7 +44,9 @@ width: 10%;
 margin-left: 3%;
 margin-right: 3%;
 }
-
-.tituloNoticia{
-	
+h1.big-bold {
+  font-family: 'basic Sans sf', arial, helvetica, sans-serif;
+  font-size: 2.1em;
+  color: #006600;
+    font-weight: bold;
 }

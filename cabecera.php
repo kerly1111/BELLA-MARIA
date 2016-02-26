@@ -13,8 +13,10 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bellaMaria.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+    <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
+    <link rel="stylesheet" href="css/estilos.css">  
 
-      
     <link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
@@ -70,12 +72,12 @@
                 <li data-target="#main-slider" data-slide-to="5"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="item active" style="width: 1200px; height: 400px; background-image: url(imagenes/bg1.jpg)" ></div><!--/.item-->
-                <div class="item " style="width: 1200px; height: 400px; background-image: url(imagenes/bg2.jpg)"></div><!--/.item-->
-                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
-                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)" ></div><!--/.item-->
-                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
-                <div class="item" style="width: 1200px; height: 400px; background-image: url(imagenes/bg3.jpg)"></div><!--/.item-->
+                <div class="item active" style="width: 750px; height: 400px; background-image: url(imagenes/bg1.png)" ></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg2.png)"></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg3.png)"></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg4.png)" ></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg5.png)"></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg6.png)"></div><!--/.item-->
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
@@ -88,14 +90,22 @@
     </div>
  
     <div id="secundario">
-    <div class="center panel panel-default sizeDescripcion">
-    <div class="margenLinea"> <h1>BELLA MARIA CONSTRUYE CANCHA</h1>
-    <hr></div>
-     sldnsjdsfnkdsfjskfn snfkjsdnfjsfd ldsnkdnskjfnksdnfksnkfn  jsfnjks sjkdbksbfkjsbfjksjdbfjdf kjsdjksdjfnsf  nksjnfkjsdnfksn fksdsdas dasdasdasdas dasdadasdadadad daaddd ddddddddd ddddddddd ddddddddddd addddddd ddddddddddd dddddddddddd adddddddddd dddddddddsd aaaaaaa
+    <section id="main-slider">
+    <div class="carousel slide">
+    <div class="carousel-inner center panel panel-default sizeDescripcion ">
+    <div class="item active margenLinea "> <h1 class="big-bold">FLORA Y FAUNA</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
+    <div class="item margenLinea"> <h1 class="big-bold">prueba</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
        </div>
     </div>
+    </section>
   </div>
-
+</div>
   <div id="LimpiarLayut">
   
     <div class="navbar navbar-inverse  wet-asphalt" role="banner">
@@ -123,16 +133,17 @@
                     </ul>
 
                     </li>
-                    <li ><a href="portfolio.html">TURISMO</a></li>
+                    <li ><a href="turismo.php">TURISMO</a></li>
                     <li ><a href="portfolio.html">EVENTOS</a></li>
                     <li ><a href="portfolio.html">TRANSPARENCIA</a></li>
-                    <li ><a href="portfolio.html">UBICACIÓN</a></li>
-                    <li ><a href="portfolio.html">CONTACTANOS</a></li>
+                    <li ><a href="ubicacion.php">UBICACIÓN</a></li>
+                    <li ><a href="contactos.php">CONTACTANOS</a></li>
                 </ul>
             </div>
         </div>
     </div>
     </div>
+
     <!--/header-->
 <!--   <section id="main-slider" class="no-margin">
         <div class="carousel slide wet-asphalt">
@@ -198,13 +209,24 @@
         </a>
     </section><!--/#main-slider-->
     <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bootstrap.js"></script>
     <script type="text/javascript" src="href='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'"></script>
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-<script type="text/javascript" src="js/gmaps.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript" src="js/gmaps.js"></script> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1-4-2.min.js"></script> 
+    <!--script type="text/javascript" src="/jqueryui/js/jquery-ui-1.7.2.custom.min.js"></script--> 
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+    <script type="text/javascript" src="js/showhide.js"></script> 
+    <script type="text/JavaScript" src="js/jquery.mousewheel.js"></script> 
+    <script type="text/javascript" src="js/ddsmoothmenu.js"></script>
+    <script type="text/JavaScript" src="js/cloud-carousel.1.0.5.js"></script>
+ 
 
 </body>
 </html>
