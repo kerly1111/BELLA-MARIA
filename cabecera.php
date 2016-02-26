@@ -52,6 +52,8 @@
         <div class="form-group margen-tope-buscar">
            <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text" size="40" placeholder="Buscar...">
            <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
+
+           <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp; Login</button>
            
         </div>
         </form>
@@ -209,7 +211,7 @@
         </a>
     </section><!--/#main-slider-->
     <script src="js/jquery.js"></script>
-    <!--<script src="js/bootstrap.min.js"></script>-->
+    <!--<script src="js/bootstrap.mina.js"></script>-->
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bootstrap.js"></script>
