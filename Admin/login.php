@@ -8,7 +8,7 @@
 			<div class="col-sm-6 col-md-4 col-md-offset-4">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<strong> Sign in to continue</strong>
+						<strong> INICIO DE SESION</strong>
 					</div>
 					<div class="panel-body">
 						<form role="form" action="#" method="POST">
@@ -26,7 +26,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Username" name="loginname" type="text" autofocus>
+												<input class="form-control" placeholder="Usuario" name="loginname" type="text" autofocus required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -34,11 +34,11 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Password" name="password" type="password" value="">
+												<input class="form-control" placeholder="Contraseña" name="password" type="password" value="" required="required">
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Entrar">
 										</div>
 									</div>
 								</div>
@@ -46,7 +46,7 @@
 						</form>
 					</div>
 					<div class="panel-footer ">
-						Don't have an account! <a href="#" onClick=""> Sign Up Here </a>
+						Don't have an account! <a href="#" onClick=""> </a>
 					</div>
                 </div>
 			</div>
