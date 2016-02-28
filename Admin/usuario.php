@@ -1,14 +1,13 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
-<script type="text/javascript" src="../js/ajax.js"></script>
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   <div class="panel-body">
 
 
       <div class="starter-template">
-        <button type="button" onclick="Nuevo();" class="btn btn-primary btn-lg" >
+        <button type="button" onclick="Nuevo();" class="btn btn-success btn-lg" >
           <span class="glyphicon glyphicon-user"></span> Nuevo
         </button>
       </div>
@@ -49,14 +48,11 @@
                 <td><?php print($row->rut_fot_usuario); ?></td>
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
-                    <button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</a></li>
-                      <li><a onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');">Actualizar</a></li>
-                    </ul>
+
+                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');">Actualizar</button>
+
+                    <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</button>
+          
                   </div>
                 </td>
               </tr>
@@ -77,24 +73,40 @@
             <form role="form" action="" name="frmClientes">
               <div class="col-lg-12">
                 
-        <div class="form-group"><br>
-                  <label>Nombres</label>
+                <div class="form-group"><br>
+                  <label>Cedula</label>
+                  <input name="cedula" class="form-control" required>
+                </div>
+
+                 <div class="form-group"><br>
+                  <label>Usuario</label>
+                  <input name="usuario" class="form-control" required>
+                </div>
+
+                <div class="form-group" >
+                  <label>Clave</label>
+                  <input type="password" name="clave" class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                  <label>Nombre</label>
                   <input name="nombre" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label>ocupacion</label>
-                  <input name="ocupacion" class="form-control" required>
+                  <label>Apellido</label>
+                  <input name="apellido" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label>Teléfono</label>
-                  <input name="telefono" class="form-control" required>
+                  <label>Foto</label>
+                  <input name="foto" class="form-control" required>
                 </div>
+                   
 
                 <div class="form-group">
-                  <label>Sitio Web</label>
-                  <input name="sitioweb" class="form-control" required>
+                  <label>Ubicacion</label>
+                  <input name="ubicacion" class="form-control" required>
                 </div>
 
                 
@@ -113,24 +125,33 @@
 
     </div>
 
+
+    
+
 <script type="text/javascript">
     var accion;
     var idP;
     function Nuevo(){
       accion = 'N';
-      document.frmClientes.nombre.value = "";
-      document.frmClientes.ocupacion.value = "";
-      document.frmClientes.telefono.value = "";
-      document.frmClientes.sitioweb.value = "";
+      document.frmClientes.cedula.value = "";
+      document.frmClientes.usuario.value = "";
+      document.frmClientes.clave.value = "";
+      document.frmClientes. nombre.value = "";
+      document.frmClientes. apellido.value = "";
+      document.frmClientes. foto.value = "";
+      document.frmClientes. ubicacion.value = "";
       $('#modal').modal('show');
     }
-    function Editar(id, nombre, ocupacion, telefono, sitioweb){
+    function Editar(cedula, usuario, clave, nombre, apellido, foto, ubicacion){
       accion = 'E';
-      idP = id;
+      idP = cedula;
+      document.frmClientes.cedula.value = cedula;
+      document.frmClientes.usuario.value = usuario;
+      document.frmClientes.clave.value = clave;
       document.frmClientes.nombre.value = nombre;
-      document.frmClientes.ocupacion.value = ocupacion;
-      document.frmClientes.telefono.value = telefono;
-      document.frmClientes.sitioweb.value = sitioweb;
+      document.frmClientes.usuario.value = apellido;
+      document.frmClientes.clave.value = foto;
+      document.frmClientes.nombre.value = ubicacion;
       $('#modal').modal('show');
 
     }

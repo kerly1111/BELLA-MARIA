@@ -2,9 +2,7 @@
 <?php include 'cabecera.php' ?>
 
 <script type="text/javascript" src="../js/ajax.js"></script>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   <div class="panel-body">
