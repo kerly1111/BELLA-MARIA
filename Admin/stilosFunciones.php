@@ -26,15 +26,14 @@
     <link rel="stylesheet" href="css/loginstyle.css"> 
 </head><!--/head-->
 <body>
+    <script type="text/javascript" src="../js/ajax.js"></script>
     <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.prettyPhoto.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script type="text/javascript" src="href='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="../js/gmaps.js"></script> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <!--<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>-->
     <script type="text/javascript" src="../js/jquery-1-4-2.min.js"></script>
     <script type="text/javascript" src="../js/jquery-ui.min.js"></script> 
@@ -42,6 +41,9 @@
     <script type="text/JavaScript" src="../js/jquery.mousewheel.js"></script> 
     <script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
     <script type="text/JavaScript" src="../js/cloud-carousel.1.0.5.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
 
 </body>
 </html>

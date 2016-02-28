@@ -74,7 +74,7 @@
                         </li>
                         <li><a class="ajax-link" href="modulo.php"><i class="glyphicon glyphicon-tasks"></i><span> Modulos</span></a>
                         </li>
-                        <li><a class="ajax-link" href="avion.php"><i class="glyphicon glyphicon-phone-alt"></i><span> Contactos</span></a>
+                        <li><a class="ajax-link" href="contacto.php"><i class="glyphicon glyphicon-phone-alt"></i><span> Contactos</span></a>
                         </li>
                         
                         </li>
