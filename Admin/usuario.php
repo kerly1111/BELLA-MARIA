@@ -100,13 +100,7 @@
 
                 <div class="form-group">
                   <label>Foto</label>
-                  <input name="foto" class="form-control" required>
-                </div>
-                   
-
-                <div class="form-group">
-                  <label>Ubicacion</label>
-                  <input name="ubicacion" class="form-control" required>
+                  <input id="file-1" type="file" class="file" multiple=true data-preview-file-type="any">
                 </div>
 
                 

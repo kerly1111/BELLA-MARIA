@@ -24,6 +24,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
     <link rel="stylesheet" href="css/loginstyle.css"> 
+    <link rel="stylesheet" href="css/fileinput.css"> 
+    <link rel="stylesheet" href="css/fileinput.min.css"> 
 </head><!--/head-->
 <body>
     <script type="text/javascript" src="../js/ajax.js"></script>
@@ -42,7 +44,8 @@
     <script type="text/JavaScript" src="../js/cloud-carousel.1.0.5.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-
+    <script src="js/fileinput.js"></script>
+    <script src="js/fileinput.min.js"></script>
 
 </body>
 </html>
