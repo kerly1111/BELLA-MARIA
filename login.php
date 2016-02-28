@@ -1,5 +1,5 @@
 <?php include 'stilosFunciones.php' ?>
-<?php include '../cabecera.php' ?>
+<?php include 'cabecera.php' ?>
 
 
 
@@ -14,9 +14,9 @@
 						<form role="form" action="#" method="POST">
 							<fieldset>
 								<div class="row">
-									<div class="center-block">
-										<img class="profile-img"
-											src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120" alt="">
+									<div class="col-sm-6 col-md-offset-2">
+										<img 
+											src="imagenes/LOGO.png">
 									</div>
 								</div>
 								<div class="row">
@@ -38,7 +38,7 @@
 											</div>
 										</div>
 										<div class="form-group">
-											<input type="submit" class="btn btn-lg btn-primary btn-block" value="Entrar">
+											 <a href="Admin/index.php"><input  class="btn btn-lg btn-primary btn-block" value="Entrar"></a>
 										</div>
 									</div>
 								</div>
@@ -46,7 +46,7 @@
 						</form>
 					</div>
 					<div class="panel-footer ">
-						Don't have an account! <a href="#" onClick=""> </a>
+						Debes estar registrado para entrar! <a href="#" onClick=""> </a>
 					</div>
                 </div>
 			</div>

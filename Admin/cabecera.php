@@ -2,7 +2,7 @@
 
     <header id="cabeceraMenu" class="navbar navbar-superior navbar-fixed-top" role="banner">
     <form class="form-inline col-md-2" role="form">
-        <div class="form-group margen-tope-buscar"><img width="200" src="imagenes/LOGO2.png"></div>
+        <div class="form-group margen-tope-buscar"><img width="200" src="../imagenes/LOGO2.png"></div>
         </form>
     <form class="form-inline col-md-3 " role="form">
         
@@ -33,7 +33,7 @@
            <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text"  placeholder="Buscar...">
            <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
 
-           <a href="login.php"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp; Login</button></a>
+           <a href="login.php"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp; Salir</button></a>
            
         </div>
         </form>
@@ -62,5 +62,23 @@
     </header>
 
 
-     
-  
+        <section >
+        <div class="form-control container menuAdmin">
+                <ul class="nav nav-pills nav-stacked main-menu ">
+                        <li class="nav-header"><a><h3>Menu</h3></a></li>
+                        <li><a class="ajax-link" href="reserva.php"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
+                        </li>
+                        <li><a class=" ajax-link" href="cliente.php"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-send"></i><span> Vuelo</span></a>
+                        </li>
+                        <li><a class=" ajax-link" href="avion.php"><i class="glyphicon glyphicon-plane"></i><span> Avion</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="ruta.php"><i class="glyphicon glyphicon-transfer"></i><span> Ruta</span></a>
+                        </li>
+                        <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-road"></i><span> Aeropuerto</span></a>
+                        </li>
+                    </ul>
+        </div>
+    </section><!--/#title--> 
+

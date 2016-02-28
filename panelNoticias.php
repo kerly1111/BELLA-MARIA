@@ -16,7 +16,7 @@
                 <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg3.png)"></div><!--/.item-->
                 <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg4.png)" ></div><!--/.item-->
                 <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg5.png)"></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg6.png)"></div><!--/.item-->
+                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg5.png)"></div><!--/.item-->
             </div><!--/.carousel-inner-->
         </div><!--/.carousel-->
         <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
