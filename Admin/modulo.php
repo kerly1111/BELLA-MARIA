@@ -2,9 +2,6 @@
 <?php include 'cabecera.php' ?>
 
 <script type="text/javascript" src="../js/ajax.js"></script>
-<link href="../css/bootstrap.css" rel="stylesheet">
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   <div class="panel-body">
@@ -16,26 +13,22 @@
         </button>
       </div>
 <div class="panel panel-info">
-        <div class="panel-heading">Lista de Usuarios</div>
+        <div class="panel-heading">Lista de Noticias</div>
         <div class="panel-body">
         <table class="table">
           <thead>
             <tr>
-              <th>Cedula</th>
-              <th>Usuario</th>
-              <th>Clave</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>
-              <th>Nombre Foto</th>
-              <th>Ruta Foto</th>
-              
+              <th>Id Modulo</th>
+              <th>Tipo Modulo</th>
+              <th>Titulo</th>
+              <th>Descripcion</th>                          
             </tr>
           </thead>
           <tbody>
             <?php
             require("../clases/conexion.php");
             $con = conectar();
-            $sql = "SELECT id_usuario, use_usuario, cla_usuario, nom_usuario, ape_usuario, nom_fot_usuario, rut_fot_usuario FROM usuario";
+            $sql = "SELECT id_modulo, tip_modulo, tit_modulo, des_modulo FROM modulo";
             $stmt = $con->prepare($sql);
       
             $result = $stmt->execute();
@@ -43,13 +36,11 @@
             foreach($rows as $row){
               ?>
               <tr>
-                <td><?php print($row->id_usuario); ?></td>
-                <td><?php print($row->use_usuario); ?></td>
-                <td><?php print($row->cla_usuario); ?></td>
-                <td><?php print($row->nom_usuario); ?></td>
-                <td><?php print($row->ape_usuario); ?></td>
-                <td><?php print($row->nom_fot_usuario); ?></td>
-                <td><?php print($row->rut_fot_usuario); ?></td>
+                <td><?php print($row->id_modulo); ?></td>
+                <td><?php print($row->tip_modulo); ?></td>
+                <td><?php print($row->tit_modulo); ?></td>
+                <td><?php print($row->des_modulo); ?></td>
+                
                 <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
@@ -57,8 +48,8 @@
                       <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</a></li>
-                      <li><a onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');">Actualizar</a></li>
+                      <li><a onclick="Eliminar('<?php print($row->id_modulo); ?>');">Eliminar</a></li>
+                      <li><a onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');">Actualizar</a></li>
                     </ul>
                   </div>
                 </td>
@@ -137,7 +128,7 @@
       $('#modal').modal('show');
 
     }
-
+    
 
     </script>
 
