@@ -1,3 +1,4 @@
+<section>
 <div id="contenido" class="margenNoticias">
     <div id="principal" class="separador">
      <section id="main-slider" class="no-margin">
@@ -147,3 +148,4 @@
             <i class="icon-angle-right"></i>
         </a>
     </section><!--/#main-slider-->
+</section>

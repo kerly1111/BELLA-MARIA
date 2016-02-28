@@ -61,24 +61,31 @@
             </div>
     </header>
 
-
         <section >
-        <div class="form-control container menuAdmin">
-                <ul class="nav nav-pills nav-stacked main-menu ">
-                        <li class="nav-header"><a><h3>Menu</h3></a></li>
+         <!-- left menu starts -->
+        <div class="col-sm-2 col-lg-2">
+            <div class="sidebar-nav">
+                <div class="nav-canvas">
+                    <ul class="nav nav-pills nav-stacked main-menu">
+                        <li class="nav-header">Menu</li>
                         <li><a class="ajax-link" href="reserva.php"><i class="glyphicon glyphicon-registration-mark"></i><span> Reservas</span></a>
                         </li>
-                        <li><a class=" ajax-link" href="cliente.php"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
+                        <li><a class="ajax-link" href="cliente.php"><i class="glyphicon glyphicon-user"></i><span> Clientes</span></a>
                         </li>
                         <li><a class="ajax-link" href="vuelo.php"><i class="glyphicon glyphicon-send"></i><span> Vuelo</span></a>
                         </li>
-                        <li><a class=" ajax-link" href="avion.php"><i class="glyphicon glyphicon-plane"></i><span> Avion</span></a>
+                        <li><a class="ajax-link" href="avion.php"><i class="glyphicon glyphicon-plane"></i><span> Avion</span></a>
                         </li>
                         <li><a class="ajax-link" href="ruta.php"><i class="glyphicon glyphicon-transfer"></i><span> Ruta</span></a>
                         </li>
+                        </li>
+                        </li>
                         <li><a class="ajax-link" href="aeropuerto.php"><i class="glyphicon glyphicon-road"></i><span> Aeropuerto</span></a>
                         </li>
+                        </li>
                     </ul>
+                </div>
+            </div>
         </div>
-    </section><!--/#title--> 
+        </section><!--/#title--> 
 

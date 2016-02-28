@@ -73,3 +73,15 @@ height: 20%;
   font-weight: bold;
   /*color de letras del li del navbar*/
 }
+
+.margenesForm{
+margin-left: 2%;
+margin-left: 2%;
+width: 15%;
+height: 20%;
+ background-color: rgba(0, 102, 0, 0.9);
+}
+
+#capa{
+ z-index:0;
+}

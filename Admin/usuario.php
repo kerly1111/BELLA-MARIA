@@ -1,10 +1,12 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
-<form role="form" action="" name="frmClientes">
+<div class="panel panel-info col-lg-10 col-sm-10 ">
+ <div class="panel-heading navbar-superior col-lg-2">Lista de Aeropuertos</div>
+        <div class="panel-body">
+  <form role="form" action="" name="frmClientes">
               
-              <div class="col-lg-4 col-md-offset-4
-              ">
+              <div class="col-lg-5">
                 <div class="form-group"><br>
                   <label>Cedula</label>
                   <input name="cedula" class="form-control" required>
@@ -44,4 +46,7 @@
               </div>
               
             </form>
+
+</div>
+</div>
 

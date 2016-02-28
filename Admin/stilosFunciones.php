@@ -41,7 +41,5 @@
     <script type="text/JavaScript" src="../js/jquery.mousewheel.js"></script> 
     <script type="text/javascript" src="../js/ddsmoothmenu.js"></script>
     <script type="text/JavaScript" src="../js/cloud-carousel.1.0.5.js"></script>
- 
-
 </body>
 </html>
