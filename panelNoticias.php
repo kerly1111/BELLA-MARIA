@@ -61,8 +61,8 @@
             </div>
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="">INICIO</a></li>
-                    <li ><a href="">GAD</a></li>
+                    <li class="active"><a href="">INICIO</a></li>
+                    <li  class="active" ><a href="">GAD</a></li>
                     <li ><a href="">BELLA MARIA</a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
 
