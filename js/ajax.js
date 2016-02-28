@@ -14,14 +14,14 @@ function objetoAjax(){
 	}
 	return xmlhttp;
 }
-function Registrar(idP, accion){
-nombre = document.frmClientes.nombre.value;
-ocupacion = document.frmClientes.ocupacion.value;
-telefono = document.frmClientes.telefono.value;
-sitioweb = document.frmClientes.sitioweb.value;
+function RegistrarModulo(idP, accion){
+codigo = document.frmmodulos.codigo.value;
+tipo = document.frmmodulos.tipo.value;
+titulo = document.frmmodulos.titulo.value;
+descripcon = document.frmmodulos.descripcion.value;
 ajax = objetoAjax();
 if(accion=='N'){
-ajax.open("POST", "clases/insertar.php", true);
+ajax.open("POST", "../clases/insertar.php", true);
 }else if(accion=='E'){
 ajax.open("POST", "clases/actualizar.php", true);
 }
@@ -33,8 +33,9 @@ ajax.onreadystatechange=function() {
 		
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("nombre="+nombre+"&ocupacion="+ocupacion+"&telefono="+telefono+"&sitioweb="+sitioweb+"&idP="+idP)
+ajax.send("codigo="+codigo+"&tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&idP="+idP)
 }
+
 function Eliminar(idP){
 if(confirm("En realizad desea eliminar este registro?"+idP)){
 ajax = objetoAjax();

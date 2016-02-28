@@ -49,7 +49,7 @@
                 <td>
                   <div class="btn-group">
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');">Actualizar</button>
+                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>');">Actualizar</button>
 
                     <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</button>
           
@@ -70,7 +70,7 @@
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               <div class="modal-title" >Usuario</div>
             </div>
-            <form role="form" action="" name="frmClientes">
+            <form role="form" action="" name="frmClientes" enctype="multipart/form-data">
               <div class="col-lg-12">
                 
                 <div class="form-group"><br>
@@ -100,7 +100,7 @@
 
                 <div class="form-group">
                   <label>Foto</label>
-                  <input id="file-1" type="file" class="file" multiple=true data-preview-file-type="any">
+                  <input id="file_url" type="file" name="foto">
                 </div>
 
                 
@@ -130,22 +130,20 @@
       document.frmClientes.cedula.value = "";
       document.frmClientes.usuario.value = "";
       document.frmClientes.clave.value = "";
-      document.frmClientes. nombre.value = "";
-      document.frmClientes. apellido.value = "";
-      document.frmClientes. foto.value = "";
-      document.frmClientes. ubicacion.value = "";
+      document.frmClientes.nombre.value = "";
+      document.frmClientes.apellido.value = "";
+      document.frmClientes.foto.value = "";
       $('#modal').modal('show');
     }
-    function Editar(cedula, usuario, clave, nombre, apellido, foto, ubicacion){
+    function Editar(cedu, usuario, clave, nombre, apellido, foto){
       accion = 'E';
-      idP = cedula;
-      document.frmClientes.cedula.value = cedula;
+      idP = cedu;
+      document.frmClientes.cedula.value = cedu;
       document.frmClientes.usuario.value = usuario;
       document.frmClientes.clave.value = clave;
       document.frmClientes.nombre.value = nombre;
-      document.frmClientes.usuario.value = apellido;
-      document.frmClientes.clave.value = foto;
-      document.frmClientes.nombre.value = ubicacion;
+      document.frmClientes.apellido.value= apellido;
+      //document.frmClientes.foto.value = foto;
       $('#modal').modal('show');
 
     }

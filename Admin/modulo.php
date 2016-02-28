@@ -43,15 +43,13 @@
                 
                 <td>
                   <div class="btn-group">
-                    <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
-                    <button type="button" class="btn btn-danger btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><a onclick="Eliminar('<?php print($row->id_modulo); ?>');">Eliminar</a></li>
-                      <li><a onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');">Actualizar</a></li>
-                    </ul>
+
+                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');">Actualizar</button>
+
+                    <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_modulo); ?>');">Eliminar</button>
+          
                   </div>
+                   
                 </td>
               </tr>
               <?php
@@ -66,29 +64,29 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <div class="modal-title" >Usuario</div>
+              <div class="modal-title" >Noticias</div>
             </div>
-            <form role="form" action="" name="frmClientes">
+            <form role="form" action="" name="frmmodulos">
               <div class="col-lg-12">
                 
         <div class="form-group"><br>
-                  <label>Nombres</label>
-                  <input name="nombre" class="form-control" required>
+                  <label>Codigo</label>
+                  <input name="codigo" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label>ocupacion</label>
-                  <input name="ocupacion" class="form-control" required>
+                  <label>Tipo</label>
+                  <input name="tipo" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label>Teléfono</label>
-                  <input name="telefono" class="form-control" required>
+                  <label>Titulo</label>
+                  <input name="titulo" class="form-control" required>
                 </div>
 
                 <div class="form-group">
-                  <label>Sitio Web</label>
-                  <input name="sitioweb" class="form-control" required>
+                  <label>Descripción</label>                
+                  <textarea name="descripcion"class="form-control"></textarea>
                 </div>
 
                 
@@ -96,7 +94,7 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="Registrar(idP,accion); return false">
+              <button type="button" class="btn btn-info" onClick="RegistrarModulo(idP,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -112,19 +110,19 @@
     var idP;
     function Nuevo(){
       accion = 'N';
-      document.frmClientes.nombre.value = "";
-      document.frmClientes.ocupacion.value = "";
-      document.frmClientes.telefono.value = "";
-      document.frmClientes.sitioweb.value = "";
+      document.frmmodulos.codigo.value = "";
+      document.frmmodulos.tipo.value = "";
+      document.frmmodulos.titulo.value = "";
+      document.frmmodulos.descripcion.value = "";
       $('#modal').modal('show');
     }
-    function Editar(id, nombre, ocupacion, telefono, sitioweb){
+    function Editar(id, tipo, titulo, descripcion){
       accion = 'E';
       idP = id;
-      document.frmClientes.nombre.value = nombre;
-      document.frmClientes.ocupacion.value = ocupacion;
-      document.frmClientes.telefono.value = telefono;
-      document.frmClientes.sitioweb.value = sitioweb;
+      document.frmmodulos.codigo.value = id;
+      document.frmmodulos.tipo.value = tipo;
+      document.frmmodulos.titulo.value = titulo;
+      document.frmmodulos.descripcion.value = descripcion;
       $('#modal').modal('show');
 
     }
