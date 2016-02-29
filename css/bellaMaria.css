@@ -2,6 +2,11 @@
  background-color: rgba(0, 102, 0, 0.9);
 }
 
+.dimencionMApa{
+width:40%;
+height:200%;
+border:2px solid gray;
+}
 .navbar-superior .navbar-nav > li > a {
   padding-top: 7px;
   padding-bottom: 7px;
@@ -33,6 +38,11 @@ margin-left: 80px;
 .sizeDescripcion{
 height: 400px;
 width: 120%;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+width: 100%;
+height: 400px;
 }
 .separador{
 	margin-right: 2%;

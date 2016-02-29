@@ -1,53 +1,150 @@
 <section>
 <div id="contenido" class="margenNoticias">
+
     <div id="principal" class="separador">
-     <section id="main-slider" class="no-margin">
-        <div class="carousel slide wet-asphalt">
-            <ol class="carousel-indicators">
-                <li data-target="#main-slider" data-slide-to="0" class="active"></li>
-                <li data-target="#main-slider" data-slide-to="1"></li>
-                <li data-target="#main-slider" data-slide-to="2"></li>
-                <li data-target="#main-slider" data-slide-to="3"></li>
-                <li data-target="#main-slider" data-slide-to="4"></li>
-                <li data-target="#main-slider" data-slide-to="5"></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="item active" style="width: 750px; height: 400px; background-image: url(imagenes/bg1.png)" ></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg2.png)"></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg3.png)"></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg4.png)" ></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg5.png)"></div><!--/.item-->
-                <div class="item" style="width: 750px; height: 400px; background-image: url(imagenes/bg5.png)"></div><!--/.item-->
-            </div><!--/.carousel-inner-->
-        </div><!--/.carousel-->
-        <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
-            <i class="icon-angle-left"></i>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" id="slider0" class="slider0" data-slide-to="0"  class="active"></li>
+          <li data-target="#myCarousel" id="slider1" class="slider1" data-slide-to="1"></li>
+          <li data-target="#myCarousel" class="slider2" data-slide-to="2"></li>
+          <li data-target="#myCarousel" class="slider3" data-slide-to="3"></li>
+          <li data-target="#myCarousel" class="slider4" data-slide-to="4"></li>
+          <li data-target="#myCarousel" class="slider5" data-slide-to="5"></li>
+        </ol>
+
+
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="imagenes/bg1.png" alt="Chania" width="460" height="345">
+          </div>
+
+          <div class="item">
+            <img src="imagenes/bg2.png" alt="Chania" width="460" height="345">
+          </div>
+        
+          <div class="item">
+            <img src="imagenes/bg3.png" alt="Flower" width="460" height="345">
+          </div>
+
+          <div class="item">
+            <img src="imagenes/bg1.png" alt="Chania" width="460" height="345">
+          </div>
+
+          <div class="item">
+            <img src="imagenes/bg2.png" alt="Chania" width="460" height="345">
+          </div>
+        
+          <div class="item">
+            <img src="imagenes/bg3.png" alt="Flower" width="460" height="345">
+          </div>
+
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
         </a>
-        <a class="next hidden-xs" href="#main-slider" data-slide="next">
-            <i class="icon-angle-right"></i>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
         </a>
-    </section><!--/#main-slider-->
+      </div>
+    </div>
+
     </div>
  
     <div id="secundario">
-    <section id="main-slider">
-    <div class="carousel slide">
+
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner center panel panel-default sizeDescripcion ">
-    <div class="item active margenLinea "> <h1 class="big-bold">FLORA Y FAUNA</h1>
+
+    <div id="item1" class="item active margenLinea "> <h1 class="big-bold">imagen 1</h1>
     <hr>
      El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
      </div>
-    <div class="item margenLinea"> <h1 class="big-bold">prueba</h1>
+    <div id="item2" class="item margenLinea"> <h1 class="big-bold">imagen 2</h1>
     <hr>
      El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
      </div>
+    <div id="item3" class="item margenLinea"> <h1 class="big-bold">imagen 3</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
+    <div id="item4" class="item margenLinea"> <h1 class="big-bold">imagen 4</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
+    <div id="item5"class="item margenLinea"> <h1 class="big-bold">imagen 5</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
+    <div id="item6" class="item margenLinea"> <h1 class="big-bold">imagen 6</h1>
+    <hr>
+     El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
+     </div>
+
        </div>
     </div>
-    </section>
   </div>
 </div>
+             
+ <script type="text/javascript">
+    $(".slider0").click(function(){
+    document.getElementById("item1").className += " active";
+    document.getElementById("item2").className =document.getElementById("item2").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item3").className =document.getElementById("item3").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item4").className =document.getElementById("item4").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item5").className =document.getElementById("item5").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item6").className =document.getElementById("item6").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+
+    $(".slider1").click(function(){
+    document.getElementById("item2").className += " active";
+    document.getElementById("item1").className =document.getElementById("item1").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item3").className =document.getElementById("item3").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item4").className =document.getElementById("item4").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item5").className =document.getElementById("item5").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item6").className =document.getElementById("item6").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+
+    $(".slider2").click(function(){
+    document.getElementById("item3").className += " active";
+    document.getElementById("item1").className =document.getElementById("item1").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item2").className =document.getElementById("item2").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item4").className =document.getElementById("item4").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item5").className =document.getElementById("item5").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item6").className =document.getElementById("item6").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+
+    $(".slider3").click(function(){
+    document.getElementById("item4").className += " active";
+    document.getElementById("item1").className =document.getElementById("item1").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item2").className =document.getElementById("item2").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item3").className =document.getElementById("item3").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item5").className =document.getElementById("item5").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item6").className =document.getElementById("item6").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+
+    $(".slider4").click(function(){
+    document.getElementById("item5").className += " active";
+    document.getElementById("item1").className =document.getElementById("item1").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item2").className =document.getElementById("item2").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item3").className =document.getElementById("item3").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item4").className =document.getElementById("item4").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item6").className =document.getElementById("item6").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+
+    $(".slider5").click(function(){
+    document.getElementById("item6").className += " active";
+    document.getElementById("item1").className =document.getElementById("item1").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item2").className =document.getElementById("item2").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item3").className =document.getElementById("item3").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item4").className =document.getElementById("item4").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    document.getElementById("item5").className =document.getElementById("item5").className.replace( /(?:^|\s)active(?!\S)/g , '' );
+    });
+</script>
+
   <div id="LimpiarLayut">
-  
+   
     <div class="navbar navbar-inverse  wet-asphalt" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -83,6 +180,7 @@
         </div>
     </div>
     </div>
+
 
     <!--/header-->
 <!--   <section id="main-slider" class="no-margin">

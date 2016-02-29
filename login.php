@@ -1,7 +1,7 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
-
+<section>
 
     <div class="container" style="margin-top:40px">
 		<div class="row">
@@ -53,3 +53,4 @@
 		</div>
 	</div>
 
+</section>

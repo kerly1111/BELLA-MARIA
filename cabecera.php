@@ -35,6 +35,8 @@
         <input type="text" class="form-control " placeholder="Buscar">
         <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
         <a href="login.php"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp; Login</button></a>
+
+        
       </div>
     </form>
 
