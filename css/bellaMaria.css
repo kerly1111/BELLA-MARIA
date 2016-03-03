@@ -1,0 +1,204 @@
+.navbar-superior{
+ background-color: rgba(0, 102, 0, 0.9);
+}
+
+.dimencionMApa{
+width:40%;
+height:200%;
+border:2px solid gray;
+}
+.navbar-superior .navbar-nav > li > a {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-radius: 4px;
+  color: #ffcc00;
+  font-weight: bold;
+  /*color de letras del li del navbar*/
+}
+.margen-tope-nav{
+margin-top: 10px;
+margin-bottom: 10px
+}
+.margen-tope-buscar{
+margin-top: 15px;
+}
+.margenBuscar{
+margin-right: 40px;	
+}
+.distanciaFilas{
+margin-top: 10px;
+}
+.distanciaFilas{
+margin-top: 10px;
+}
+.margenNoticias{
+margin-right: 50px;
+margin-left: 80px;
+}
+.sizeDescripcion{
+height: 400px;
+width: 120%;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+width: 100%;
+height: 400px;
+}
+.separador{
+	margin-right: 2%;
+}
+.separadorFecha{
+  margin-left: 2%;
+}
+.margenLogo{
+  margin-left: 8%;
+}
+#contenido #principal {
+  float: left;
+  width: 60%;
+}
+#contenido #secundario {
+  float: left;
+  width: 30%;
+}
+#LimpiarLayut {
+  clear: both;
+}
+.margenLinea{
+margin-left: 3%;
+margin-right: 3%;
+}
+h1.big-bold {
+  font-family: 'basic Sans sf', arial, helvetica, sans-serif;
+  font-size: 2.1em;
+  color: #006600;
+    font-weight: bold;
+}
+.menuAdmin{
+margin-left: 1%;
+width: 15%;
+height: 20%;
+ background-color: rgba(0, 102, 0, 0.9);
+}
+
+
+.nav-header > li > a,
+.nav-il > li > a {
+  color: #fff;
+  font-weight: bold;
+  /*color de letras del li del navbar*/
+}
+
+.navbar-superior .navbar-brand:focus,
+.navbar-superior .navbar-brand:hover{
+  color:#fff;
+  background-color:transparent;
+}
+
+.navbar-superior .navbar-text{
+  color:#9d9d9d;
+}
+
+.navbar-superior .navbar-nav>li>a:focus,
+.navbar-superior .navbar-nav>li>a:hover{
+color:#fff;
+background-color:#006600;
+}
+/*color de recuadros de li*/
+.navbar-superior .navbar-nav>.active>a,
+.navbar-superior .navbar-nav>.active>a:focus{
+color:#006600;
+background-color:#ffcc00;
+}
+
+/*iluminacion en la seleccion*/
+.navbar-superior .navbar-nav>.active>a:hover{
+color:#fff;
+background-color:#A9BC00;
+}
+
+
+.navbar-superior .navbar-nav>.disabled>a,
+.navbar-superior .navbar-nav>.disabled>a:focus,
+.navbar-superior .navbar-nav>.disabled>a:hover{
+color:#000;
+background-color:transparent;
+}
+
+.navbar-superior .navbar-toggle{
+border-color:#ffcc00;
+background-color:#ffcc00;
+}
+
+.navbar-superior .navbar-toggle:focus,
+.navbar-superior .navbar-toggle:hover{
+background-color:#A9BC00;
+border-color:#A9BC00;
+}
+
+.navbar-superior .navbar-toggle .icon-bar{
+background-color:#fff
+}
+
+.navbar-superior .navbar-collapse,
+.navbar-superior .navbar-form{
+border-color:#101010
+}
+
+.navbar-superior .navbar-nav>.open>a,
+.navbar-superior .navbar-nav>.open>a:focus,
+.navbar-superior .navbar-nav>.open>a:hover{
+color:#fff;
+background-color:#A9BC00;
+}
+
+
+.navbar-superior .navbar-nav .open .dropdown-menu>.dropdown-header{
+border-color:#A9BC00;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu .divider{
+background-color:#A9BC00;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu>li>a{
+color:#A9BC00;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu>li>a:focus,
+.navbar-superior .navbar-nav .open .dropdown-menu>li>a:hover{
+color:#A9BC00;
+background-color:#A9BC00;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu>.active>a,
+.navbar-superior .navbar-nav .open .dropdown-menu>.active>a:focus{
+color:#fff;
+background-color:#A9BC00;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu>.active>a:hover{
+color:#fff;
+background-color:#006600;
+}
+.navbar-superior .navbar-nav .open .dropdown-menu>.disabled>a,
+.navbar-superior .navbar-nav .open .dropdown-menu>.disabled>a:focus,
+.navbar-superior .navbar-nav .open .dropdown-menu>.disabled>a:hover{
+color:#A9BC00;
+background-color:#A9BC00;
+}
+
+.navbar-superior .navbar-link{
+color:#9d9d9d;
+}
+.navbar-superior.navbar-link:hover{
+color:#fff;
+}
+.navbar-superior .btn-link{
+color:#9d9d9d;
+}
+.navbar-superior .btn-link:focus,
+.navbar-superior .btn-link:hover{
+color:#fff;
+}
+.navbar-superior .btn-link[disabled]:focus, 
+.navbar-superior .btn-link[disabled]:hover,fieldset[disabled] 
+.navbar-superior.btn-link:focus,fieldset[disabled] 
+.navbar-superior .btn-link:hover{
+color:#444;
+}
