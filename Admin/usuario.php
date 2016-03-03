@@ -1,7 +1,8 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   <div class="panel-body">
 
@@ -154,13 +155,6 @@
         foto = foto.split('\\');
         document.frmUsuario.nombreFoto.value=foto[foto.length-1];
         document.frmUsuario.rutaFoto.value=document.frmUsuario.foto.value; 
-        if (window.File && window.FileList) {
-        
-        } else {
-        alert('The File APIs are not fully supported in this browser.');
-        }
-
-        alert(document.frmUsuario.foto.value);
   }
              
   /*      var textoBusqueda = $("input#foto").val();

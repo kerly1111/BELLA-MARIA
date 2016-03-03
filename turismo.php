@@ -2,8 +2,6 @@
 <?php include 'cabecera.php' ?>
 <?php include 'panelNoticias.php' ?>
 
-
-
 <script type="text/javascript">
 
 ddsmoothmenu.init({

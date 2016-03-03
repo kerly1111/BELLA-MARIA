@@ -17,16 +17,11 @@ function objetoAjax(){
 function subirFoto(){
 rutaF=document.frmUsuario.rutaFoto.value;
 nombreF= document.frmUsuario.nombreFoto.value;
+nomUsuario= document.frmUsuario.usuario.value;
 ajax = objetoAjax();
 ajax.open("POST", "../Admin/subirfotoPerfil.php", true);
-ajax.onreadystatechange=function() {
-		if (ajax.readyState==4) {
-			alert('imagen exitosa!');
-		}
-		
-	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("rutaImgActual="+rutaF+"&nombreImg="+nombreF)
+ajax.send("rutaImgActual="+rutaF+"&nombreImg="+nombreF+"&nomUsuario="+nomUsuario)
 }
 
 
