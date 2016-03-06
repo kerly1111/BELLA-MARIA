@@ -11,7 +11,7 @@
 						<strong> INICIO DE SESION</strong>
 					</div>
 					<div class="panel-body">
-						<form role="form" action="#" method="POST">
+						<form role="form" name="frmLogeo" method="POST" action='clases/logeo.php'>
 							<fieldset>
 								<div class="row">
 									<div class="col-sm-6 col-md-offset-2">
@@ -26,7 +26,7 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-user"></i>
 												</span> 
-												<input class="form-control" placeholder="Usuario" name="loginname" type="text" autofocus required="required">
+												<input class="form-control" placeholder="Usuario" id="loginname" name="loginname" type="text" autofocus required="required">
 											</div>
 										</div>
 										<div class="form-group">
@@ -34,11 +34,11 @@
 												<span class="input-group-addon">
 													<i class="glyphicon glyphicon-lock"></i>
 												</span>
-												<input class="form-control" placeholder="Contraseña" name="password" type="password" value="" required="required">
+												<input class="form-control" placeholder="Contraseña" id="password" name="password" type="password" value="" required="required">
 											</div>
 										</div>
 										<div class="form-group">
-											 <a href="Admin/index.php"><input  class="btn btn-lg btn-primary btn-block" value="Entrar"></a>
+											 <input  class="btn btn-lg btn-primary btn-block" value="Entrar" type="submit">
 										</div>
 									</div>
 								</div>

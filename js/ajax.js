@@ -14,15 +14,6 @@ function objetoAjax(){
 	}
 	return xmlhttp;
 }
-function subirFoto(){
-rutaF=document.frmUsuario.rutaFoto.value;
-nombreF= document.frmUsuario.nombreFoto.value;
-nomUsuario= document.frmUsuario.usuario.value;
-ajax = objetoAjax();
-ajax.open("POST", "../Admin/subirfotoPerfil.php", true);
-ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("rutaImgActual="+rutaF+"&nombreImg="+nombreF+"&nomUsuario="+nomUsuario)
-}
 
 
 function RegistrarUsuario(accion){
@@ -31,7 +22,7 @@ usuario= document.frmUsuario.usuario.value;
 clave= document.frmUsuario.clave.value;
 nombre= document.frmUsuario.nombre.value;
 apellido= document.frmUsuario.apellido.value;
-nombreFoto= document.frmUsuario.nombreFoto.value;
+nombreFoto= document.frmUsuario.usuario.value+".png";
 rutaFoto= "../imagenes/fotosPerfil/";
 
 ajax = objetoAjax();
@@ -50,6 +41,7 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("id_usuario="+cedula+"&use_usuario="+usuario+"&cla_usuario="+clave+"&nom_usuario="+nombre+"&ape_usuario="+apellido+"&nom_fot_usuario="+nombreFoto+"&rut_fot_usuario="+rutaFoto)
 }
+
 
 function RegistrarModulo(idP, accion){
 codigo = document.frmmodulos.codigo.value;

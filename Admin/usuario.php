@@ -1,8 +1,10 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
-
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script src="../js/upload.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   <div class="panel-body">
 
@@ -20,11 +22,9 @@
             <tr>
               <th>Cedula</th>
               <th>Usuario</th>
-              <th>Clave</th>
               <th>Nombres</th>
               <th>Apellidos</th>
-              <th>Nombre Foto</th>
-              <th>Ruta Foto</th>
+              <th>Contraseña</th>
               
             </tr>
           </thead>
@@ -42,11 +42,9 @@
               <tr>
                 <td><?php print($row->id_usuario); ?></td>
                 <td><?php print($row->use_usuario); ?></td>
-                <td><?php print($row->cla_usuario); ?></td>
                 <td><?php print($row->nom_usuario); ?></td>
                 <td><?php print($row->ape_usuario); ?></td>
-                <td><?php print($row->nom_fot_usuario); ?></td>
-                <td><?php print($row->rut_fot_usuario); ?></td>
+                <td><?php print($row->cla_usuario); ?></td>
                 <td>
                   <div class="btn-group">
 
@@ -99,20 +97,17 @@
                   <input name="apellido" class="form-control"  required >
                 </div>
 
-                <div class="form-group">
-                  <label>Foto</label>
-                  <!--<input id="foto" type="file" name="foto" onchange="buscarDatosFoto(this.value)">-->
-                  <input id="foto" type="file" name="foto" onchange="buscarDatosFoto(this.value)">
-                  <input type="hidden" id="resultadoFotoSubir"/>
-                  <input type="hidden" name="nombreFoto"  id="nombreFoto">
-                  <input type="hidden" name="rutaFoto"  id="rutaFoto">
+                <div class="form-group upload">
+                    <label>Foto</label>
+                    <input  type="file" id="images" name="images[]" accept="image/x-png, image/jpeg" class="from-control" required>
+                    <img  id="foto" name="foto" class="" />
+                    <div id="response"></div>
                 </div>
-
-                
               </div>
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="subirFoto();return false">
+              <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
+              <button type="button" class="btn btn-info" onClick="RegistrarUsuario(accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -132,10 +127,11 @@
       document.frmUsuario.clave.value = "";
       document.frmUsuario.nombre.value = "";
       document.frmUsuario.apellido.value = "";
-      document.frmUsuario.foto.value = "";
-      document.frmUsuario.nombreFoto.value = "";
-      document.frmUsuario.rutaFoto.value = "";
+      document.frmUsuario.images.value = "";
+      document.frmUsuario.foto.src = "";
+      document.frmUsuario.foto.className =document.frmUsuario.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
       $('#modal').modal('show');
+
     }
     function Editar(cedu, usuario, clave, nombre, apellido,nombreFot,rutaFot){
       accion = 'E';
@@ -144,46 +140,102 @@
       document.frmUsuario.clave.value = clave;
       document.frmUsuario.nombre.value = nombre;
       document.frmUsuario.apellido.value= apellido;
-      document.frmUsuario.nombreFoto.value = nombreFot;
-      document.frmUsuario.rutaFoto.value = rutaFot;
-      //document.frmClientes.foto.value = foto;
       $('#modal').modal('show');
 
     }
-    function buscarDatosFoto(foto) 
+  /*  var openFile = function(event) {
+    var input = event.target;
+
+    var reader = new FileReader();
+    reader.onload = function(){
+      var dataURL = reader.result;
+      var output = document.getElementById('output');
+      output.src = dataURL;
+      document.frmUsuario.rutaFoto.value=dataURL; 
+    };
+    reader.readAsDataURL(input.files[0]);
+    
+  };
+
+ /*   function buscarDatosFoto(foto) 
     {
-        foto = foto.split('\\');
-        document.frmUsuario.nombreFoto.value=foto[foto.length-1];
-        document.frmUsuario.rutaFoto.value=document.frmUsuario.foto.value; 
-  }
+        //foto = foto.split('\\');
+        //document.frmUsuario.rutaFoto.value=document.frmUsuario.foto.value; 
+
+        var input = document.getElementById("foto");
+        var fReader = new FileReader();
+        fReader.readAsDataURL(input.files[0]);
+        fReader.onloadend = function(event){
+        var img = document.getElementById("output");
+
+        img.src = event.target.result;
+        }
+
+  } */
              
-  /*      var textoBusqueda = $("input#foto").val();
-
-        if (textoBusqueda != "") {
-
-            $.post("subirfotoPerfil.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
-              $("#resultadoFotoSubir").html(mensaje);
-              DatosFotoSubir("#resultadoFotoSubir");
-            }); 
-        } else { 
-            $("#resultadoFotoSubir").html("");
-      };
-    }
-
-    function DatosFotoSubir(valor) 
-    {
-        document.frmUsuario.nombreFoto.value = valor.id;
-        document.frmUsuario.rutaFoto.value = valor.value;
-        $("#resultadoFotoSubir").html("");
-        alert(document.frmUsuario.nombreFoto.value);
-        alert(document.frmUsuario.rutaFoto.value);
-        
-    }*/
-
-
     </script>
 
 
 </div>
 </div>
 
+
+<script type="text/javascript">
+    
+    (function(){
+    var img = document.getElementById('foto');
+    var input = document.getElementById('images'),
+        formdata = false;
+    function mostrarImagenSubida(source){
+        
+        img.className = "fotoPerfil";
+        img.src = source;
+    }    
+    //Revisamos si el navegador soporta el objeto FormData
+    if(window.FormData){
+        formdata = new FormData();    
+    }   
+    //Aplicamos la subida de imágenes al evento change del input file
+    if(input.addEventListener){
+        input.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img, reader, file;
+                file = this.files[i];               
+                //Una pequeña validación para subir imágenes
+                if(!!file.type.match(/image.*/)){
+                    //Si el navegador soporta el objeto FileReader
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        //Llamamos a este evento cuando la lectura del archivo es completa
+                        //Después agregamos la imagen en una lista
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result);
+                        };
+                        //Comienza a leer el archivo
+                        //Cuando termina el evento onloadend es llamado
+                        reader.readAsDataURL(file);
+                    }                   
+                    //Si existe una instancia de FormData
+                    if(formdata)
+                        //Usamos el método append, cuyos parámetros son:
+                            //name : El nombre del campo
+                            //value: El valor del campo (puede ser de tipo Blob, File e incluso string)
+                        formdata.append('images[]', file);
+                }       
+            //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
+            //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
+            if(formdata){
+                $.ajax({
+                   url : 'subirfotoPerfil.php',
+                   type : 'POST',
+                   data : formdata,
+                   processData : false, 
+                   contentType : false,  
+                   success : function(res){
+                       document.getElementById('response').innerHTML = res;
+                   }                
+                });
+            }
+        }, false);
+    }
+}());
+</script>

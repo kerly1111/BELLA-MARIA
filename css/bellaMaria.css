@@ -81,6 +81,11 @@ height: 20%;
  background-color: rgba(0, 102, 0, 0.9);
 }
 
+.fotoPerfil{
+height: 150px;
+border: 1px solid #000;
+margin: 10px 5px 0 0;
+}
 
 .nav-header > li > a,
 .nav-il > li > a {
@@ -202,3 +207,4 @@ color:#fff;
 .navbar-superior .btn-link:hover{
 color:#444;
 }
+
