@@ -1,6 +1,6 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
-
+<?php session_start(); ?>
 <section>
 
     <div class="container" style="margin-top:40px">
@@ -47,6 +47,14 @@
 					</div>
 					<div class="panel-footer ">
 						Debes estar registrado para entrar! <a href="#" onClick=""> </a>
+					</div>
+					<div class="panel-footer" style="background-color:#ff6666; color: #fff;" id="mensajeria">
+					<?php
+
+						if (isset($_SESSION['logeo'])) {
+						 echo $_SESSION["logeo"];
+						}
+						?>
 					</div>
                 </div>
 			</div>

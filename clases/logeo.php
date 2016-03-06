@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION["logeo"]="";
 $use_usuario = $_POST['loginname'];
 $cla_usuario = $_POST['password'];
 $control="1";
@@ -18,11 +19,13 @@ $control="1";
         $_SESSION["logeo"]=$id;
         echo '<meta http-equiv="refresh" content="1; url=../Admin/index.php">';
     	}else{
-    	echo '<meta http-equiv="refresh" content="1; url=../index.php">';
+    	$_SESSION["logeo"]="Contraseña incorrecta";
+    	echo '<meta http-equiv="refresh" content="1; url=../login.php">';
     	}
     }
     if($control=="1"){
-    	echo '<meta http-equiv="refresh" content="1; url=../contactos.php">';
+    	$_SESSION["logeo"]="EL usuario no existe";
+    	echo '<meta http-equiv="refresh" content="1; url=../login.php">';
     }
             
 ?>

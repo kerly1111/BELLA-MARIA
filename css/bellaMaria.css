@@ -2,11 +2,6 @@
  background-color: rgba(0, 102, 0, 0.9);
 }
 
-.dimencionMApa{
-width:40%;
-height:200%;
-border:2px solid gray;
-}
 .navbar-superior .navbar-nav > li > a {
   padding-top: 7px;
   padding-bottom: 7px;
@@ -208,3 +203,6 @@ color:#fff;
 color:#444;
 }
 
+.mensajeLog >div{
+background-color:#ff3333;
+}
