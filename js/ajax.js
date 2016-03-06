@@ -22,7 +22,8 @@ usuario= document.frmUsuario.usuario.value;
 clave= document.frmUsuario.clave.value;
 nombre= document.frmUsuario.nombre.value;
 apellido= document.frmUsuario.apellido.value;
-nombreFoto= document.frmUsuario.usuario.value+".png";
+//nombreFoto= document.frmUsuario.usuario.value+".png";
+nombreFoto= document.frmUsuario.nomIMG.value;
 rutaFoto= "../imagenes/fotosPerfil/";
 
 ajax = objetoAjax();

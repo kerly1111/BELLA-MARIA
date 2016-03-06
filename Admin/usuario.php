@@ -99,9 +99,9 @@
 
                 <div class="form-group upload">
                     <label>Foto</label>
-                    <input  type="file" id="images" name="images[]" accept="image/x-png, image/jpeg" class="from-control" required>
+                    <input  type="file" id="images" name="images[]" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto();" required>
+                    <input type="hidden" name="nomIMG"  id="nomIMG" />
                     <img  id="foto" name="foto" class="" />
-                    <div id="response"></div>
                 </div>
               </div>
             </form>
@@ -160,6 +160,7 @@
  /*   function buscarDatosFoto(foto) 
     {
         //foto = foto.split('\\');
+        var nom=foto[foto.length-1];
         //document.frmUsuario.rutaFoto.value=document.frmUsuario.foto.value; 
 
         var input = document.getElementById("foto");
@@ -172,6 +173,13 @@
         }
 
   } */
+
+    function nomFoto(){
+    var foto=document.frmUsuario.images.value;
+    foto = foto.split('\\');
+    var nom=foto[foto.length-1];
+    document.frmUsuario.nomIMG.value=nom;
+    }
              
     </script>
 
@@ -190,6 +198,7 @@
         
         img.className = "fotoPerfil";
         img.src = source;
+
     }    
     //Revisamos si el navegador soporta el objeto FormData
     if(window.FormData){
@@ -229,10 +238,7 @@
                    type : 'POST',
                    data : formdata,
                    processData : false, 
-                   contentType : false,  
-                   success : function(res){
-                       document.getElementById('response').innerHTML = res;
-                   }                
+                   contentType : false,               
                 });
             }
         }, false);
