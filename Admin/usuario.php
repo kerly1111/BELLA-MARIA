@@ -74,7 +74,7 @@
                 
                 <div class="form-group"><br>
                   <label>Cedula</label>
-                  <input name="cedula" class="form-control" required>
+                  <input name="cedula" id="cedula" class="form-control" required>
                 </div>
 
                  <div class="form-group"><br>
@@ -196,8 +196,9 @@
         function cargar(){
         
         if(formdata){
+          var ced = document.getElementById('cedula').value;
                 $.ajax({
-                   url : 'subirfotoPerfil.php?cod=hola',
+                   url : 'subirfotoPerfil.php?cod='+ced,
                    type : 'POST',
                    data : formdata,
                    processData : false, 
