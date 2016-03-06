@@ -1,3 +1,10 @@
+<?php session_start();
+?>
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script  src="js/jquery.flexisel.js"></script>
+
 <section>
 <div id="contenido" class="margenNoticias">
 
@@ -144,43 +151,32 @@
 </script>
 
   <div id="LimpiarLayut">
-   
-    <div class="navbar navbar-inverse  wet-asphalt" role="banner">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-               
-            </div>
-            <div class="collapse navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="">INICIO</a></li>
-                    <li  class="active" ><a href="">GAD</a></li>
-                    <li ><a href="">BELLA MARIA</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
+    <ul id="flexiselDemo1" style="list-style:none;"> 
+        <?php
 
-                    <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    </ul>
+        require("clases/conexion.php");
+        $con = conectar();
+        $sql = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+        $stmt = $con->prepare($sql);
+  
+        $result = $stmt->execute();
+        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        foreach($rows as $row){
+          ?>
 
-                    </li>
-                    <li ><a href="turismo.php">TURISMO</a></li>
-                    <li ><a href="portfolio.html">EVENTOS</a></li>
-                    <li ><a href="portfolio.html">TRANSPARENCIA</a></li>
-                    <li ><a href="ubicacion.php">UBICACIÓN</a></li>
-                    <li ><a href="contactos.php">CONTACTANOS</a></li>
-                </ul>
-            </div>
-        </div>
+        <li><img><a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a></li> 
+        <?php
+        }
+        ?>                                                        
+    </ul>
+     
+    <div class="clearout"></div> 
+    <script type="text/javascript">
+    $(window).load(function() {
+        $("#flexiselDemo1").flexisel();   
+    });
+    </script>
     </div>
-    </div>
-
 
     <!--/header-->
 <!--   <section id="main-slider" class="no-margin">

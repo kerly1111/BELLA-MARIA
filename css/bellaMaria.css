@@ -206,3 +206,76 @@ color:#444;
 .mensajeLog >div{
 background-color:#ff3333;
 }
+
+
+
+
+.bir {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+}
+.animate:hover .bir {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+    -moz-animation: zoomIn 0.7s;
+    -webkit-animation: zoomIn 0.7s;
+    animation: zoomIn 0.7s;
+}
+ul.bxslider {
+    margin: 0;
+    padding: 0;
+}
+a.pager-prev, a.pager-next {
+    display: inline-block;
+    line-height:60px;
+    padding:0 20px 0 20px;
+    background:#5E7074;
+    text-decoration: none;
+    color:#FFF;
+}
+#bx-pager {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    top: 60px;
+    list-style-type: none;
+    background-color: #036;
+    color: #FFF;
+    width: 100%;
+    font: normal 90% arial, helvetica, sans-serif;
+    text-align: center;
+    width: 800px;
+}
+#bx-pager ul {
+    list-style: none;
+    margin:0;
+    padding:0;
+    float: left;
+    width: 100%;
+}
+#bx-pager li {
+    display:inline-block;
+    margin:0;
+    padding:0;
+    background: #5E7074;
+    width: 24%;
+}
+#bx-pager li a {
+    text-decoration: none;
+    background-color: #5E7074;
+    padding: 0;
+    margin: 0;
+    color: #FFF;
+    line-height:60px;
+    display: block;
+}
+#bx-pager li a.active, #bx-pager li a:hover {
+    background-color: #4C5B60;
+    font-weight: bold;
+}
+#bx-pager li a.active:after {
+    content:' (Active)';
+}

@@ -18,14 +18,17 @@
     <link rel="stylesheet" href="css/estilos.css">  
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <!--<link rel="shortcut icon" href="images/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="stylesheet" href="css/loginstyle.css"> 
     <link rel="stylesheet" href="css/fileinput.css"> 
     <link rel="stylesheet" href="css/fileinput.min.css"> 
+    <link rel="stylesheet" href="css/jquery.bxslider.css"> 
+    <link rel="stylesheet" href="css/font-awesome.css"> 
+    <link rel="stylesheet" href="css/animate.min.css">    
 </head><!--/head-->
 <body>
     
@@ -46,7 +49,8 @@
     <script type="text/JavaScript" src="js/cloud-carousel.1.0.5.js"></script>
     <script src="js/fileinput.js"></script>
     <script src="js/fileinput.min.js"></script>
-            
+    <script src="js/jquery.bxslider.min.js"></script>
 
+            
 </body>
 </html>

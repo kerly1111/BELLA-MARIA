@@ -100,6 +100,7 @@
                 <div class="form-group upload">
                     <label>Foto</label>
                     <input  type="file" id="images" name="images[]" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto();" required>
+                    <div id="response"></div>
                     <input type="hidden" name="nomIMG"  id="nomIMG" />
                     <img  id="foto" name="foto" class="" />
                 </div>
@@ -107,7 +108,7 @@
             </form>
             <div class="modal-footer">
               <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
-              <button type="button" class="btn btn-info" onClick="RegistrarUsuario(accion); return false">
+              <button type="button" class="btn btn-info" onClick="cargar(); RegistrarUsuario(accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -189,17 +190,34 @@
 
 
 <script type="text/javascript">
-    
-    (function(){
     var img = document.getElementById('foto');
     var input = document.getElementById('images'),
         formdata = false;
+        function cargar(){
+        
+        if(formdata){
+                $.ajax({
+                   url : 'subirfotoPerfil.php?cod=hola',
+                   type : 'POST',
+                   data : formdata,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){
+                       document.getElementById('response').innerHTML = res;
+                   }                 
+                });
+            }
+
+    } 
+    (function(){
+    
     function mostrarImagenSubida(source){
         
         img.className = "fotoPerfil";
         img.src = source;
 
-    }    
+    }   
+    
     //Revisamos si el navegador soporta el objeto FormData
     if(window.FormData){
         formdata = new FormData();    
@@ -232,15 +250,7 @@
                 }       
             //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
             //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
-            if(formdata){
-                $.ajax({
-                   url : 'subirfotoPerfil.php',
-                   type : 'POST',
-                   data : formdata,
-                   processData : false, 
-                   contentType : false,               
-                });
-            }
+            
         }, false);
     }
 }());
