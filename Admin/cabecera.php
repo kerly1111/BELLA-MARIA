@@ -68,7 +68,7 @@
                 <div class="nav-canvas">
                     <ul class="nav nav-pills nav-stacked main-menu">
                         <li class="nav-header">Menu</li>
-                        <li><a class="ajax-link" href="reserva.php"><i class="glyphicon glyphicon-picture"></i><span> Perfil</span></a>
+                        <li><a class="ajax-link" href="perfil.php"><i class="glyphicon glyphicon-picture"></i><span> Perfil</span></a>
                         </li>
                         <li><a class="ajax-link" href="usuario.php"><i class="glyphicon glyphicon-user"></i><span> Usuarios</span></a>
                         </li>
