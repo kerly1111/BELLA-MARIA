@@ -43,11 +43,19 @@
   
     <ul class="nav navbar-nav navbar-right distanciaFilas">
         <li class="active"><a href="index.php">INICIO</a></li>
-        <li class="active"><a href="">GAD</a></li>
+        <li class="active"><a href="gad.php">GAD</a></li>
         <li class="active"><a href="">BELLA MARIA</a></li>
         <li class="active"><a href="">PRODUCCIÓN</a></li>
-        <li class="active"><a href="turismo.php">TURISMO</a></li>
-        <li class="active"><a href="portfolio.html">EVENTOS</a></li>
+        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TURISMO <i class="glyphicon glyphicon-chevron-down"></i></a> 
+
+                    <ul class="dropdown-menu">
+                    <li class="active"><a href="turismo.php">Galeria</a></li>
+                    <li class="active"><a href="atractivosTuristicos.php">Atractivos Turísticos</a></li>
+                    <li class="active"><a href="comidasTipicas.php">Comidas Típicas</a></li>
+                    </ul>
+
+                    </li>
+        <li class="active"><a href="eventos.php">EVENTOS</a></li>
         <li class="active"><a href="portfolio.html">TRANSPARENCIA</a></li>
         <li class="active"><a href="ubicacion.php">UBICACIÓN</a></li>
         <li class="active"><a href="contactos.php">CONTACTANOS</a></li>
