@@ -10,53 +10,48 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
          <div class="carousel-inner" role="listbox">
+         
+        <?php
+        $contador=0;
+        require("clases/conexion.php");
+        $con = conectar();
+        $sql = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+        $stmt = $con->prepare($sql);
+  
+        $result = $stmt->execute();
+        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        foreach($rows as $row){
+
+          $sql = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+          
+          if($contador<6){
+            if($contador==0){
+          ?>
           <div class="item active">
-          <div id="principal">
-            <img src="imagenes/bg1.png" alt="otra" class="imagenPanel">
-          </div>
-          <div id="secundario">
-          <div> <h1 class="big-bold">imagen 1</h1>
-          <hr>
-           El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
-           </div>
-           </div>
-          </div>
-
+          <?php 
+          }else{
+          ?>
           <div class="item">
-          <div id="principal" class="separador">
-            <img src="imagenes/bg2.png" alt="Chania" class="imagenPanel">
-          </div>
-          <div id="secundario">
-          <div  class="margenLinea "> <h1 class="big-bold">imagen 2</h1>
-          <hr>
-           El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
-           </div>
-           </div>
-          </div>
-
-          <div class="item">
-          <div id="principal" class="separador">
-            <img src="imagenes/bg3.png" alt="Chania" class="imagenPanel">
-          </div>
-          <div id="secundario">
-          <div  class="margenLinea "> <h1 class="big-bold">imagen 3</h1>
-          <hr>
-           El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
-           </div>
-           </div>
-          </div>
-
-          <div class="item">
-          <div id="principal" class="separador">
-            <img src="imagenes/bg4.png" alt="Chania" class="imagenPanel">
-          </div>
-          <div id="secundario">
-          <div  class="margenLinea "> <h1 class="big-bold">imagen 4</h1>
-          <hr>
-           El cacao es la fruta de mayor producción así, en la cabecera parroquial 70 familias que se dedican a la producción de cacao utilizan 50 has de sus fincas, y pequeñas extensiones de tierra para la producción de piñas 11 has, plátano 1 has, maíz 10 has, banano 15 has y aproximadamente 10 has a la producción de frutas de varias especies entre cítricos y exóticas para el consumo interno y familiar. 
-           </div>
-           </div>
-          </div>
+          <?php
+          }
+          ?>
+        <div id="principal">
+          <img src="imagenes/modulo1.png" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
+        </div>
+        <div id="secundario">
+        <div> <h1 class="big-bold"><?php print($row->tit_modulo);?></h1>
+        <hr><p style="text-align: justify;">
+         <?php print($row->des_modulo);?> </p>
+         </div>
+         </div>
+        </div>
+        
+        <?php
+        }
+        $contador++;
+        }
+        ?> 
+        
 
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -74,29 +69,30 @@
           <li style="background-color: rgba(0, 102, 0, 0.9);" data-target="#myCarousel" data-slide-to="1"></li>
           <li style="background-color: rgba(0, 102, 0, 0.9);" data-target="#myCarousel" data-slide-to="2"></li>
           <li style="background-color: rgba(0, 102, 0, 0.9);" data-target="#myCarousel" data-slide-to="3"></li>
+          <li style="background-color: rgba(0, 102, 0, 0.9);" data-target="#myCarousel" data-slide-to="4"></li>
+          <li style="background-color: rgba(0, 102, 0, 0.9);" data-target="#myCarousel" data-slide-to="5"></li>
         </ol>
       </div>
 
   </div>
 </div>
              
- 
+ <br>
 <section>
   <div id="LimpiarLayut">
     <ul id="flexiselDemo1" style="list-style:none;"> 
         <?php
 
-        require("clases/conexion.php");
         $con = conectar();
-        $sql = "SELECT * FROM modulo ORDER BY id_modulo DESC";
-        $stmt = $con->prepare($sql);
+        $sql1 = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+        $stmt1 = $con->prepare($sql1);
   
-        $result = $stmt->execute();
-        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-        foreach($rows as $row){
+        $result1 = $stmt1->execute();
+        $rows1 = $stmt1->fetchAll(\PDO::FETCH_OBJ);
+        foreach($rows1 as $row1){
           ?>
 
-        <li><img><a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a></li> 
+        <li><img><a href="modulo.php?saludo=<?php print($row1->id_modulo);?>"><?php print($row1->tit_modulo);?></a></li> 
         <?php
         }
         ?>                                                        

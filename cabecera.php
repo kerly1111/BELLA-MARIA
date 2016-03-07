@@ -45,12 +45,7 @@
         <li class="active"><a href="index.php">INICIO</a></li>
         <li class="active"><a href="">GAD</a></li>
         <li class="active"><a href="">BELLA MARIA</a></li>
-        <li class="active dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
-        <ul class="dropdown-menu">
-        <li class="active"><a href="index.php">Inicio</a></li>
-        <li class="active"><a href="index.php">Inicio</a></li>
-        <li class="active"><a href="index.php">Inicio</a></li>
-        </ul>
+        <li class="active"><a href="">PRODUCCIÓN</a></li>
         <li class="active"><a href="turismo.php">TURISMO</a></li>
         <li class="active"><a href="portfolio.html">EVENTOS</a></li>
         <li class="active"><a href="portfolio.html">TRANSPARENCIA</a></li>
