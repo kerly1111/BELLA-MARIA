@@ -1,9 +1,7 @@
 <?php include 'cabecera.php' ?>
 <?php include 'panelNoticias.php' ?>
-<?php 
-if(isset($_SESSION["logeo"])){
+<?php session_start();
 unset($_SESSION["logeo"]);
-}
 ?>
 
     <link rel="stylesheet" href="css/jquery.bxslider.css"> 
