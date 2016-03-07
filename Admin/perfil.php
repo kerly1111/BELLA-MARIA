@@ -39,7 +39,7 @@
 
 			  <div class="col-md-2"></div>
 			  
-			  <div class="col-md-2">
+			  <div class="col-md-2 col-md-offset-1">
 				<IMG SRC="../imagenes/fotosPerfil/<?php print $nomFoto?>" WIDTH=250 HEIGHT=350 BORDER=3>
 			  	<br>
 			  	<br>
