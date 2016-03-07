@@ -1,10 +1,10 @@
 <?php include 'cabecera.php' ?>
-<?php include 'panelNoticiasIndex.php' ?>
-<?php 
-if(isset($_SESSION["logeo"])){
-unset($_SESSION["logeo"]);
-}
-?>
+<?php include 'panelNoticias.php' ?>
+
+<div class="panel panel-success">
+  <div class="panel-heading">Título del evento</div>
+  <div class="panel-body">
+    Contenido del evento
 
 <div class="row">
   <div class="col-md-4">
@@ -43,4 +43,6 @@ unset($_SESSION["logeo"]);
 		</div>
   </div>
 </div>
-   
+    
+  </div>
+</div>
