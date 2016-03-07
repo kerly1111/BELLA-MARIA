@@ -3,7 +3,9 @@
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   	<div class="panel-body">
+    <h3>BIENVENIDO</h3>
     <p class="lead"> Tu Perfil</p>
+
 
   	
 <style>
@@ -16,7 +18,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Registro de Proveedore</title>
   <link href="css/bootstrap.css" rel="stylesheet">
   <script type="text/javascript" src="js/ajax.js"></script>
 </head>
@@ -36,7 +37,7 @@
           ?>
        <div class="row">
 
-			  <div class="col-md-2">.col-md-4</div>
+			  <div class="col-md-2"></div>
 			  
 			  <div class="col-md-2">
 				<IMG SRC="../imagenes/fotosPerfil/<?php print $nomFoto?>" WIDTH=250 HEIGHT=350 BORDER=3>
@@ -50,7 +51,7 @@
                 </div>
 			  </div>
 			  
-			  <div class="col-md-2">.col-md-4</div>
+			  <div class="col-md-2"></div>
 			  
 			  <div class="col-md-2">
  				
@@ -58,27 +59,24 @@
 							  <label>Cedula</label>
 							  <input name="cedula" disabled class="form-control" value="<?php print($row->id_usuario); ?>" required>
 			  </div>
-			  <div class="form-group"  disabled><br>
+			  <div class="form-group"  ><br>
 							  <label>Usuario</label>
-							  <input name="cedula" class="form-control" value="<?php print($row->use_usuario); ?>" required>
+							  <input name="cedula" disabled class="form-control" value="<?php print($row->use_usuario); ?>" required>
 			   </div>
 			   
-			   <div class="form-group"  disabled><br>
+			   <div class="form-group"  ><br>
 							  <label>Nombre</label>
-							  <input name="cedula" class="form-control" value="<?php print($row->nom_usuario); ?>"required>
+							  <input name="cedula" disabled class="form-control" value="<?php print($row->nom_usuario); ?>"required>
 				</div>
-				<div class="form-group"  disabled><br>
+				<div class="form-group"  ><br>
 							  <label>Apellido</label>
-							  <input name="cedula" class="form-control" value="<?php print($row->ape_usuario); ?>" required>
+							  <input name="cedula" disabled class="form-control" value="<?php print($row->ape_usuario); ?>" required>
 				</div>
 
 			  </div>
 			  
-			  <div class="col-md-2">
-			  
-
-			  </div>
-			  <div class="col-md-2">.col-md-4</div>
+			  <div class="col-md-2"></div>
+			  <div class="col-md-2"></div>
 	   </div>
 			          
         <?php
