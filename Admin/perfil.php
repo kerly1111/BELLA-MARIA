@@ -47,31 +47,42 @@
 			  	<div class="btn-group">
 
                     <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');">Actualizar</button>
-      
+
+                </div>
+
+          <div class="btn-group">
+
+              <button type="button" class="btn btn-danger btn-xs" onclick="EditarClave();">Cambiar Clave</button>
+
                 </div>
 			  </div>
 			  
 			  <div class="col-md-2"></div>
 			  
 			  <div class="col-md-2">
- 				
+
+      <form role="form" name="frm" enctype="multipart/form-data">
+
+			
  				<div class="form-group"  ><br>
 							  <label>Cedula</label>
 							  <input name="cedula" disabled class="form-control" value="<?php print($row->id_usuario); ?>" required>
 			  </div>
 			  <div class="form-group"  ><br>
 							  <label>Usuario</label>
-							  <input name="cedula" disabled class="form-control" value="<?php print($row->use_usuario); ?>" required>
+							  <input name="usuario" disabled class="form-control" value="<?php print($row->use_usuario); ?>" required>
 			   </div>
 			   
 			   <div class="form-group"  ><br>
 							  <label>Nombre</label>
-							  <input name="cedula" disabled class="form-control" value="<?php print($row->nom_usuario); ?>"required>
+							  <input name="nombre" disabled class="form-control" value="<?php print($row->nom_usuario); ?>"required>
 				</div>
 				<div class="form-group"  ><br>
 							  <label>Apellido</label>
-							  <input name="cedula" disabled class="form-control" value="<?php print($row->ape_usuario); ?>" required>
+							  <input name="apellido" disabled class="form-control" value="<?php print($row->ape_usuario); ?>" required>
 				</div>
+        
+        </form>
 
 			  </div>
 			  
@@ -82,8 +93,6 @@
         <?php
         }
         ?>  
-
- 
 
       <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -120,10 +129,56 @@
                 
               </div>
             </form>
-            <div class="modal-footer">
+
+           <div class="modal-footer">
               <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
               <button type="button" class="btn btn-info" onClick="RegistrarPerfil(idusuario,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
+    
+              </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="modal fade" id="modalClave" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" >Datos de perfil</div>
+            </div>
+           <form role="form" name="frmClave" enctype="multipart/form-data">
+              <div class="col-lg-12">
+                
+                <div class="form-group"  ><br>
+                  <label>Clave Anterior</label>
+                  <input class="form-control" name="clave" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
+                </div>
+
+                 <div class="form-group"><br>
+                  <label>Nueva Clave</label>
+                  <input class="form-control" name="nueva" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
+                </div>
+
+
+
+                <div class="form-group"><br>
+                  <label>Confirmar Clave</label>
+                 <input class="form-control" name="confirmar" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
+
+                </div>
+
+                               
+                </div>
+            </form>
+
+           <div class="modal-footer">
+              <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
+              <button type="button" class="btn btn-info" onClick="CambiarClave(idusu, accion); return false">
+              <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
     
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -136,6 +191,7 @@
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
      var accion;
+     var idusu;
     function Nuevo(){
       accion = 'N';
       document.frmUsuario.cedula.value = "";
@@ -152,7 +208,6 @@
 
     function Editar(cedu, usuario,nombre, apellido ){
       accion = 'E';
-      idusuario = cedu;
       document.frmPerfil.cedula.value = cedu;
       document.frmPerfil.usuario.value = usuario;
       document.frmPerfil.nombre.value = nombre;
@@ -160,7 +215,18 @@
       $('#modal').modal('show');
 
     }
-    </script>
+
+    function EditarClave( ){
+      accion = 'E';
+      idusu=document.frm.cedula.value;
+      document.frmClave.clave.value = "";
+      document.frmClave.nueva.value = "";
+      document.frmClave.confirmar.value = "";
+      $('#modalClave').modal('show');
+      
+    }
+
+  </script>
   </body>
 
  

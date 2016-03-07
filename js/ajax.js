@@ -42,6 +42,31 @@ ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("id_usuario="+cedula+"&use_usuario="+usuario+"&cla_usuario="+clave+"&nom_usuario="+nombre+"&ape_usuario="+apellido+"&nom_fot_usuario="+nombreFoto+"&rut_fot_usuario="+rutaFoto)
 }
 
+function CambiarClave(idusu, accion){
+
+cedula = idusu;
+clave = document.frmClave.clave.value;
+nueva= document.frmClave.nueva.value;
+confirmar= document.frmClave.confirmar.value;
+
+ajax = objetoAjax();
+if(accion=='N'){
+ajax.open("POST", "../clases/insertarUsuario.php", true);
+}else if(accion=='E'){
+ajax.open("POST", "../clases/actualizarClave.php", true);
+}
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+		
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("cedula="+cedula+"&clave="+clave+"&nueva="+nueva+"&confirmar="+confirmar)
+}
+
+
 
 function RegistrarModulo(idP, accion){
 codigo = document.frmmodulos.codigo.value;
