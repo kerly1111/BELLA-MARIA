@@ -1,7 +1,10 @@
 .navbar-superior{
  background-color: rgba(0, 102, 0, 0.9);
 }
-
+.imagenPanel {
+width: 95%;
+height: 350px;
+}
 .navbar-superior .navbar-nav > li > a {
   padding-top: 7px;
   padding-bottom: 7px;
