@@ -3,6 +3,9 @@
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   	<div class="panel-body">
+    <p class="lead"> Tu Perfil</p>
+
+  	
 <style>
 	#tel{
 	 margin-right:16px;	
@@ -18,60 +21,71 @@
   <script type="text/javascript" src="js/ajax.js"></script>
 </head>
 <body>
-     <div class="container">
-      <div class="starter-template">
-        <p class="lead"> Tu Perfil</p>
-        <button type="button" onclick="Nuevo();" class="btn btn-primary btn-lg" >
-          <span class="glyphicon glyphicon-user"></span> Nuevo
-        </button>
-      </div>
-<div class="panel panel-info">
-        <div class="panel-heading">Lista de Proveedores</div>
-        <div class="panel-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>#Cedula</th>
-              <th>Usuario</th>
-              <th>Nombres</th>
-              <th>Apellidos</th>             
-            </tr>
-          </thead>
-          <tbody>
+     	
+        <?php
+		$cedula=$_SESSION["logeo"];
+		$nomFoto=$cedula.".png";
+        require("../clases/conexion.php");
+        $con = conectar();
+        $sql = "SELECT * FROM usuario where id_usuario='$cedula'";
+        $stmt = $con->prepare($sql);
+  
+        $result = $stmt->execute();
+        $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+        foreach($rows as $row){
+          ?>
+       <div class="row">
 
-            <?php
-            $cedula=$_SESSION["logeo"];
-            require("../clases/conexion.php");
-            $con = conectar();
-            //$sql = "SELECT id_usuario, use_usuario, cla_usuario, nom_usuario, ape_usuario, nom_fot_usuario, rut_fot_usuario FROM usuario";
-            $sql = "SELECT * FROM usuario where id_usuario='$cedula'";
-            $stmt = $con->prepare($sql);
-      
-            $result = $stmt->execute();
-            $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
-            foreach($rows as $row){
-              ?>
-              <tr>
-                <td><?php print($row->id_usuario); ?></td>
-                <td><?php print($row->use_usuario); ?></td>
-                <td><?php print($row->nom_usuario); ?></td>
-                <td><?php print($row->ape_usuario); ?></td>
-                <td>
-                  <div class="btn-group">
+			  <div class="col-md-2">.col-md-4</div>
+			  
+			  <div class="col-md-2">
+				<IMG SRC="../imagenes/fotosPerfil/<?php print $nomFoto?>" WIDTH=250 HEIGHT=350 BORDER=3>
+			  	<br>
+			  	<br>
+
+			  	<div class="btn-group">
 
                     <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');">Actualizar</button>
+      
+                </div>
+			  </div>
+			  
+			  <div class="col-md-2">.col-md-4</div>
+			  
+			  <div class="col-md-2">
+ 				
+ 				<div class="form-group"  ><br>
+							  <label>Cedula</label>
+							  <input name="cedula" disabled class="form-control" value="<?php print($row->id_usuario); ?>" required>
+			  </div>
+			  <div class="form-group"  disabled><br>
+							  <label>Usuario</label>
+							  <input name="cedula" class="form-control" value="<?php print($row->use_usuario); ?>" required>
+			   </div>
+			   
+			   <div class="form-group"  disabled><br>
+							  <label>Nombre</label>
+							  <input name="cedula" class="form-control" value="<?php print($row->nom_usuario); ?>"required>
+				</div>
+				<div class="form-group"  disabled><br>
+							  <label>Apellido</label>
+							  <input name="cedula" class="form-control" value="<?php print($row->ape_usuario); ?>" required>
+				</div>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</button>
-          
-                  </div>
-                </td>
-              </tr>
-              <?php
-            }
-            ?>
-          </tbody>
-        </table>
-      </div>
+			  </div>
+			  
+			  <div class="col-md-2">
+			  
+
+			  </div>
+			  <div class="col-md-2">.col-md-4</div>
+	   </div>
+			          
+        <?php
+        }
+        ?>  
+
+ 
 
       <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
@@ -112,6 +126,7 @@
               <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
               <button type="button" class="btn btn-info" onClick="RegistrarPerfil(idusuario,accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
+    
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
             </div>
@@ -119,7 +134,6 @@
         </div>
       </div>
 
-    </div>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -137,6 +151,7 @@
       $('#modal').modal('show');
 
     }
+
     function Editar(cedu, usuario,nombre, apellido ){
       accion = 'E';
       idusuario = cedu;
@@ -150,7 +165,6 @@
     </script>
   </body>
 
-  </div>
  
   </div>
  
