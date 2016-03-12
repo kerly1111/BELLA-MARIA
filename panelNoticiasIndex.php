@@ -47,6 +47,9 @@
         <div> <h1 class="big-bold"><?php print($row->tit_modulo);?></h1>
         <hr><p style="text-align: justify;">
          <?php print($row->des_modulo);?> </p>
+         <a href=""><button type="button" class="btn btn-success">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Lerr mas...
+              </button></a>
          </div>
          </div>
         </div>
@@ -85,7 +88,7 @@
  <br>
 <section>
   <div id="LimpiarLayut">
-    <ul id="flexiselDemo1" style="list-style:none;"> 
+    <ul id="flexiselDemo1" class="barraModulo"> 
         <?php
 
         $con = conectar();

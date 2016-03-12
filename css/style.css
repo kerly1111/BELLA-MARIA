@@ -78,10 +78,12 @@ display:none;
 
 .nbs-flexisel-nav-left {
     left: 10px;
+    margin-top: 3px;
     background: url(../imagenes/button-previous.png) no-repeat;
 }
 
 .nbs-flexisel-nav-right {
     right: 5px;
+    margin-top: 3px;
     background: url(../imagenes/button-next.png) no-repeat;
 }
