@@ -45,6 +45,7 @@
         <li class="active"><a href="index.php">INICIO</a></li>
         <li class="active"><a href="gad.php">GAD</a></li>
         <li class="active"><a href="">BELLA MARIA</a></li>
+        <li class="active"><a href="">NOTICIAS</a></li>
         <li class="active"><a href="">PRODUCCIÓN</a></li>
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TURISMO <i class="glyphicon glyphicon-chevron-down"></i></a> 
 

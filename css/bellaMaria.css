@@ -8,9 +8,10 @@ height: 350px;
 .navbar-superior .navbar-nav > li > a {
   padding-top: 7px;
   padding-bottom: 7px;
-  border-radius: 4px;
+  border-radius: 5px;
   color: #ffcc00;
   font-weight: bold;
+
   /*color de letras del li del navbar*/
 }
 .margen-tope-nav{
@@ -21,10 +22,7 @@ margin-bottom: 10px
 margin-top: 15px;
 }
 .margenBuscar{
-margin-right: 40px;	
-}
-.distanciaFilas{
-margin-top: 10px;
+margin-right: 20px;	
 }
 .distanciaFilas{
 margin-top: 10px;

@@ -1,6 +1,7 @@
 
 <?php include 'cabecera.php' ?>
 <?php include 'panelNoticias.php' ?>
+<?php include 'stilosFunciones.php' ?>
 
 <script type="text/javascript">
 

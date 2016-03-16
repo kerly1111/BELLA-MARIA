@@ -77,7 +77,7 @@
                   <input name="cedula" id="cedula" class="form-control" required>
                 </div>
 
-                 <div class="form-group"><br>
+                 <div class="form-group">
                   <label>Usuario</label>
                   <input name="usuario" class="form-control" required>
                 </div>
@@ -144,37 +144,7 @@
       $('#modal').modal('show');
 
     }
-  /*  var openFile = function(event) {
-    var input = event.target;
-
-    var reader = new FileReader();
-    reader.onload = function(){
-      var dataURL = reader.result;
-      var output = document.getElementById('output');
-      output.src = dataURL;
-      document.frmUsuario.rutaFoto.value=dataURL; 
-    };
-    reader.readAsDataURL(input.files[0]);
-    
-  };
-
- /*   function buscarDatosFoto(foto) 
-    {
-        //foto = foto.split('\\');
-        var nom=foto[foto.length-1];
-        //document.frmUsuario.rutaFoto.value=document.frmUsuario.foto.value; 
-
-        var input = document.getElementById("foto");
-        var fReader = new FileReader();
-        fReader.readAsDataURL(input.files[0]);
-        fReader.onloadend = function(event){
-        var img = document.getElementById("output");
-
-        img.src = event.target.result;
-        }
-
-  } */
-
+ 
     function nomFoto(){
     var foto=document.frmUsuario.images.value;
     foto = foto.split('\\');

@@ -54,15 +54,17 @@ display:none;
     position:relative;
     line-height:0px;
 }
+
 .nbs-flexisel-item img {
-    width: 100%;
+    width: 1px;
     cursor: pointer;
     position: relative;
     margin-top: 10px;
     margin-bottom: 10px;
-    max-width:100px;
+    max-width:1px;
     max-height:45px;
 }
+
 
 /*** Navigation ***/
 

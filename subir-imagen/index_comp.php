@@ -6,6 +6,7 @@ session_start();
 
 $nameimagen = $_FILES['imagen']['name'];
 $tmpimagen = $_FILES['imagen']['tmp_name'];
+$siz = $_FILES['imagen']['size'];
 $extimagen = pathinfo($nameimagen);
 $urlnueva = "imagenes/".$nameimagen;
 $ext = array("png","jpg");
@@ -15,6 +16,7 @@ if(is_uploaded_file($tmpimagen)) {
 	echo "oki";
 	copy($tmpimagen,$urlnueva);
 	echo "se guardo";
+	echo $siz;
 }
 
 ?>
