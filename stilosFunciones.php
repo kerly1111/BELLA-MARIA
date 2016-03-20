@@ -32,7 +32,7 @@
 </head><!--/head-->
 <body>
     
-    
+    <script type="text/javascript" src="js/ajax.js"></script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
@@ -50,6 +50,7 @@
     <script src="js/fileinput.js"></script>
     <script src="js/fileinput.min.js"></script>
     <script src="js/jquery.bxslider.min.js"></script>
+
 
             
 </body>

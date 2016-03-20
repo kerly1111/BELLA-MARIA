@@ -5,7 +5,8 @@ if(isset($_SESSION["logeo"])){
 unset($_SESSION["logeo"]);
 }
 ?>
-
+<div class="panel-body">
+<div class="panel-body">
 <div class="row">
   <div class="col-md-4">
 
@@ -16,7 +17,7 @@ unset($_SESSION["logeo"]);
    <iframe width="375" height="340"src="http://www.youtube.com/embed/00m8uyRqkC4"></iframe>
 
   </div>
-	</div>
+  </div>
 
   </div>
   <div class="col-md-4">
@@ -33,14 +34,15 @@ unset($_SESSION["logeo"]);
   </div>
 
   <div class="col-md-4">
-		<div class="panel panel-success">
-		<div class="panel-heading">Video 3</div>
-		<div class="panel-body">
+    <div class="panel panel-success">
+    <div class="panel-heading">Video 3</div>
+    <div class="panel-body">
 
-		    <iframe width="375" height="340"src="http://www.youtube.com/embed/ObsCQ8L7nOc"></iframe>
+        <iframe width="375" height="340"src="http://www.youtube.com/embed/ObsCQ8L7nOc"></iframe>
 
-		</div>
-		</div>
+    </div>
+    </div>
   </div>
 </div>
-   
+</div>
+</div>

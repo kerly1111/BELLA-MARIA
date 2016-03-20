@@ -5,6 +5,9 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script  src="js/jquery.flexisel.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
+    <script type="text/javascript" src="js/jcarousel.skeleton.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
     
 <section>
 <div id="contenido" class="margenNoticias">
@@ -48,8 +51,8 @@
         <div id="secundario">
         <div> <h1 class="big-bold"><?php print($row->tit_modulo);?></h1>
         <hr><p style="text-align: justify;">
-         <?php print($row->des_modulo);?> </p>
-         <a href=""><button type="button" class="btn btn-success">
+         <?php print substr(($row->des_modulo),0,200);?>..... </p>
+         <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Lerr mas...
               </button></a>
          </div>
@@ -120,6 +123,41 @@
 </section>
 
 
+<div class="wrapper">
+            <h1>Carousel Skeleton</h1>
 
+            <p>This is an unstyled carousel which you can use as a foundation for implementing your own carousels.</p>
+
+            <!--
+            Mutual wrapper, encloses the carousel and the plugin elements to
+            enable auto-detection of the carousel for the plugins.
+            -->
+            <div class="jcarousel-wrapper">
+
+                <!-- Carousel -->
+                <div class="jcarousel">
+                    <ul>
+                        <li><a>1----------sdsoidsoidd osdoisd osndoisd</a></li>
+                        <li><a>2----------sdsoidsoidd osdoisd osnaadsd asasmaks maskasdoisd</a></li>
+            <li><a>3----------sdsoidsoidd osdoisd</a></li>
+            <li><a>4----------sdsoidsoidd osdoisd osnzxzssadoisd</a></li>
+            <li><a>5----------sdsoidsoidd </a></li>
+            <li><a>6----------sdsoidsoidd osdoisdasasass osndoisd</a></li>
+            <li><a>7----------sdsoidsoidd osdoisd osndsasknaskaskoisd</a></li>
+                    </ul>
+                </div>
+
+                <!-- Prev/next controls -->
+                <a href="#" class="jcarousel-control-prev">&lsaquo; Prev</a>
+                <a href="#" class="jcarousel-control-next">Next &rsaquo;</a>
+
+                <!-- Pagination -->
+                <p class="jcarousel-pagination">
+                    <!-- Pagination items will be generated in here -->
+                </p>
+
+            </div>
+
+        </div>
     
 </section>

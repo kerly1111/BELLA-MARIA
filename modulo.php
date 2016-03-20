@@ -23,7 +23,7 @@ $id= $_GET['saludo'];
           }
                     
 ?>
-<section>
+<SECTION>
 		<div class="panel panel-success margenNoticias">
 		<div class="panel-heading"><h3 align="center"><?php print($row->tit_modulo);?></h3></div>
 		<div class="panel-body">
@@ -32,18 +32,19 @@ $id= $_GET['saludo'];
           <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
         </div>
         <div id="secundario">
-        <div> 
         <hr>
         <p style="text-align: justify;">
          <?php print($row->des_modulo);?> </p><hr>
          </div>
-         </div>
 		</div>
 		</div>
 		</div>
-</section>
+
 
 <center>
+<div class="panel panel-success">
+<div class="panel-heading"><h3 align="center">GALERIA</h3></div>
+<div class="panel-body">
 <div class="jR3DCarouselGallery">
 
         <?php
@@ -55,7 +56,7 @@ $id= $_GET['saludo'];
           foreach($rows2 as $row2){
             $img=($row2->nom_imagen);
             ?>
-           <img id="imgGal<?php print $nameImag?>" src="imagenes/modulos/<?php print $img?>" name="<?php print $img?>" alt="<?php print($row->id_modulo);?>" style="display: none;" width="400" />
+           <img id="imgGal<?php print $nameImag?>" src="imagenes/modulos/<?php print $img?>" name="<?php print $img?>" alt="<?php print($row->id_modulo);?>" style="display: none;" />
         <?php
         $nameImag=$nameImag+1;
           }
@@ -66,7 +67,10 @@ $id= $_GET['saludo'];
 ?>
 
 </div>
+</div>
+</div>
 </center>
+</SECTION>
 <br>
 <br>
 <br>
@@ -87,12 +91,12 @@ $(document).ready(function(){
             slideLayout : 'fill',     /* "contain" (fit according to aspect ratio), "fill" (stretches object to fill) and "cover" (overflows box but maintains ratio) */
             animation: 'slide3D',     /* slide | scroll | fade | zoomInSlide | zoomInScroll */
             animationCurve: 'ease',
-            animationDuration: 700,
-            animationInterval: 1000,
+            animationDuration:1000,
+            animationInterval: 4000,
             //slideClass: 'jR3DCarouselCustomSlide',
             autoplay: true,
             onSlideShow: show,    /* callback when Slide show event occurs */
-            navigation: 'circles',  /* circles | squares */
+            navigation: '',  /* circles | squares */
             slides: slides      /* array of images source or gets slides by 'slide' class */
               
         }
