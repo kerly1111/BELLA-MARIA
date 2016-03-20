@@ -68,14 +68,20 @@ ajax.send("cedula="+cedula+"&clave="+clave+"&nueva="+nueva+"&confirmar="+confirm
 
 
 
-function RegistrarModulo(idP, accion){
-codigo = document.frmmodulos.codigo.value;
+function RegistrarModulo(accion){
 tipo = document.frmmodulos.tipo.value;
 titulo = document.frmmodulos.titulo.value;
-descripcon = document.frmmodulos.descripcion.value;
+descripcion = document.frmmodulos.descripcion.value;
+nombreFoto1= document.frmmodulos.nomIMG1.value;
+nombreFoto2= document.frmmodulos.nomIMG2.value;
+nombreFoto3= document.frmmodulos.nomIMG3.value;
+nombreFoto4= document.frmmodulos.nomIMG4.value;
+nombreFoto5= document.frmmodulos.nomIMG5.value;
+rutaFoto= "../imagenes/modulos/";
+
 ajax = objetoAjax();
 if(accion=='N'){
-ajax.open("POST", "../clases/insertar.php", true);
+ajax.open("POST", "../clases/insertarModulo.php", true);
 }else if(accion=='E'){
 ajax.open("POST", "clases/actualizar.php", true);
 }
@@ -87,7 +93,7 @@ ajax.onreadystatechange=function() {
 		
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("codigo="+codigo+"&tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&idP="+idP)
+ajax.send("tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&rutaFoto="+rutaFoto+"&nombreFoto1="+nombreFoto1+"&nombreFoto2="+nombreFoto2+"&nombreFoto3="+nombreFoto3+"&nombreFoto4="+nombreFoto4+"&nombreFoto5="+nombreFoto5)
 }
 
 function Eliminar(idP){

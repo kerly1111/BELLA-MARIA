@@ -22,13 +22,14 @@
         $result = $stmt->execute();
         $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
         foreach($rows as $row){
-
+          $img="";
           $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
           $stmt2 = $con->prepare($sql2);
           $result2 = $stmt2->execute();
           $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
           foreach($rows2 as $row2){
             $img=($row2->nom_imagen);
+            break;
           }
           if($contador<6){
             if($contador==0){
@@ -42,7 +43,7 @@
           }
           ?>
         <div id="principal">
-          <img src="imagenes/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
+          <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
         </div>
         <div id="secundario">
         <div> <h1 class="big-bold"><?php print($row->tit_modulo);?></h1>

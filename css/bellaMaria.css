@@ -213,3 +213,35 @@ list-style:none;
 background-color: rgba(0, 102, 0, 0.9);
 color: #006600;
 }
+
+/*carrusel 3d*/
+
+.container-jR3DCarouselGallery {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  overflow: hidden;
+}
+
+.jR3DCarouselGallery,.jR3DCarouselGallery1 {
+  margin: 0 auto; /* optional - if want to center align */
+}
+
+.container-jR3DCarouselGallery {
+  text-align: center;
+}
+
+.wrapper-jR3DCarouselGallery {
+  padding-right: 10px;
+  padding-left: 10px;
+  width: 48%;
+  height: 299px;
+  float: left;
+  overflow: auto;
+  border-left: 1px solid #999;
+}
+
+.wrapper-jR3DCarouselGallery div {
+  margin: 8px auto;
+}

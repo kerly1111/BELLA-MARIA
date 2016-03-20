@@ -1,0 +1,120 @@
+--------htlm---------------------------
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Test</title>
+    </head>
+    <body>
+        <div class="content">
+            <input type="file" id="images" name="images[]" />
+            <button id="btnSubmit">Subir archivo</button>
+            <ul id="lista-imagenes">
+                
+            </ul>
+            <div id="response"></div>
+        </div>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script src="/js/upload.js"></script>
+    </body>
+</html>
+
+
+---------php--------------------------
+
+
+
+<?php
+    foreach($_FILES['images']['error'] as $key => $error){
+        if($error == UPLOAD_ERR_OK){
+            $name = $_FILES['images']['name'][$key];
+            move_uploaded_file($_FILES['images']['tmp_name'][$key], 'uploads/' . $name);
+        }
+    }
+    
+    echo "<h2>Archivos correctamente subidos</h2>";
+?>
+
+
+
+
+--------------javascript-----------------------
+
+<script>
+
+(function(){
+    var input = document.getElementById('images'),
+        formdata = false;
+    
+    function mostrarImagenSubida(source){
+        var list = document.getElementById('lista-imagenes'),
+            li   = document.createElement('li'),
+            img  = document.createElement('img');
+        
+        img.src = source;
+        li.appendChild(img);
+        list.appendChild(li);
+    }
+    
+    //Revisamos si el navegador soporta el objeto FormData
+    if(window.FormData){
+        formdata = new FormData();
+        document.getElementById('btnSubmit').style.display = 'none';
+    }
+    
+    //Aplicamos la subida de imágenes al evento change del input file
+    if(input.addEventListener){
+        input.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img, reader, file;
+            
+            document.getElementById('response').innerHTML = 'Subiendo...';
+            
+            //Si hay varias imágenes, las obtenemos una a una
+            for( ; i < len; i++){
+                file = this.files[i];
+                
+                //Una pequeña validación para subir imágenes
+                if(!!file.type.match(/image.*/)){
+                    //Si el navegador soporta el objeto FileReader
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        //Llamamos a este evento cuando la lectura del archivo es completa
+                        //Después agregamos la imagen en una lista
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result);
+                        };
+                        //Comienza a leer el archivo
+                        //Cuando termina el evento onloadend es llamado
+                        reader.readAsDataURL(file);
+                    }
+                    
+                    //Si existe una instancia de FormData
+                    if(formdata)
+                        //Usamos el método append, cuyos parámetros son:
+                            //name : El nombre del campo
+                            //value: El valor del campo (puede ser de tipo Blob, File e incluso string)
+                        formdata.append('images[]', file);
+                }
+            }
+            
+            //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
+            //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
+            if(formdata){
+                $.ajax({
+                   url : 'php/upload.php',
+                   type : 'POST',
+                   data : formdata,
+                   processData : false, 
+                   contentType : false, 
+                   success : function(res){
+                       document.getElementById('response').innerHTML = res;
+                   }                
+                });
+            }
+        }, false);
+    }
+}());
+
+</script>

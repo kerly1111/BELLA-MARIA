@@ -48,16 +48,21 @@
         <li class="active"><a href="">NOTICIAS</a></li>
         <li class="active"><a href="">PRODUCCIÓN</a></li>
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TURISMO <i class="glyphicon glyphicon-chevron-down"></i></a> 
-
-                    <ul class="dropdown-menu">
-                    <li class="active"><a href="turismo.php">Galeria</a></li>
-                    <li class="active"><a href="atractivosTuristicos.php">Atractivos Turísticos</a></li>
-                    <li class="active"><a href="comidasTipicas.php">Comidas Típicas</a></li>
-                    </ul>
-
-                    </li>
+            <ul class="dropdown-menu">
+                <li class="active"><a href="turismo.php">Galeria</a></li>
+                <li class="active"><a href="atractivosTuristicos.php">Atractivos Turísticos</a></li>
+                <li class="active"><a href="comidasTipicas.php">Comidas Típicas</a></li>
+            </ul>
+        </li>
         <li class="active"><a href="eventos.php">EVENTOS</a></li>
-        <li class="active"><a href="portfolio.html">TRANSPARENCIA</a></li>
+        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TRANSPARENCIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
+            <ul class="dropdown-menu">
+                <li class="active"><a href="lotaip2012.php">LOTAIP 2012</a></li>
+                <li class="active"><a href="lotaip2013.php">LOTAIP 2013</a></li>
+                <li class="active"><a href="lotaip2014.php">LOTAIP 2014</a></li>
+                <li class="active"><a href="lotaip2015.php">LOTAIP 2015 </a></li>
+            </ul>
+        </li>
         <li class="active"><a href="ubicacion.php">UBICACIÓN</a></li>
         <li class="active"><a href="contactos.php">CONTACTANOS</a></li>
     </ul>

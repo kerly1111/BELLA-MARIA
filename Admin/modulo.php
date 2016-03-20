@@ -40,7 +40,7 @@
                 <td><?php print($row->tip_modulo); ?></td>
                 <td><?php print($row->tit_modulo); ?></td>
                 <td><?php print($row->des_modulo); ?></td>
-                
+                <?php $_SESSION['codModulo']=($row->id_modulo) ?>
                 <td>
                   <div class="btn-group">
 
@@ -76,7 +76,7 @@
 
                 <div class="form-group">
                   <label>Tipo</label>
-                  <SELECT NAME="tipo" class="form-control"> 
+                  <SELECT name="tipo" class="form-control"> 
                   <OPTION VALUE="NOTICIA">NOTICIA</OPTION>
                   <OPTION VALUE="CONVOCATORIA">CONVOCATORIA</OPTION>
                   <OPTION VALUE="TURISMO">TURISMO</OPTION>
@@ -93,45 +93,44 @@
 
                 <div class="form-group upload">
                     <label>Foto Principal</label>
-                    <input  type="file" id="images" name="images" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto();" required>
+                    <input  type="file" id="images" name="images" accept="image/x-png, image/jpeg" class="from-control"  required>
                     <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam" style="display: none;"></div>
-                    <input type="hidden" name="nomIMG"  id="nomIMG" />
                     <img  id="foto" name="foto" class="" />
                 </div>
 
                 <div class="form-group upload">
                     <label>Fotos para Galería</label>
-                    <input  type="file" id="imagenes1" name="imagenes1" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto1();"  required>
-                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label>
+                    <input  type="file" id="imagenes1" name="imagenes1" accept="image/x-png, image/jpeg" class="from-control"  required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam1" style="display: none;"></div>
                     <input type="hidden" name="nomIMG1"  id="nomIMG1" />
                     <img  id="foto1" name="foto1" class="" />
                 </div>
                 <div class="form-group upload">
-                    <input  type="file" id="imagenes2" name="imagenes2" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto2();"  required>
-                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label>
+                    <input  type="file" id="imagenes2" name="imagenes2" accept="image/x-png, image/jpeg" class="from-control" required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam2" style="display: none;"></div>
                     <input type="hidden" name="nomIMG2"  id="nomIMG2" />
                     <img  id="foto2" name="foto2" class="" />
                 </div>
                 <div class="form-group upload">
-                    <input  type="file" id="imagenes3" name="imagenes3" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto3();"  required>
-                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label>
+                    <input  type="file" id="imagenes3" name="imagenes3" accept="image/x-png, image/jpeg" class="from-control"  required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam3" style="display: none;"></div>
                     <input type="hidden" name="nomIMG3"  id="nomIMG3" />
                     <img  id="foto3" name="foto3" class="" />
                 </div>
                 <div class="form-group upload">
-                    <input  type="file" id="imagenes4" name="imagenes4" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto4();"  required>
-                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label>
+                    <input  type="file" id="imagenes4" name="imagenes4" accept="image/x-png, image/jpeg" class="from-control" required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam4" style="display: none;"></div>
                     <input type="hidden" name="nomIMG4"  id="nomIMG4" />
                     <img  id="foto4" name="foto4" class="" />
                 </div>
                 <div class="form-group upload">
-                    <input  type="file" id="imagenes5" name="imagenes5" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto5();"  required>
-                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label>
+                    <input  type="file" id="imagenes5" name="imagenes5" accept="image/x-png, image/jpeg" class="from-control" required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam5" style="display: none;"></div>
                     <input type="hidden" name="nomIMG5"  id="nomIMG5" />
                     <img  id="foto5" name="foto5" class="" />
@@ -141,7 +140,8 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="RegistrarModulo(idP,accion); return false">
+              <button type="button" class="btn btn-info" onClick="cargar(); RegistrarModulo(accion); return false">
+              <!--<button type="button" class="btn btn-info" onClick="cargar();">-->
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -154,17 +154,33 @@
 
 <script type="text/javascript">
     var accion;
-    var idP;
     function Nuevo(){
       accion = 'N';
       document.frmmodulos.tipo.value = "";
       document.frmmodulos.titulo.value = "";
       document.frmmodulos.descripcion.value = "";
+      document.frmmodulos.images.value = "";
+      document.frmmodulos.foto.src = "";
+      document.frmmodulos.foto.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes1.value = "";
+      document.frmmodulos.foto1.src = "";
+      document.frmmodulos.foto1.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes2.value = "";
+      document.frmmodulos.foto2.src = "";
+      document.frmmodulos.foto2.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes3.value = "";
+      document.frmmodulos.foto3.src = "";
+      document.frmmodulos.foto3.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes4.value = "";
+      document.frmmodulos.foto4.src = "";
+      document.frmmodulos.foto4.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes5.value = "";
+      document.frmmodulos.foto5.src = "";
+      document.frmmodulos.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
       $('#modal').modal('show');
     }
     function Editar(id, tipo, titulo, descripcion){
       accion = 'E';
-      idP = id;
       document.frmmodulos.tipo.value = tipo;
       document.frmmodulos.titulo.value = titulo;
       document.frmmodulos.descripcion.value = descripcion;
@@ -177,43 +193,6 @@
       var cant=document.frmmodulos.descripcion.value.length;
       valorInicial=valorInicial-cant;
       document.getElementById('numCaracteres').innerHTML =valorInicial;
-    }
-
-    function nomFoto(){
-    var foto=document.frmUsuario.images.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG.value=nom;
-    }
-    function nomFoto1(){
-    var foto=document.frmUsuario.images1.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG1.value=nom;
-    }
-    function nomFoto2(){
-    var foto=document.frmUsuario.images2.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG2.value=nom;
-    }
-    function nomFoto3(){
-    var foto=document.frmUsuario.images3.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG3.value=nom;
-    }
-    function nomFoto4(){
-    var foto=document.frmUsuario.images4.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG4.value=nom;
-    }
-    function nomFoto5(){
-    var foto=document.frmUsuario.images5.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG5.value=nom;
     }
 
     var img = document.getElementById('foto');
@@ -236,13 +215,86 @@
         formdata5 = false;
 
     function cargar(){
-    
+      if(document.frmmodulos.imagenes1.value!=""){
+        document.frmmodulos.nomIMG1.value="1";
+      }
+      if(document.frmmodulos.imagenes2.value!=""){
+        document.frmmodulos.nomIMG2.value="1";
+      }
+      if(document.frmmodulos.imagenes3.value!=""){
+        document.frmmodulos.nomIMG3.value="1";
+      }
+      if(document.frmmodulos.imagenes4.value!=""){
+        document.frmmodulos.nomIMG4.value="1";
+      }
+      if(document.frmmodulos.imagenes5.value!=""){
+        document.frmmodulos.nomIMG5.value="1";
+      }
     if(formdata){
-      var ced = document.getElementById('cedula').value;
             $.ajax({
-               url : 'subirfotoModulo.php?cod='+ced,
+               url : 'subirfotoModulo.php?cod=0',
                type : 'POST',
                data : formdata,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+                  
+               }                 
+            });
+        }
+    if(formdata1){
+            $.ajax({
+               url : 'subirfotoModulo.php?cod=1',
+               type : 'POST',
+               data : formdata1,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+                  
+               }                 
+            });
+        }
+    if(formdata2){
+            $.ajax({
+               url : 'subirfotoModulo.php?cod=2',
+               type : 'POST',
+               data : formdata2,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+                  
+               }                 
+            });
+        }
+    if(formdata3){
+            $.ajax({
+               url : 'subirfotoModulo.php?cod=3',
+               type : 'POST',
+               data : formdata3,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+                  
+               }                 
+            });
+        }
+    if(formdata4){
+            $.ajax({
+               url : 'subirfotoModulo.php?cod=4',
+               type : 'POST',
+               data : formdata4,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+                  
+               }                 
+            });
+        }
+    if(formdata5){
+            $.ajax({
+               url : 'subirfotoModulo.php?cod=5',
+               type : 'POST',
+               data : formdata5,
                processData : false, 
                contentType : false,
                success : function(res){
@@ -253,85 +305,257 @@
 
     } 
     (function(){
-    
-    function mostrarImagenSubida(source){
+    function mostrarImagenSubida(source, num){
+      switch(num){
+        case 0:
         img.className = "fotoPerfil";
         img.src = source;
+        break;
+        case 1:
+        img1.className = "fotoPerfil";
+        img1.src = source;
+        break;
+        case 2:
+        img2.className = "fotoPerfil";
+        img2.src = source;
+        break;
+        case 3:
+        img3.className = "fotoPerfil";
+        img3.src = source;
+        break;
+        case 4:
+        img4.className = "fotoPerfil";
+        img4.src = source;
+        break;
+        case 5:
+        img5.className = "fotoPerfil";
+        img5.src = source;
+        break;
+      }
     }       
-    if(window.FormData){//Revisamos si el navegador soporta el objeto FormData
-        formdata = new FormData();    
+    if(window.FormData){
+        formdata = new FormData();
+        formdata1 = new FormData();
+        formdata2 = new FormData();
+        formdata3 = new FormData();   
+        formdata4 = new FormData();
+        formdata5 = new FormData();
     }   
-    if(input.addEventListener){//Aplicamos la subida de imágenes al evento change del input file
+    if(input.addEventListener){
         input.addEventListener('change', function(evt){
             var i = 0, len = this.files.length, img, reader, file;
                 file = this.files[i];                               
-                if(!!file.type.match(/image.*/)){//Una pequeña validación para subir imágenes
-                    if(window.FileReader){//Si el navegador soporta el objeto FileReader
-                        reader = new FileReader();//Llamamos a este evento cuando la lectura del archivo es completa
-                        reader.onloadend = function(e){//Después agregamos la imagen en una lista
-                            mostrarImagenSubida(e.target.result);
-                        };//Comienza a leer el archivo
-                        reader.readAsDataURL(file);//Cuando termina el evento onloadend es llamado
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,0);
+                        };
                     }                   
-                    if(formdata)//Si existe una instancia de FormData
-                        //Usamos el método append, cuyos parámetros son:
-                            //name : El nombre del campo
-                            //value: El valor del campo (puede ser de tipo Blob, File e incluso string)
+                    if(formdata)
                         formdata.append('images', file);
                 }       
-            //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
-            //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
             if(formdata){
                 $.ajax({
-                   url : 'subirfotoModulo.php?cod=3',
+                   url : 'subirfotoModulo.php?cod=contolSize',
                    type : 'POST',
                    data : formdata,
                    processData : false, 
                    contentType : false,
-                   success : function(res){
+                   success : function(res){ //res resultado del echo del archivo php
                       document.getElementById('controlTam').innerHTML = res;
                       if(document.getElementById('controlTam').innerHTML == "0"){
                         document.frmmodulos.images.value = "";
                         document.frmmodulos.foto.src = "";
                         document.frmmodulos.foto.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
                         alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
                       }
                    }                 
                 });
             }
         }, false);
     }
-}());
 
-(function(){
-    
-    function mostrarImagenSubida1(source){
-        img1.className = "fotoPerfil";
-        img1.src = source;
-    }       
-    if(window.FormData){//Revisamos si el navegador soporta el objeto FormData
-        formdata1 = new FormData();    
-    }   
-    if(input1.addEventListener){//Aplicamos la subida de imágenes al evento change del input file
+    if(input1.addEventListener){
         input1.addEventListener('change', function(evt){
             var i = 0, len = this.files.length, img1, reader, file;
                 file = this.files[i];                               
-                if(!!file.type.match(/image.*/)){//Una pequeña validación para subir imágenes
-                    if(window.FileReader){//Si el navegador soporta el objeto FileReader
-                        reader = new FileReader();//Llamamos a este evento cuando la lectura del archivo es completa
-                        reader.onloadend = function(e){//Después agregamos la imagen en una lista
-                            mostrarImagenSubida1(e.target.result);
-                        };//Comienza a leer el archivo
-                        reader.readAsDataURL(file);//Cuando termina el evento onloadend es llamado
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,1);
+                        };
                     }                   
-                    if(formdata1)//Si existe una instancia de FormData
-                        //Usamos el método append, cuyos parámetros son:
-                            //name : El nombre del campo
-                            //value: El valor del campo (puede ser de tipo Blob, File e incluso string)
+                    if(formdata1)
                         formdata1.append('imagenes1', file);
                 }       
-            //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
-            //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
+            if(formdata1){
+                $.ajax({
+                   url : 'subirfotoModulo.php?cod=contolSize1',
+                   type : 'POST',
+                   data : formdata1,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam1').innerHTML = res;
+                      if(document.getElementById('controlTam1').innerHTML == "0"){
+                        document.frmmodulos.imagenes1.value = "";
+                        document.frmmodulos.foto1.src = "";
+                        document.frmmodulos.foto1.className =document.frmmodulos.foto1.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
+        }, false);
+    }
+    if(input2.addEventListener){
+        input2.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img2, reader, file;
+                file = this.files[i];                               
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,2);
+                        };
+                    }                   
+                    if(formdata2)
+                        formdata2.append('imagenes2', file);
+                }       
+            if(formdata2){
+                $.ajax({
+                   url : 'subirfotoModulo.php?cod=contolSize2',
+                   type : 'POST',
+                   data : formdata2,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam2').innerHTML = res;
+                      if(document.getElementById('controlTam2').innerHTML == "0"){
+                        document.frmmodulos.imagenes2.value = "";
+                        document.frmmodulos.foto2.src = "";
+                        document.frmmodulos.foto2.className =document.frmmodulos.foto2.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
+        }, false);
+    }
+    if(input3.addEventListener){
+        input3.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img3, reader, file;
+                file = this.files[i];                               
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,3);
+                        };
+                    }                   
+                    if(formdata3)
+                        formdata3.append('imagenes3', file);
+                }       
+            if(formdata3){
+                $.ajax({
+                   url : 'subirfotoModulo.php?cod=contolSize3',
+                   type : 'POST',
+                   data : formdata3,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam3').innerHTML = res;
+                      if(document.getElementById('controlTam3').innerHTML == "0"){
+                        document.frmmodulos.imagenes3.value = "";
+                        document.frmmodulos.foto3.src = "";
+                        document.frmmodulos.foto3.className =document.frmmodulos.foto3.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
+        }, false);
+    }
+    if(input4.addEventListener){
+        input4.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img4, reader, file;
+                file = this.files[i];                               
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,4);
+                        };
+                    }                   
+                    if(formdata4)
+                        formdata4.append('imagenes4', file);
+                }       
+            if(formdata4){
+                $.ajax({
+                   url : 'subirfotoModulo.php?cod=contolSize4',
+                   type : 'POST',
+                   data : formdata4,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam4').innerHTML = res;
+                      if(document.getElementById('controlTam4').innerHTML == "0"){
+                        document.frmmodulos.imagenes4.value = "";
+                        document.frmmodulos.foto4.src = "";
+                        document.frmmodulos.foto4.className =document.frmmodulos.foto4.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
+        }, false);
+    }
+    if(input5.addEventListener){
+        input5.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img5, reader, file;
+                file = this.files[i];                               
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,5);
+                        };
+                    }                   
+                    if(formdata5)
+                        formdata5.append('imagenes5', file);
+                }       
+            if(formdata5){
+                $.ajax({
+                   url : 'subirfotoModulo.php?cod=contolSize5',
+                   type : 'POST',
+                   data : formdata5,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam5').innerHTML = res;
+                      if(document.getElementById('controlTam5').innerHTML == "0"){
+                        document.frmmodulos.imagenes5.value = "";
+                        document.frmmodulos.foto5.src = "";
+                        document.frmmodulos.foto5.className =document.frmmodulos.foto5.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
         }, false);
     }
 }());
