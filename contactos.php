@@ -1,31 +1,35 @@
+
+<?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
       <section id="contact-page" class="container">
         <div class="row">
         
-            <div class="col-md-6">
-            <h4>Contactanos</h4>
+            
+            <form role="form" name="frmContacto" enctype="multipart/form-data">
+                        <div class="col-md-6">
+                        <h4>Contactanos</h4>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Nombre">
+                                <input name="nombre" id="nombre" type="text" class="form-control" required="required" placeholder="Nombre">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Apellido">
+                                <input name="apellido" id="apellido" type="text" class="form-control" required="required" placeholder="Apellido">
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" required="required" placeholder="Email">
+                                <input name="email" id="email" type="text" class="form-control" required="required" placeholder="Email">
                             </div>
             </div>
             <div class="col-md-6">
             <br>
             <br>
-            <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
+            <textarea name="mensaje" id="mensaje" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
             <br>
             <br>
-            <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
-
+            <button type="button" class="btn btn-info" onClick="RegistrarContactos();">
+                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
+              </button>                        
             </div>
-        
         </div>
-    </section>
-    <?php include 'pie.php' ?>
+        </form>
+        </section>

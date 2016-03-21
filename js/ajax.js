@@ -15,6 +15,29 @@ function objetoAjax(){
 	return xmlhttp;
 }
 
+function RegistrarContactos(){
+	alert("entro pora ki");
+nombre= document.frmContacto.nombre.value;
+apellido= document.frmContacto.apellido.value;
+email= document.frmContacto.email.value;
+mensaje= document.frmContacto.mensaje.value;
+
+ajax = objetoAjax();
+
+ajax.open("POST", "clases/insertarContacto.php", true);
+
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+		
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("nombre="+nombre+"&apellido="+apellido+"&email="+email+"&mensaje="+mensaje)
+
+alert(nombre+"   "+apellido+"  "+email+"  "+mensaje);
+}
 
 function RegistrarUsuario(accion){
 cedula = document.frmUsuario.cedula.value;

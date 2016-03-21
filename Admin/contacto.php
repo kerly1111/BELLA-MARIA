@@ -43,7 +43,7 @@
                 <td><?php print($row->nom_contacto); ?></td>
                 <td><?php print($row->ape_contacto); ?></td>
                 <td><?php print($row->ema_contacto); ?></td>
-                <td><?php print($row->num_contacto); ?></td>
+                <td><?php print($row->men_contacto); ?></td>
               <td>
                   <div class="btn-group">
                     <button type="button" class="btn btn-danger btn-xs">Seleccione</button>
