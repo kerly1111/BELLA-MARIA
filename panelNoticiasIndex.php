@@ -94,7 +94,12 @@
 <section>
 
 <div id="LimpiarLayut">
-    <ul id="flexiselDemo1" class="barraModulo"> 
+
+<div class="wrapper ">
+  <div class="jcarousel-wrapper">
+  <div class="jcarouselNAV-left"><a class="jcarousel-control-prev"></a></div>
+    <div class="jcarousel jcarouselNAV">
+      <ul>
         <?php
 
         $con = conectar();
@@ -106,58 +111,19 @@
         foreach($rows1 as $row1){
           ?>
 
-        <li><img><a href="modulo.php?saludo=<?php print($row1->id_modulo);?>"><?php print($row1->tit_modulo);?></a></li> 
+        <li><a href="modulo.php?saludo=<?php print($row1->id_modulo);?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php print($row1->tit_modulo);?>&nbsp;&nbsp;</a></li> 
         <?php
         }
-        ?>                                                        
-    </ul>
-     
-    <div class="clearout"></div> 
-    <script type="text/javascript">
-    $(window).load(function() {
-        $("#flexiselDemo1").flexisel();   
-    });
-    </script>
+        ?>          
+      </ul>
+      <div class="jcarouselNAV-right"><a class="jcarousel-control-next"></a></div>
     </div>
+    
+  </div>
+</div>
+
+</div>
 
 </section>
-
-
-<div class="wrapper">
-            <h1>Carousel Skeleton</h1>
-
-            <p>This is an unstyled carousel which you can use as a foundation for implementing your own carousels.</p>
-
-            <!--
-            Mutual wrapper, encloses the carousel and the plugin elements to
-            enable auto-detection of the carousel for the plugins.
-            -->
-            <div class="jcarousel-wrapper">
-
-                <!-- Carousel -->
-                <div class="jcarousel">
-                    <ul>
-                        <li><a>1----------sdsoidsoidd osdoisd osndoisd</a></li>
-                        <li><a>2----------sdsoidsoidd osdoisd osnaadsd asasmaks maskasdoisd</a></li>
-            <li><a>3----------sdsoidsoidd osdoisd</a></li>
-            <li><a>4----------sdsoidsoidd osdoisd osnzxzssadoisd</a></li>
-            <li><a>5----------sdsoidsoidd </a></li>
-            <li><a>6----------sdsoidsoidd osdoisdasasass osndoisd</a></li>
-            <li><a>7----------sdsoidsoidd osdoisd osndsasknaskaskoisd</a></li>
-                    </ul>
-                </div>
-
-                <!-- Prev/next controls -->
-                <a href="#" class="jcarousel-control-prev">&lsaquo; Prev</a>
-                <a href="#" class="jcarousel-control-next">Next &rsaquo;</a>
-
-                <!-- Pagination -->
-                <p class="jcarousel-pagination">
-                    <!-- Pagination items will be generated in here -->
-                </p>
-
-            </div>
-
-        </div>
     
 </section>
