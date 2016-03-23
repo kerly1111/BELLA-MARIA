@@ -32,7 +32,7 @@ geoMaxmind();
 }
 function geoOK(position) {
 actual1(position.coords.latitude, position.coords.longitude);
-showMap(-3.762020, -79.847104);
+showMap(-3.461917, -79.940543);
 
 }
 }
@@ -85,7 +85,7 @@ function travelToAddress(){
 
 //Obtenemos la direccion
 //destino=document.ubu.address.value;
-destino="bellamaria";
+destino="Vía a Bella María, Santa Rosa";
 
 //destino= "bella maria";
 directionsService = new google.maps.DirectionsService();

@@ -154,6 +154,15 @@
              
     </script>
 
+    <script type="text/javascript">
+
+    valor = document.getElementById("campo").value;
+    if( isNaN(valor) ) {
+    return false;
+}
+
+    </script>
+
 
 </div>
 </div>

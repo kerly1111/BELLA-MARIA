@@ -26,10 +26,13 @@
             <textarea name="mensaje" id="mensaje" required="required" class="form-control" rows="8" placeholder="Message"></textarea>
             <br>
             <br>
-            <button type="button" class="btn btn-info" onClick="RegistrarContactos();">
-                  <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
-              </button>                        
-            </div>
+                                
+              
+              <button type="button" class="btn btn-primary btn-lg" RegistrarContactos();" >Enviar Mensaje</button>
+
+              <a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir con popup</a>
+                                
+              </div>
         </div>
         </form>
         </section>

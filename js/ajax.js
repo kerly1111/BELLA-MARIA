@@ -16,7 +16,6 @@ function objetoAjax(){
 }
 
 function RegistrarContactos(){
-	alert("entro pora ki");
 nombre= document.frmContacto.nombre.value;
 apellido= document.frmContacto.apellido.value;
 email= document.frmContacto.email.value;
@@ -36,7 +35,6 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("nombre="+nombre+"&apellido="+apellido+"&email="+email+"&mensaje="+mensaje)
 
-alert(nombre+"   "+apellido+"  "+email+"  "+mensaje);
 }
 
 function RegistrarUsuario(accion){
