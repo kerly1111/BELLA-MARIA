@@ -1,17 +1,13 @@
 <?php session_start();
 ?>
 
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <script  src="js/jquery.flexisel.js"></script>
+<!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
+<link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
+<script type="text/javascript" src="js/jcarousel.skeleton.js"></script>
+<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
-    <script type="text/javascript" src="js/jcarousel.skeleton.js"></script>
-    <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-    
-<section>
 <div id="contenido" class="margenNoticias">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div id="myCarousel" class="carousel slide " data-ride="carousel">
     
          <div class="carousel-inner" role="listbox">
          
@@ -49,13 +45,13 @@
           <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
         </div>
         <div id="secundario">
-        <div> <h1 class="big-bold"><?php print($row->tit_modulo);?></h1>
-        <hr><p style="text-align: justify;">
+        <p class="big-bold titulo-responsive"><?php print($row->tit_modulo);?></p>
+        <p style="text-align: justify;" class="txt-responsive">
          <?php print substr(($row->des_modulo),0,200);?>..... </p>
-         <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Lerr mas...
+         <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success btn-responsive">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Leer mas...
               </button></a>
-         </div>
+         
          </div>
         </div>
         
@@ -88,6 +84,7 @@
       </div>
 
   </div>
+</div>
 </div>
              
  <br>
@@ -124,6 +121,4 @@
 
 </div>
 
-</section>
-    
 </section>
