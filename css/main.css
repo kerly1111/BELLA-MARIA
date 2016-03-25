@@ -293,7 +293,7 @@ body > section {
   color: #d9534f;
 }
 .midnight-blue {
-  background-color: #2c3e50;
+  background-color: #006600;
 }
 .concrete {
   background-color: #95a5a6;
@@ -965,13 +965,13 @@ ul.rss li::before {
 #footer {
   padding-top: 30px;
   padding-bottom: 30px;
-  color: #bdc3c7;
+  color: #006600;
 }
 #footer a {
-  color: #bdc3c7;
+  color: #ffcc00;
 }
 #footer a:hover {
-  color: #d9534f;
+  color: #fff;
 }
 #footer ul {
   list-style: none;

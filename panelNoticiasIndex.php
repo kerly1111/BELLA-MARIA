@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
 <script type="text/javascript" src="js/jcarousel.skeleton.js"></script>
 <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-
+<hr> 
 <div id="contenido" class="margenNoticias">
     <div id="myCarousel" class="carousel slide " data-ride="carousel">
     
@@ -48,10 +48,7 @@
         <p class="big-bold titulo-responsive"><?php print($row->tit_modulo);?></p>
         <p style="text-align: justify;" class="txt-responsive">
          <?php print substr(($row->des_modulo),0,200);?>..... </p>
-         <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success btn-responsive">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Leer mas...
-              </button></a>
-         
+         <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success btn-responsive"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Leer mas...</button></a>
          </div>
         </div>
         
@@ -87,13 +84,10 @@
 </div>
 </div>
              
- <br>
-<section>
 
-<div id="LimpiarLayut">
+<div id="LimpiarLayut ">
 
-<div class="wrapper ">
-  <div class="jcarousel-wrapper">
+  <div class="wrapper jcarousel-wrapper margeMenuNoticias">
   <div class="jcarouselNAV-left"><a class="jcarousel-control-prev"></a></div>
     <div class="jcarousel jcarouselNAV">
       <ul>
@@ -115,10 +109,6 @@
       </ul>
       <div class="jcarouselNAV-right"><a class="jcarousel-control-next"></a></div>
     </div>
-    
   </div>
 </div>
 
-</div>
-
-</section>

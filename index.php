@@ -1,49 +1,422 @@
 <?php include 'cabecera.php' ?>
 <?php include 'banner.php' ?>
 <?php include 'panelNoticiasIndex.php' ?>
+
 <?php 
 if(isset($_SESSION["logeo"])){
 unset($_SESSION["logeo"]);
 }
 ?>
-<div class="panel-body">
+
+
+
 <div class="panel-body">
 <div class="row">
-  <div class="col-md-4">
 
+  <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">Video 1</div>
-  <div class="panel-body embed-responsive embed-responsive-16by9">
-  
-   <iframe class="embed-responsive-item" width="375" height="340"src="http://www.youtube.com/embed/00m8uyRqkC4"></iframe>
+  <div class="panel-heading">NOTICIAS</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='NOTICIA' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
 
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
   </div>
   </div>
 
-  </div>
   <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">TURISMO</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='TURISMO' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
 
-<div class="panel panel-success">
-  <div class="panel-heading">Video 2</div>
-  <div class="panel-body embed-responsive embed-responsive-16by9">
-    
-   <iframe class="embed-responsive-item" width="375" height="340"src="http://www.youtube.com/embed/xpga0VG51Zs"></iframe>
-
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
   </div>
-</div>
-
+  </div>
   </div>
 
   <div class="col-md-4">
-    <div class="panel panel-success">
-    <div class="panel-heading">Video 3</div>
-    <div class="panel-body embed-responsive embed-responsive-16by9">
+  <div class="panel panel-success">
+  <div class="panel-heading">EVENTOS</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='EVENTO' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
 
-        <iframe class="embed-responsive-item" width="375" height="340"src="http://www.youtube.com/embed/ObsCQ8L7nOc"></iframe>
-
-    </div>
-    </div>
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
   </div>
-</div>
-</div>
-</div>
+  </div>
+  </div>   
+  </div>
+
+  <div class="row">
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">EDUCAIÓN</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='EDUCAIÓN' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">ARTESANAL</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='ARTESANAL' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">COSTUMBRE Y TRADICIONES</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='COSTUMBRE Y TRADICIONES' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>   
+  </div>
+
+  <div class="row">
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">AGRICOLA</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='AGRICOLA' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">SALUD</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='SALUD' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>
+
+  <div class="col-md-4">
+  <div class="panel panel-success">
+  <div class="panel-heading">CULTURA, DEPORTES Y MAS</div>
+  <div class="panel-body">
+  <center>
+   <?php
+    $contador=0;
+    $con = conectar();
+    $sql = "SELECT * FROM modulo WHERE tip_modulo='CULTURA, DEPORTES Y MAS' ORDER BY id_modulo DESC";
+    $stmt = $con->prepare($sql);
+
+    $result = $stmt->execute();
+    $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
+    foreach($rows as $row){
+    if($contador>2){
+    	break;
+    }
+    	$img="";
+	    $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
+	    $stmt2 = $con->prepare($sql2);
+	    $result2 = $stmt2->execute();
+	    $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+	    foreach($rows2 as $row2){
+	        $img=($row2->nom_imagen);
+	        break;
+	    }
+    ?>
+    <a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>"><?php print($row->tit_modulo);?></a><br><br>
+    <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="img-responsive imgIndexMod">
+    <div class="panel panel-default">
+  		<div class="panel-body">
+    		<p style="text-align: justify;">
+         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+  		</div>
+		</div>
+    <?php
+    $contador=$contador+1;
+    }
+ 	?>
+  </center>
+  </div>
+  </div>
+  </div>   
+  </div>
+
+  </div>
+</section>
+<?php include 'videos.php' ?>
+<?php include 'pie.php' ?>

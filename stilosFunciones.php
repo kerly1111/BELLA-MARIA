@@ -37,6 +37,7 @@
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
     <script src="js/bootstrap.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="href='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script type="text/javascript" src="js/gmaps.js"></script> 

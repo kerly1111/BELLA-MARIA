@@ -49,7 +49,6 @@
 				</div>
 			</div>
 </center>
-</section>
 
 <script type="text/javascript">
 	$(function() {

@@ -25,18 +25,19 @@ $id= $_GET['saludo'];
 ?>
 <SECTION>
 		<div class="panel panel-success margenNoticias">
-		<div class="panel-heading"><h3 align="center"><?php print($row->tit_modulo);?></h3></div>
+		<div class="panel-heading"><p class="tituloMod-responsive" align="center"><?php print($row->tit_modulo);?></p></div>
 		<div class="panel-body">
+    <center>
 		<div id="contenido" class="margenNoticias">
-		<div id="principal">
+		<div id="principalMod">
           <img src="imagenes/modulos/<?php print $img?>" alt="<?php print($row->id_modulo);?>" class="imagenPanel">
         </div>
-        <div id="secundario">
-        <hr>
-        <p style="text-align: justify;">
-         <?php print($row->des_modulo);?> </p><hr>
+        <div id="secundarioMod">
+        <p class="txt-responsive" style="text-align: justify;">
+         <?php print($row->des_modulo);?> </p>
          </div>
 		</div>
+    </center>
 		</div>
 		</div>
 
@@ -65,15 +66,11 @@ $id= $_GET['saludo'];
 <?php
 }
 ?>
-
 </div>
 </div>
 </div>
 </center>
 </SECTION>
-<br>
-<br>
-<br>
 
 
 <script type="text/javascript">
@@ -144,3 +141,5 @@ $(document).ready(function(){
   }
   })
 </script>
+<?php include 'videos.php' ?>
+<?php include 'pie.php' ?>
