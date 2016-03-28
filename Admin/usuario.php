@@ -9,11 +9,18 @@
   <div class="panel-body">
 
 
-      <div class="starter-template">
-        <button type="button" onclick="Nuevo();" class="btn btn-success btn-lg" >
+      <br>
+      <div class="form-inline starter-template">
+        <div class="input-group">
+          <input id="buscarInput" type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon2" onKeyUp="buscar();">
+          <span class="glyphicon glyphicon-search input-group-addon" id="basic-addon2"></span>
+        </div> &nbsp;
+        <!--<button class="btn btn-success" type="button" ><i class="icon-search"></i></button>-->
+        <button type="button" onclick="Nuevo();" class="btn btn-success" >
           <span class="glyphicon glyphicon-user"></span> Nuevo
         </button>
       </div>
+      <br>
 <div class="panel panel-info">
         <div class="panel-heading">Lista de Usuarios</div>
         <div class="panel-body">
@@ -28,7 +35,7 @@
               
             </tr>
           </thead>
-          <tbody>
+          <tbody id="modulosTabla">
             <?php
             require("../clases/conexion.php");
             $con = conectar();
@@ -46,11 +53,11 @@
                 <td><?php print($row->ape_usuario); ?></td>
                 <td><?php print($row->cla_usuario); ?></td>
                 <td>
-                  <div class="btn-group">
+                  <div>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');">Actualizar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_usuario); ?>');">Eliminar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="EliminarUsuario('<?php print($row->id_usuario); ?>');"> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
           
                   </div>
                 </td>
@@ -121,6 +128,14 @@
     
 <script type="text/javascript">
     var accion;
+    function buscar(){
+      var textoBusqueda = document.getElementById("buscarInput").value;
+
+            $.post("buscarUsuario.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#modulosTabla").html("");
+              $("#modulosTabla").html(mensaje);
+            }); 
+    }
     function Nuevo(){
       accion = 'N';
       document.frmUsuario.cedula.value = "";

@@ -2,10 +2,11 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
 
+
       <section id="contact-page" class="container">
         <div class="row">
             
-            <br><hr>
+            <br>
             <h4>Contactanos</h4>
             <hr>
             <form role="form" name="frmContacto" enctype="multipart/form-data">
@@ -27,10 +28,11 @@
                 <br>                             
               
               <button type="button" class="btn btn-primary btn-lg" onclick="RegistrarContactos();" >Enviar Mensaje </button>
-
-              <a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir con popup</a>                      
+                                   
             </div>
             </form>
             </div>
             </section>
+            <br>
+
     <?php include 'pie.php' ?>

@@ -1,52 +1,62 @@
 <?php include 'stilosFunciones.php' ?>
-<?php include 'cabecera.php' ?>
+<?php include 'cabecera.php' ;
+if(isset($_SESSION["loginname"])){
+?>
 
 <script type="text/javascript" src="../js/ajax.js"></script>
+<div  class="panel panel-info col-lg-10 col-sm-10 ">
 
-<div class="panel panel-info col-lg-10 col-sm-10 ">
-  <div class="panel-body">
+<!--<input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="Aeropuerto" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />-->
+                   <ul id="resultadoBusqueda" class="list-unstyled press"></ul>
+                   <input type="hidden" name="aeropuerto1"  id="aeropuerto1" />
 
-
-      <div class="starter-template">
-        <button type="button" onclick="Nuevo();" class="btn btn-primary btn-lg" >
+      <br>
+      <div class="form-inline starter-template">
+        <div class="input-group">
+          <input id="buscarInput" type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon2" onKeyUp="buscar();">
+          <span class="glyphicon glyphicon-search input-group-addon" id="basic-addon2"></span>
+        </div> &nbsp;
+        <!--<button class="btn btn-success" type="button" ><i class="icon-search"></i></button>-->
+        <button type="button" onclick="Nuevo();" class="btn btn-success" >
           <span class="glyphicon glyphicon-user"></span> Nuevo
         </button>
       </div>
-<div class="panel panel-info">
-        <div class="panel-heading">Lista de Noticias</div>
+      <br>
+
+        <div class="panel-heading">Lista de Módulos</div>
         <div class="panel-body">
         <table class="table">
           <thead>
             <tr>
-              <th>Id Modulo</th>
               <th>Tipo Modulo</th>
               <th>Titulo</th>
               <th>Descripcion</th>                          
             </tr>
           </thead>
-          <tbody>
+          <tbody id="modulosTabla">
             <?php
             require("../clases/conexion.php");
             $con = conectar();
-            $sql = "SELECT id_modulo, tip_modulo, tit_modulo, des_modulo FROM modulo";
+            $sql = "SELECT id_modulo, tip_modulo, tit_modulo, des_modulo FROM modulo WHERE est_modulo='1'";
             $stmt = $con->prepare($sql);
       
             $result = $stmt->execute();
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
             foreach($rows as $row){
+
+                
               ?>
               <tr>
-                <td><?php print($row->id_modulo); ?></td>
                 <td><?php print($row->tip_modulo); ?></td>
-                <td><?php print($row->tit_modulo); ?></td>
-                <td><?php print($row->des_modulo); ?></td>
+                <td class="siseColTITMOD"><?php print($row->tit_modulo); ?></td>
+                <td class="siseColDESMOD"><?php print($row->des_modulo); ?></td>
                 <?php $_SESSION['codModulo']=($row->id_modulo) ?>
                 <td>
-                  <div class="btn-group">
+                  <div>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');">Actualizar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
 
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Eliminar('<?php print($row->id_modulo); ?>');">Eliminar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="EliminarModulo('<?php print($row->id_modulo); ?>');"> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
           
                   </div>
                    
@@ -140,19 +150,29 @@
               
             </form>
             <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="cargar(); RegistrarModulo(accion); return false">
+              <button type="button" class="btn btn-info" onClick="cargar(); RegistrarModulo(accion, idModulo); return false">
               <!--<button type="button" class="btn btn-info" onClick="cargar();">-->
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
+        <!--<a href="javascript: void(0);" onclick="window.open('http://www.facebook.com/sharer.php?u=http://www.guiarte.com/','ventanacompartir', 'toolbar=0, status=0, width=650, height=450');">Compartir con popup</a>-->
             </div>
           </div>
         </div> 
       </div>
 
-    </div>
 
 <script type="text/javascript">
+
+    function buscar(){
+      var textoBusqueda = document.getElementById("buscarInput").value;
+
+            $.post("buscarModulo.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
+              $("#modulosTabla").html("");
+              $("#modulosTabla").html(mensaje);
+            }); 
+    }
+    var idModulo;
     var accion;
     function Nuevo(){
       accion = 'N';
@@ -181,9 +201,36 @@
     }
     function Editar(id, tipo, titulo, descripcion){
       accion = 'E';
+      idModulo=id;
       document.frmmodulos.tipo.value = tipo;
       document.frmmodulos.titulo.value = titulo;
       document.frmmodulos.descripcion.value = descripcion;
+      caracteresDescripcion();
+      
+      document.frmmodulos.foto.src = "../imagenes/modulos/"+id+".png";
+      document.frmmodulos.foto.className ="fotoPerfil";
+      document.frmmodulos.images.innerHTML =document.frmmodulos.foto;
+      
+      $('#modal').modal('show');
+    }
+    function imagenesMod(){
+      document.frmmodulos.imagenes1.value = "";
+      document.frmmodulos.foto1.src = "";
+      document.frmmodulos.foto1.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes2.value = "";
+      document.frmmodulos.foto2.src = "";
+      document.frmmodulos.foto2.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes3.value = "";
+      document.frmmodulos.foto3.src = "";
+      document.frmmodulos.foto3.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes4.value = "";
+      document.frmmodulos.foto4.src = "";
+      document.frmmodulos.foto4.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes5.value = "";
+      document.frmmodulos.foto5.src = "";
+      document.frmmodulos.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+
+
       $('#modal').modal('show');
 
     }
@@ -562,4 +609,6 @@
 </script>
 
 </div>
-</div>
+<?php
+}
+?>

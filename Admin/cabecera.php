@@ -1,12 +1,29 @@
+<?php
+session_start(); 
+if(isset($_SESSION["loginname"])){
+if($_SESSION["loginname"]==""){
+echo "<h3>Redireccionando....</h3>";
+echo '<meta http-equiv="refresh" content="1; url=../index.php">';
+}else{
+?>
 <?php include 'stilosFunciones.php' ?>
-<?php session_start(); ?>
-    <header id="cabeceraMenu" class="navbar navbar-superior navbar-fixed-top" role="banner">
-    <form class="form-inline col-md-2" role="form">
-        <div class="form-group margen-tope-buscar"><img width="200" src="../imagenes/LOGO2.png"></div>
-        </form>
-    <form class="form-inline col-md-3 " role="form">
-        
-        <div class="collapse navbar-collapse margen-tope-nav margenFecha" >
+<nav class="navbar navbar-superior navbar-fixed-top " role="navigation">
+  
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    <div class="form-group margen-tope-buscar margenLogo"><img width="200" src="../imagenes/LOGO2.png"></div>
+  </div>
+
+
+ <div class="collapse navbar-collapse navbar-ex1-collapse margenBuscar">
+ <center><h2 style="color: #fff; float: left; padding-left: 10%; padding-top: 1%">Bienvenido <?php print($_SESSION["loginname"]) ?> </h2></center>
+    <div class="navbar-form navbar-right margen-tope-buscar" >
+      <div class="form-inline margenBuscar">
         <script languaje="JavaScript"> 
         var mydate=new Date() 
         var year=mydate.getYear() 
@@ -21,66 +38,61 @@
         var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
         document.write("<font color='black' face='Georgia' style='font-size:11pt'>"+dayarray[day]+" "+daym+" del "+montharray[month]+" de "+year+"</font>") 
         </script>
-
-        <div id="TT_vhYkEk1Ek1Ej2cGA7fzZrDDZLWlA1f2E1Ykzjy3rZlAomIGIG">
-        </div>
-        <script type="text/javascript" src="http://www.tutiempo.net/widget/eltiempo_vhYkEk1Ek1Ej2cGA7fzZrDDZLWlA1f2E1Ykzjy3rZlAomIGIG">
-        </script><!-- END: Custom advanced (www.pluginaria.com) -->
-        </div>   
-     </form>
+        &nbsp;
+        &nbsp;
         <form class="form-inline navbar-right margenBuscar" action='deslogeo.php' role="form">
-        <div class="form-group margen-tope-buscar">
-           <input name="buscar" id="buscar" maxlength="200" class="form-control inputbox search-query" type="text"  placeholder="Buscar...">
-           <button class="btn btn-success" type="button"><i class="icon-search"></i></button>
-
+        <div class="form-group">
            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp; Salir</button>
-           
         </div>
         </form>
 
-        <div class="collapse navbar-collapse margenBuscar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li ><a href="">INICIO</a></li>
-                    <li ><a href="">GAD</a></li>
-                    <li ><a href="">BELLA MARIA</a></li>
-                    <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
+        
+      </div>
+    </div>
 
-                    <ul class="dropdown-menu">
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    <li class="active"><a href="index.php">Inicio</a></li>
-                    </ul>
-
-                    </li>
-                    <li ><a href="turismo.php">TURISMO</a></li>
-                    <li ><a href="portfolio.html">EVENTOS</a></li>
-                    <li ><a href="portfolio.html">TRANSPARENCIA</a></li>
-                    <li ><a href="ubicacion.php">UBICACIÓN</a></li>
-                    <li ><a href="contactos.php">CONTACTANOS</a></li>
-                </ul>
-            </div>
-    </header>
-
-        <section >
+  <br>
+  <br>
+  <br>
+    <ul class="nav navbar-nav navbar-right distanciaFilas">
+        <li class="active"><a href="gad.php">GAD</a></li>
+        <li class="active"><a href="contactos.php">CONTACTANOS</a></li>
+    </ul>
+ 
+   
+  </div>
+</nav>
+<div class="espaciado"></div>
+        
          <!-- left menu starts -->
-        <div class="col-sm-2 col-lg-2">
-            <div class="sidebar-nav">
-                <div class="nav-canvas">
-                    <ul class="nav nav-pills nav-stacked main-menu">
-                        <li class="nav-header">Menu</li>
+        <div class="col-sm-2 col-lg-2 ">
+            <div class="sidebar-nav " style="background-color: #006600;">
+                <div class="nav-canvas ">
+                    <ul class="nav nav-pills nav-stacked main-menu menuAdminletras" >
+                        <li class="nav-header"><h3>Menu</h3></li>
                         <li><a class="ajax-link" href="perfil.php"><i class="glyphicon glyphicon-picture"></i><span> Perfil</span></a>
                         </li>
-                        <li><a class="ajax-link" href="usuario.php"><i class="glyphicon glyphicon-user"></i><span> Usuarios</span></a>
-                        </li>
+                        <?php 
+                            if($_SESSION["logeo"]=="ADMINISTRADOR"){
+                        ?>
+                                <li><a class="ajax-link" href="usuario.php"><i class="glyphicon glyphicon-user"></i><span> Usuarios</span></a>
+                                </li>
+                        <?php
+                            }
+                        ?>
                         <li><a class="ajax-link" href="modulo.php"><i class="glyphicon glyphicon-tasks"></i><span> Modulos</span></a>
                         </li>
-                        <li><a class="ajax-link" href="contacto.php"><i class="glyphicon glyphicon-phone-alt"></i><span> Contactos</span></a>
+                        <li><a class="ajax-link" href="contacto.php"><i class="glyphicon glyphicon-phone-alt"></i><span> Videos</span></a>
                         </li>
-                        
-                        </li>
+                        <br>
                     </ul>
                 </div>
             </div>
         </div>
-        </section><!--/#title--> 
 
+<?php
+}
+}else{
+    echo "<h3>Redireccionando....</h3>";
+    echo '<meta http-equiv="refresh" content="1; url=../index.php">';
+}
+?>

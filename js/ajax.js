@@ -43,7 +43,11 @@ usuario= document.frmUsuario.usuario.value;
 clave= document.frmUsuario.clave.value;
 nombre= document.frmUsuario.nombre.value;
 apellido= document.frmUsuario.apellido.value;
-nombreFoto= document.frmUsuario.cedula.value+".png";
+if(document.frmUsuario.nomIMG.value==""){
+	nombreFoto= "perfilDefault.png";	
+}else{
+	nombreFoto= document.frmUsuario.cedula.value+".png";
+}
 rutaFoto= "../imagenes/fotosPerfil/";
 
 ajax = objetoAjax();
@@ -89,7 +93,7 @@ ajax.send("cedula="+cedula+"&clave="+clave+"&nueva="+nueva+"&confirmar="+confirm
 
 
 
-function RegistrarModulo(accion){
+function RegistrarModulo(accion, idModulo){
 tipo = document.frmmodulos.tipo.value;
 titulo = document.frmmodulos.titulo.value;
 descripcion = document.frmmodulos.descripcion.value;
@@ -100,11 +104,24 @@ nombreFoto4= document.frmmodulos.nomIMG4.value;
 nombreFoto5= document.frmmodulos.nomIMG5.value;
 rutaFoto= "../imagenes/modulos/";
 
+var mydate=new Date() 
+        var year=mydate.getYear() 
+        if (year < 1000) 
+        year+=1900 
+        var day=mydate.getDay() 
+        var month=mydate.getMonth() 
+        var daym=mydate.getDate() 
+        if (daym<10) 
+        daym="0"+daym 
+        var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
+        var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+fecha=dayarray[day]+" "+daym+" del "+montharray[month]+" de "+year; 
+
 ajax = objetoAjax();
 if(accion=='N'){
 ajax.open("POST", "../clases/insertarModulo.php", true);
 }else if(accion=='E'){
-ajax.open("POST", "clases/actualizar.php", true);
+ajax.open("POST", "../clases/actualizarModulo.php", true);
 }
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
@@ -114,13 +131,13 @@ ajax.onreadystatechange=function() {
 		
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&rutaFoto="+rutaFoto+"&nombreFoto1="+nombreFoto1+"&nombreFoto2="+nombreFoto2+"&nombreFoto3="+nombreFoto3+"&nombreFoto4="+nombreFoto4+"&nombreFoto5="+nombreFoto5)
+ajax.send("id_modulo"+idModulo+"&fec_modulo="+fecha+"&tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&rutaFoto="+rutaFoto+"&nombreFoto1="+nombreFoto1+"&nombreFoto2="+nombreFoto2+"&nombreFoto3="+nombreFoto3+"&nombreFoto4="+nombreFoto4+"&nombreFoto5="+nombreFoto5)
 }
 
-function Eliminar(idP){
-if(confirm("En realizad desea eliminar este registro?"+idP)){
+function EliminarModulo(idP){
+if(confirm("En realidad desea eliminar este registro?")){
 ajax = objetoAjax();
-ajax.open("POST", "clases/eliminar.php", true);
+ajax.open("POST", "../clases/eliminarModulo.php", true);
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
 			alert('El registro fue eliminado con exito!');
@@ -128,8 +145,7 @@ ajax.onreadystatechange=function() {
 		}
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("idP="+idP)
-alert('idP='+idP);
+ajax.send("id_modulo="+idP)
 }else{
   //Sin acciones
 }

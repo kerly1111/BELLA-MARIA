@@ -1,5 +1,3 @@
-<?php session_start();
-?>
 
 <!--<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>-->
 <link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
@@ -15,7 +13,7 @@
         $contador=0;
         require("clases/conexion.php");
         $con = conectar();
-        $sql = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+        $sql = "SELECT * FROM modulo WHERE est_modulo='1' ORDER BY id_modulo DESC";
         $stmt = $con->prepare($sql);
   
         $result = $stmt->execute();
@@ -94,7 +92,7 @@
         <?php
 
         $con = conectar();
-        $sql1 = "SELECT * FROM modulo ORDER BY id_modulo DESC";
+        $sql1 = "SELECT * FROM modulo  WHERE est_modulo='1' ORDER BY id_modulo DESC";
         $stmt1 = $con->prepare($sql1);
   
         $result1 = $stmt1->execute();

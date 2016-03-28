@@ -1,6 +1,7 @@
 <?php
 session_start(); 
-
+$id_modulo = $_POST['id_modulo'];
+$fec_modulo = $_POST['fec_modulo'];
 $tipo = $_POST['tipo'];
 $titulo = $_POST['titulo'];
 $descripcion= $_POST['descripcion'];
@@ -17,9 +18,9 @@ $nombreFoto5= $_POST['nombreFoto5'];
 require("conexion.php");
 
 $con=conectar();
-$sql = 'INSERT INTO modulo(tip_modulo, tit_modulo, des_modulo) VALUES (:tipo, :titulo, :descripcion)';
+$sql = 'INSERT INTO modulo(tip_modulo, tit_modulo, des_modulo, fec_modulo) VALUES (:tipo, :titulo, :descripcion, :fec_modulo)';
 $sql=$con->prepare($sql); //preparamos la sentencia SSQL
-$sql->execute(array (':tipo'=>$tipo,':titulo'=>$titulo,':descripcion'=>$descripcion));
+$sql->execute(array (':tipo'=>$tipo,':titulo'=>$titulo,':descripcion'=>$descripcion,':fec_modulo'=>$fec_modulo));
 
 $sql = 'INSERT INTO imagenes(id_imagen, ubi_imagen, nom_imagen, modulo_id_modulo) VALUES (:codigo, :rutaFoto, :nom_imagen, :codigoMod)';
 $sql=$con->prepare($sql); //preparamos la sentencia SSQL

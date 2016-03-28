@@ -1,5 +1,7 @@
 <?php include 'stilosFunciones.php' ?>
-<?php include 'cabecera.php' ?>
+<?php include 'cabecera.php';
+if(isset($_SESSION["loginname"])){
+?>
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   	<div class="panel-body">
@@ -25,7 +27,7 @@
      	
         <?php
 		$cedula=$_SESSION["logeo"];
-		$nomFoto=$cedula.".png";
+		
         require("../clases/conexion.php");
         $con = conectar();
         $sql = "SELECT * FROM usuario where id_usuario='$cedula'";
@@ -40,7 +42,7 @@
 			  <div class="col-md-2"></div>
 			  
 			  <div class="col-md-2 col-md-offset-1">
-				<IMG SRC="../imagenes/fotosPerfil/<?php print $nomFoto?>" WIDTH=250 HEIGHT=350 BORDER=3>
+				<IMG SRC="../imagenes/fotosPerfil/<?php print($row->nom_fot_usuario) ?>" WIDTH=250 HEIGHT=350 BORDER=3>
 			  	<br>
 			  	<br>
 
@@ -231,4 +233,6 @@
 
  
   </div>
- 
+ <?php
+}
+ ?>

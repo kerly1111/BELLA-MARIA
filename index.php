@@ -2,13 +2,6 @@
 <?php include 'banner.php' ?>
 <?php include 'panelNoticiasIndex.php' ?>
 
-<?php 
-if(isset($_SESSION["logeo"])){
-unset($_SESSION["logeo"]);
-}
-?>
-
-
 
 <div class="panel-body">
 <div class="row">
@@ -21,13 +14,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='NOTICIA' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE  est_modulo='1' and tip_modulo='NOTICIA' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -45,7 +38,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -65,13 +58,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='TURISMO' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='TURISMO' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -89,7 +82,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -109,13 +102,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='EVENTO' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='EVENTO' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -133,7 +126,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -156,13 +149,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='EDUCAIÓN' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='EDUCAIÓN' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -180,7 +173,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -200,13 +193,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='ARTESANAL' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='ARTESANAL' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -224,7 +217,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -244,13 +237,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='COSTUMBRE Y TRADICIONES' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='COSTUMBRE Y TRADICIONES' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -268,7 +261,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -291,13 +284,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='AGRICOLA' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='AGRICOLA' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -315,7 +308,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -335,13 +328,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='SALUD' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='SALUD' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -359,7 +352,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -379,13 +372,13 @@ unset($_SESSION["logeo"]);
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE tip_modulo='CULTURA, DEPORTES Y MAS' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='CULTURA, DEPORTES Y MAS' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
     $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
     foreach($rows as $row){
-    if($contador>2){
+    if($contador>1){
     	break;
     }
     	$img="";
@@ -403,7 +396,7 @@ unset($_SESSION["logeo"]);
     <div class="panel panel-default">
   		<div class="panel-body">
     		<p style="text-align: justify;">
-         <?php print substr(($row->des_modulo),0,170);?>..... </p>
+         <?php print substr(($row->des_modulo),0,170);?>..... </p><a class="stily-titulo" href="modulo.php?saludo=<?php print($row->id_modulo);?>">Leer mas...</a>
   		</div>
 		</div>
     <?php
@@ -418,5 +411,6 @@ unset($_SESSION["logeo"]);
 
   </div>
 </section>
+
 <?php include 'videos.php' ?>
 <?php include 'pie.php' ?>

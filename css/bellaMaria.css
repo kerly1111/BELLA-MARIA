@@ -17,7 +17,6 @@ font-weight: bold;
   font-weight: bold;
 }
 
-
 @media (max-width: 1285px) {
 .navbar-superior .navbar-nav > li > a {
   padding-top: 7px;
@@ -432,4 +431,32 @@ color: #006600;
 
 .imgIndexMod{
   max-height: 300px; 
+}
+
+/*menu del administrador*/
+
+.espaciado{
+  height: 50px;
+}
+
+.espacioCol{
+width: 100px;
+}
+
+.menuAdminletras >li{
+padding-left: 5px;
+padding-right: 5px;
+}
+
+.menuAdminletras >li>a{
+  color: #006600;
+ background-color: #ffcc00;
+}
+
+.siseColDESMOD{
+  max-width: 500px;
+}
+
+.siseColTITMOD{
+  max-width: 200px;
 }

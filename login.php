@@ -1,6 +1,5 @@
 <?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
-<?php session_start(); ?>
 <section>
 
     <div class="container" style="margin-top:40px">

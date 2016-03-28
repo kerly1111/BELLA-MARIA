@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(isset($_SESSION["logeo"])){
+unset($_SESSION["logeo"]);
+unset($_SESSION["loginname"]);
+}
+?>
+
 <?php include 'stilosFunciones.php' ?>
 
 <nav class="navbar navbar-superior navbar-fixed-top " role="navigation">
