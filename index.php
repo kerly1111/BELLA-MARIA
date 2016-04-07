@@ -6,9 +6,9 @@
 <div class="panel-body">
 <div class="row">
 
-  <div class="col-md-4">
+  <div class="col-md-4" style="">
   <div class="panel panel-success">
-  <div class="panel-heading">NOTICIAS</div>
+  <div class="panel-heading styleBellaMAria">NOTICIAS</div>
   <div class="panel-body">
   <center>
    <?php
@@ -52,7 +52,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">TURISMO</div>
+  <div class="panel-heading styleBellaMAria">TURISMO</div>
   <div class="panel-body">
   <center>
    <?php
@@ -96,7 +96,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">EVENTOS</div>
+  <div class="panel-heading styleBellaMAria">EVENTOS</div>
   <div class="panel-body">
   <center>
    <?php
@@ -143,7 +143,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">EDUCAIÓN</div>
+  <div class="panel-heading styleBellaMAria">EDUCAIÓN</div>
   <div class="panel-body">
   <center>
    <?php
@@ -187,7 +187,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">ARTESANAL</div>
+  <div class="panel-heading styleBellaMAria">ARTESANAL</div>
   <div class="panel-body">
   <center>
    <?php
@@ -231,7 +231,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">COSTUMBRE Y TRADICIONES</div>
+  <div class="panel-heading styleBellaMAria">COSTUMBRE Y TRADICIONES</div>
   <div class="panel-body">
   <center>
    <?php
@@ -278,7 +278,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">AGRICOLA</div>
+  <div class="panel-heading styleBellaMAria">AGRICOLA</div>
   <div class="panel-body">
   <center>
    <?php
@@ -322,7 +322,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">SALUD</div>
+  <div class="panel-heading styleBellaMAria">SALUD</div>
   <div class="panel-body">
   <center>
    <?php
@@ -366,7 +366,7 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading">CULTURA, DEPORTES Y MAS</div>
+  <div class="panel-heading styleBellaMAria">CULTURA, DEPORTES Y MAS</div>
   <div class="panel-body">
   <center>
    <?php

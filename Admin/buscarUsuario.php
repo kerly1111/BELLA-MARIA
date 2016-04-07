@@ -1,5 +1,4 @@
 <?php
-   if(isset($_SESSION["loginname"])){
  	 require("../clases/conexion.php");
      $con = conectar();
 	$consultaBusqueda = $_POST['valorBusqueda'];
@@ -14,7 +13,7 @@
 	if (isset($consultaBusqueda)) {
 
 
-            $sql3 = "SELECT * FROM  usuario where  id_usuario like '%$consultaBusqueda%' or nom_usuario like '%$consultaBusqueda%' or use_usuario like '%$consultaBusqueda%' or ape_usuario like '%$consultaBusqueda%'";
+            $sql3 = "SELECT * FROM  usuario where  (id_usuario like '%$consultaBusqueda%' or nom_usuario like '%$consultaBusqueda%' or use_usuario like '%$consultaBusqueda%' or ape_usuario like '%$consultaBusqueda%') AND use_usuario != 'ADMINISTRADOR'";
             $stmt3 = $con->prepare($sql3);
             $result3 = $stmt3->execute(array(':codigoA'=>($consultaBusqueda)));
             $rows3 = $stmt3->fetchAll(\PDO::FETCH_OBJ);
@@ -25,9 +24,11 @@
             $nombre=$row3->nom_usuario;
             $apellido=$row3->ape_usuario;
             $clave=$row3->cla_usuario;
+            $nombreFoto=$row3->nom_fot_usuario;
             $mensaje .= "
 
               <tr>
+                <td><IMG SRC='../imagenes/fotosPerfil/".$nombreFoto."' WIDTH=80 HEIGHT=80 BORDER=3/></td>
                 <td>".$id."</td>
                 <td>".$usuario."</td>
                 <td>".$nombre."</td>
@@ -39,7 +40,7 @@
                     <button type='button' class='btn btn-success btn-xs' onclick=EditarClase('".$id."','".$usuario."','".$nombre."','".$apellido."','".$clave."')>
                     <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar
                     </button>   &nbsp;
-                    <button type='button' class='btn btn-success btn-xs' onclick='EliminarUsuario('".$id."');''><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
+                    <button type='button' class='btn btn-success btn-xs' onclick=EliminarUsuario('".$id."');><span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
                   </div>
                 </td>
               </tr>
@@ -54,8 +55,5 @@
 
 //Devolvemos el mensaje que tomará jQuery
 echo $mensaje;
-}else{
-echo "<h3>Redireccionando....</h3>";
-echo '<meta http-equiv="refresh" content="1; url=../index.php">';
-}
+
 ?>

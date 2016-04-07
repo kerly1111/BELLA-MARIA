@@ -2,21 +2,9 @@
 session_start();
 $_SESSION["logeo"]="";
 $_SESSION["loginname"]="";
-$_SESSION["claAdmin"]="12345";
 $use_usuario = $_POST['loginname'];
 $cla_usuario = $_POST['password'];
 $control="1";
-    if($use_usuario=="ADMINISTRADOR"){
-        $control="0";
-    if($cla_usuario==$_SESSION["claAdmin"]){
-        $_SESSION["logeo"]="ADMINISTRADOR";
-        $_SESSION["loginname"]="ADMINISTRADOR";
-        echo '<meta http-equiv="refresh" content="1; url=../Admin/index.php">';
-    }else{
-        $_SESSION["logeo"]="Contraseña incorrecta";
-        echo '<meta http-equiv="refresh" content="1; url=../login.php">'; 
-    }
-    }
     require("conexion.php");
     $con = conectar();
     $sql = "SELECT * FROM usuario where use_usuario='$use_usuario'";
@@ -33,12 +21,12 @@ $control="1";
         $_SESSION["loginname"]=$usu;
         echo '<meta http-equiv="refresh" content="1; url=../Admin/index.php">';
     	}else{
-    	$_SESSION["logeo"]="Contraseña incorrecta";
+    	$_SESSION["mensaje"]="Contraseña incorrecta";
     	echo '<meta http-equiv="refresh" content="1; url=../login.php">';
     	}
     }
     if($control=="1"){
-    	$_SESSION["logeo"]="EL usuario no existe";
+    	$_SESSION["mensaje"]="EL usuario no existe";
     	echo '<meta http-equiv="refresh" content="1; url=../login.php">';
     }
             

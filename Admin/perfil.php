@@ -5,17 +5,7 @@ if(isset($_SESSION["loginname"])){
 
 <div class="panel panel-info col-lg-10 col-sm-10 ">
   	<div class="panel-body">
-    <h3>BIENVENIDO</h3>
-    <p class="lead"> Tu Perfil</p>
-
-
-  	
-<style>
-	#tel{
-	 margin-right:16px;	
-	}
-</style>
-
+    <p class="lead"> Tu Perfil</p>  	
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -37,30 +27,26 @@ if(isset($_SESSION["loginname"])){
         $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
         foreach($rows as $row){
           ?>
+       
        <div class="row">
 
-			  <div class="col-md-2"></div>
+			  <div class="col-md-2"><br><br>
+          <div >
+            <button type="button" class="btn btn-success" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');">Actualizar datos</button>
+            <button style=" margin-top: 8px;" type="button" class="btn btn-success" onclick="EditarClave();">Cambiar Foto</button>
+            <button style=" margin-top: 8px;" type="button" class="btn btn-success" onclick="EditarClave();">Cambiar Clave</button>
+          </div>
+        </div>
 			  
 			  <div class="col-md-2 col-md-offset-1">
 				<IMG SRC="../imagenes/fotosPerfil/<?php print($row->nom_fot_usuario) ?>" WIDTH=250 HEIGHT=350 BORDER=3>
 			  	<br>
 			  	<br>
-
-			  	<div class="btn-group">
-
-                    <button type="button" class="btn btn-danger btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');">Actualizar</button>
-
-                </div>
-
-          <div class="btn-group">
-
-              <button type="button" class="btn btn-danger btn-xs" onclick="EditarClave();">Cambiar Clave</button>
-
-                </div>
+          
+          
 			  </div>
 			  
 			  <div class="col-md-2"></div>
-			  
 			  <div class="col-md-2">
 
       <form role="form" name="frm" enctype="multipart/form-data">
@@ -83,7 +69,7 @@ if(isset($_SESSION["loginname"])){
 							  <label>Apellido</label>
 							  <input name="apellido" disabled class="form-control" value="<?php print($row->ape_usuario); ?>" required>
 				</div>
-        
+                <input name="claveAdmin" type="hidden" value="<?php print($row->cla_usuario); ?>" required>
         </form>
 
 			  </div>
@@ -116,8 +102,6 @@ if(isset($_SESSION["loginname"])){
                   <input name="usuario" class="form-control" required>
                 </div>
 
-
-
                 <div class="form-group">
                   <label>Nombre</label>
                   <input name="nombre" id="nombre" class="form-control" required>
@@ -127,14 +111,12 @@ if(isset($_SESSION["loginname"])){
                   <label>Apellido</label>
                   <input name="apellido" class="form-control"  required >
                 </div>
-
                 
               </div>
             </form>
 
            <div class="modal-footer">
-              <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
-              <button type="button" class="btn btn-info" onClick="RegistrarPerfil(idusuario,accion); return false">
+              <button type="button" class="btn btn-info" onClick="ActualizarPerfil(); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
     
               </button>
@@ -150,27 +132,26 @@ if(isset($_SESSION["loginname"])){
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <div class="modal-title" >Datos de perfil</div>
+              <div class="modal-title" >Datos de perfil</div><br>
             </div>
            <form role="form" name="frmClave" enctype="multipart/form-data">
               <div class="col-lg-12">
-                
-                <div class="form-group"  ><br>
-                  <label>Clave Anterior</label>
+                <br>
+                <div class="form-group"  >
+                  <label>Contraseña Anterior</label>
                   <input class="form-control" name="clave" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
+                  <div class="borrarMensaje" id="claveAnterior">La contraseña es errorea</div>
                 </div>
 
-                 <div class="form-group"><br>
-                  <label>Nueva Clave</label>
+                 <div class="form-group">
+                  <label>Nueva Contraseña</label>
                   <input class="form-control" name="nueva" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
                 </div>
 
-
-
-                <div class="form-group"><br>
-                  <label>Confirmar Clave</label>
+                <div class="form-group">
+                  <label>Confirmar Contraseña</label>
                  <input class="form-control" name="confirmar" placeholder="Contraseña" id="password" name="password" type="password"  required="required">
-
+                 <div class="borrarMensaje" id="clavesConiciden">Las contraseñas no coinciden</div>
                 </div>
 
                                
@@ -178,8 +159,7 @@ if(isset($_SESSION["loginname"])){
             </form>
 
            <div class="modal-footer">
-              <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
-              <button type="button" class="btn btn-info" onClick="CambiarClave(idusu, accion); return false">
+              <button type="button" class="btn btn-info" onClick="if(comprobarClave()){CambiarClave(idusu, accion); return false}">
               <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
     
               </button>
@@ -192,25 +172,10 @@ if(isset($_SESSION["loginname"])){
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-     var accion;
-     var idusu;
-    function Nuevo(){
-      accion = 'N';
-      document.frmUsuario.cedula.value = "";
-      document.frmUsuario.usuario.value = "";
-      document.frmUsuario.clave.value = "";
-      document.frmUsuario.nombre.value = "";
-      document.frmUsuario.apellido.value = "";
-      document.frmUsuario.images.value = "";
-      document.frmUsuario.foto.src = "";
-      document.frmUsuario.foto.className =document.frmUsuario.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-      $('#modal').modal('show');
-
-    }
 
     function Editar(cedu, usuario,nombre, apellido ){
-      accion = 'E';
       document.frmPerfil.cedula.value = cedu;
+      document.frmPerfil.cedula.disabled=true;
       document.frmPerfil.usuario.value = usuario;
       document.frmPerfil.nombre.value = nombre;
       document.frmPerfil.apellido.value= apellido;
@@ -227,6 +192,25 @@ if(isset($_SESSION["loginname"])){
       $('#modalClave').modal('show');
       
     }
+
+    function comprobarClave(){
+      if(document.frmClave.nueva.value!="" && document.frmClave.confirmar.value!=""){
+      clave=document.frm.claveAdmin.value;
+      if(clave==document.frmClave.clave.value){
+        document.getElementById('claveAnterior').className="borrarMensaje";
+        if(document.frmClave.nueva.value==document.frmClave.confirmar.value ){
+          document.getElementById('clavesConiciden').className="borrarMensaje";
+          return true;
+        }else{
+         document.getElementById('clavesConiciden').className=document.getElementById('clavesConiciden').className.replace( /(?:^|\s)borrarMensaje(?!\S)/g , '' );;
+        }
+      }else{
+        document.getElementById('claveAnterior').className=document.getElementById('claveAnterior').className.replace( /(?:^|\s)borrarMensaje(?!\S)/g , '' );;
+      }
+    }else{
+      alert('Todos los campos son obligatorios');
+    }
+  }
 
   </script>
   </body>

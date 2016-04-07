@@ -1,4 +1,4 @@
-<?php include 'stilosFunciones.php' ?>
+<?php include 'stilosFunciones.php'; ?>
 <?php include 'cabecera.php' ;
 if(isset($_SESSION["loginname"])){
 ?>
@@ -6,14 +6,10 @@ if(isset($_SESSION["loginname"])){
 <script type="text/javascript" src="../js/ajax.js"></script>
 <div  class="panel panel-info col-lg-10 col-sm-10 ">
 
-<!--<input type="text" class="input-medium search-query form-control" name="aeropuerto" placeholder="Aeropuerto" id="aeropuerto" autocomplete="off" onKeyUp="buscar();" />-->
-                   <ul id="resultadoBusqueda" class="list-unstyled press"></ul>
-                   <input type="hidden" name="aeropuerto1"  id="aeropuerto1" />
-
       <br>
       <div class="form-inline starter-template">
         <div class="input-group">
-          <input id="buscarInput" type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon2" onKeyUp="buscar();">
+          <input id="buscarInput" name="buscarInput" type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon2" onKeyUp="buscar();">
           <span class="glyphicon glyphicon-search input-group-addon" id="basic-addon2"></span>
         </div> &nbsp;
         <!--<button class="btn btn-success" type="button" ><i class="icon-search"></i></button>-->
@@ -43,18 +39,46 @@ if(isset($_SESSION["loginname"])){
             $result = $stmt->execute();
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
             foreach($rows as $row){
-
-                
+                $img1="0";
+                $img2="0";
+                $img3="0";
+                $img4="0";
+                $img5="0";
+                $sql2 = "SELECT * FROM imagenes WHERE est_modulo='1' and modulo_id_modulo=".($row->id_modulo);
+                $stmt2 = $con->prepare($sql2);
+                $result2 = $stmt2->execute();
+                $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
+                foreach($rows2 as $row2){
+                  switch ($row2->nom_imagen) {
+                    case ($row->id_modulo)."_1.png":
+                      $img1="1";
+                      break;
+                    case ($row->id_modulo)."_2.png":
+                      $img2="1";
+                      break;
+                    case ($row->id_modulo)."_3.png":
+                      $img3="1";
+                      break;
+                    case ($row->id_modulo)."_4.png":
+                      $img4="1";
+                      break;
+                    case ($row->id_modulo)."_5.png":
+                      $img5="1";
+                      break;                    
+                  }
+                }
               ?>
               <tr>
                 <td><?php print($row->tip_modulo); ?></td>
                 <td class="siseColTITMOD"><?php print($row->tit_modulo); ?></td>
                 <td class="siseColDESMOD"><?php print($row->des_modulo); ?></td>
-                <?php $_SESSION['codModulo']=($row->id_modulo) ?>
+                <?php $_SESSION['codModulo']=($row->id_modulo)+1;?>
                 <td>
                   <div>
 
-                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>','<?php print($img1); ?>','<?php print($img2); ?>','<?php print($img3); ?>','<?php print($img4); ?>','<?php print($img5); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
+
+                     <button type="button" class="btn btn-success btn-xs" onclick="VerImagenes('<?php print($row->id_modulo); ?>');"> <span class='glyphicon glyphicon-picture' aria-hidden='true'></span> Galería</button>
 
                     <button type="button" class="btn btn-success btn-xs" onclick="EliminarModulo('<?php print($row->id_modulo); ?>');"> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
           
@@ -90,8 +114,21 @@ if(isset($_SESSION["loginname"])){
                   <OPTION VALUE="NOTICIA">NOTICIA</OPTION>
                   <OPTION VALUE="CONVOCATORIA">CONVOCATORIA</OPTION>
                   <OPTION VALUE="TURISMO">TURISMO</OPTION>
-                  <OPTION VALUE="PRODUCCION">PRODUCCION</OPTION>
+                  <OPTION VALUE="ATRACTIVOS TURISTICOS">ATRACTIVOS TURISTICOS</OPTION>
                   <OPTION VALUE="EVENTOS">EVENTOS</OPTION>
+                  <OPTION VALUE="SALUD">SALUD</OPTION>
+                  <OPTION VALUE="EDUCACION">EDUCACION</OPTION>
+                  <OPTION VALUE="VIVIENDA">VIVIENDA</OPTION>
+                  <OPTION VALUE="VIALIDAD Y TRANSPORTE">VIALIDAD Y TRANSPORTE</OPTION>
+                  <OPTION VALUE="PRODUCCION-ECONÓMICA">PRODUCCION-ECONÓMICA</OPTION>
+                  <OPTION VALUE="PRODUCCION-AGRÍCOLA">PRODUCCION-AGRÍCOLA</OPTION>
+                  <OPTION VALUE="PRODUCCION-PECUARIA">PRODUCCION-PECUARIA</OPTION>
+                  <OPTION VALUE="PRODUCCION-ARTESANAL">PRODUCCION-ARTESANAL</OPTION>
+                  <OPTION VALUE="PRODUCCION-COMERCIAL">PRODUCCION-COMERCIAL</OPTION>
+                  <OPTION VALUE="PRODUCCION-PESCA">PRODUCCION-PESCA</OPTION>
+                  <OPTION VALUE="PRODUCCION-MINERÍA">PRODUCCION-MINERÍA</OPTION>
+                  <OPTION VALUE="PRODUCCION-FORESTAL">PRODUCCION-FORESTAL</OPTION>
+                  <OPTION VALUE="PRODUCCION-PRODUCCIONES">OTRAS-PRODUCCIONES</OPTION>
                   </SELECT>
                 </div>
 
@@ -103,10 +140,11 @@ if(isset($_SESSION["loginname"])){
 
                 <div class="form-group upload">
                     <label>Foto Principal</label>
-                    <input  type="file" id="images" name="images" accept="image/x-png, image/jpeg" class="from-control"  required>
+                    <input  type="file" id="images" name="images" accept="image/x-png, image/jpeg" required> 
                     <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
                     <div id="controlTam" style="display: none;"></div>
                     <img  id="foto" name="foto" class="" />
+                    <button id="cancel0" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(images, foto, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
 
                 <div class="form-group upload">
@@ -116,6 +154,7 @@ if(isset($_SESSION["loginname"])){
                     <div id="controlTam1" style="display: none;"></div>
                     <input type="hidden" name="nomIMG1"  id="nomIMG1" />
                     <img  id="foto1" name="foto1" class="" />
+                    <button id="cancel1" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(imagenes1,foto1, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
                 <div class="form-group upload">
                     <input  type="file" id="imagenes2" name="imagenes2" accept="image/x-png, image/jpeg" class="from-control" required>
@@ -123,6 +162,7 @@ if(isset($_SESSION["loginname"])){
                     <div id="controlTam2" style="display: none;"></div>
                     <input type="hidden" name="nomIMG2"  id="nomIMG2" />
                     <img  id="foto2" name="foto2" class="" />
+                    <button id="cancel2" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(imagenes2, foto2, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
                 <div class="form-group upload">
                     <input  type="file" id="imagenes3" name="imagenes3" accept="image/x-png, image/jpeg" class="from-control"  required>
@@ -130,6 +170,7 @@ if(isset($_SESSION["loginname"])){
                     <div id="controlTam3" style="display: none;"></div>
                     <input type="hidden" name="nomIMG3"  id="nomIMG3" />
                     <img  id="foto3" name="foto3" class="" />
+                    <button id="cancel3" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(imagenes3,foto3, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
                 <div class="form-group upload">
                     <input  type="file" id="imagenes4" name="imagenes4" accept="image/x-png, image/jpeg" class="from-control" required>
@@ -137,6 +178,7 @@ if(isset($_SESSION["loginname"])){
                     <div id="controlTam4" style="display: none;"></div>
                     <input type="hidden" name="nomIMG4"  id="nomIMG4" />
                     <img  id="foto4" name="foto4" class="" />
+                    <button id="cancel4" type="button" class="btn btn-danger btn-xs form-inline"  onclick="quitarIMG(imagenes4, foto4,this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
                 <div class="form-group upload">
                     <input  type="file" id="imagenes5" name="imagenes5" accept="image/x-png, image/jpeg" class="from-control" required>
@@ -144,6 +186,7 @@ if(isset($_SESSION["loginname"])){
                     <div id="controlTam5" style="display: none;"></div>
                     <input type="hidden" name="nomIMG5"  id="nomIMG5" />
                     <img  id="foto5" name="foto5" class="" />
+                    <button id="cancel5" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(imagenes5, foto5, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
                 </div>
 
               </div>
@@ -161,12 +204,56 @@ if(isset($_SESSION["loginname"])){
         </div> 
       </div>
 
+      <div class="modal fade" id="modalImagenes" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" >IMAGENES</div>
+            </div>
+            <form role="form" name="frmmodulosImagenes">
+              <div class="col-lg-12">
+                <br>
+                <div class="form-group upload">
+                    <label>Foto Principal</label><br>
+                    <img  id="foto" name="foto" class="" />
+                </div>
+                <div class="form-group upload">
+                    <label>Fotos para Galería</label><br>
+                    <img  id="foto1" name="foto1" class="" />
+                </div>
+                <div class="form-group upload">
+                    <img  id="foto2" name="foto2" class="" />
+                </div>
+                <div class="form-group upload">
+                    <img  id="foto3" name="foto3" class="" />
+                </div>
+                <div class="form-group upload">
+                    <img  id="foto4" name="foto4" class="" />
+                </div>
+                <div class="form-group upload">
+                    <img  id="foto5" name="foto5" class="" />
+                </div>
+              </div>
+            </form>
+            <div class="modal-footer">
+          </div>
+        </div> 
+      </div>
+
 
 <script type="text/javascript">
 
-    function buscar(){
-      var textoBusqueda = document.getElementById("buscarInput").value;
+    function quitarIMG(imagenes, foto, boton){
+      foto.src = "";
+      foto.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      boton.style="display:none";
+      imagenes.value="";
+    }
 
+    function buscar(){
+      //var textoBusqueda = document.getElementById("buscarInput").value;
+      var textoBusqueda = $("input#buscarInput").val();
             $.post("buscarModulo.php", {valorBusqueda: textoBusqueda}, function(mensaje) {
               $("#modulosTabla").html("");
               $("#modulosTabla").html(mensaje);
@@ -174,6 +261,26 @@ if(isset($_SESSION["loginname"])){
     }
     var idModulo;
     var accion;
+
+    function VerImagenes(id){
+      accion = 'I';
+      document.frmmodulosImagenes.foto.src = "../imagenes/modulos/"+id+".png";
+      document.frmmodulosImagenes.foto.className ="fotoPerfil";
+      document.frmmodulosImagenes.foto1.src = "../imagenes/modulos/"+id+"_1.png";
+      document.frmmodulosImagenes.foto1.className ="fotoPerfil";
+      document.frmmodulosImagenes.foto2.src = "../imagenes/modulos/"+id+"_2.png";
+      document.frmmodulosImagenes.foto2.className ="fotoPerfil";
+      document.frmmodulosImagenes.foto3.src = "../imagenes/modulos/"+id+"_3.png";
+      document.frmmodulosImagenes.foto3.className ="fotoPerfil";
+      document.frmmodulosImagenes.foto4.src = "../imagenes/modulos/"+id+"_4.png";
+      document.frmmodulosImagenes.foto4.className ="fotoPerfil";
+      document.frmmodulosImagenes.foto5.src = "../imagenes/modulos/"+id+"_5.png";
+      document.frmmodulosImagenes.foto5.className ="fotoPerfil";
+
+      $('#modalImagenes').modal('show');
+    }
+
+
     function Nuevo(){
       accion = 'N';
       document.frmmodulos.tipo.value = "";
@@ -197,42 +304,46 @@ if(isset($_SESSION["loginname"])){
       document.frmmodulos.imagenes5.value = "";
       document.frmmodulos.foto5.src = "";
       document.frmmodulos.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.getElementById("cancel0").style="display:none";
+      document.getElementById("cancel1").style="display:none";
+      document.getElementById("cancel2").style="display:none";
+      document.getElementById("cancel3").style="display:none";
+      document.getElementById("cancel4").style="display:none";
+      document.getElementById("cancel5").style="display:none";
       $('#modal').modal('show');
     }
-    function Editar(id, tipo, titulo, descripcion){
+
+    function Editar(id, tipo, titulo, descripcion,img1,img2,img3,img4,img5){
+      
       accion = 'E';
       idModulo=id;
       document.frmmodulos.tipo.value = tipo;
       document.frmmodulos.titulo.value = titulo;
       document.frmmodulos.descripcion.value = descripcion;
       caracteresDescripcion();
-      
       document.frmmodulos.foto.src = "../imagenes/modulos/"+id+".png";
       document.frmmodulos.foto.className ="fotoPerfil";
-      document.frmmodulos.images.innerHTML =document.frmmodulos.foto;
-      
+      if(img1=="1"){
+        document.frmmodulos.foto1.src = "../imagenes/modulos/"+id+"_1.png";
+        document.frmmodulos.foto1.className ="fotoPerfil";
+      }
+      if(img1=="2"){
+        document.frmmodulos.foto2.src = "../imagenes/modulos/"+id+"_2.png";
+        document.frmmodulos.foto2.className ="fotoPerfil";
+      }
+      if(img1=="3"){
+        document.frmmodulos.foto3.src = "../imagenes/modulos/"+id+"_3.png";
+        document.frmmodulos.foto3.className ="fotoPerfil";
+      }
+      if(img1=="4"){
+        document.frmmodulos.foto4.src = "../imagenes/modulos/"+id+"_4.png";
+        document.frmmodulos.foto4.className ="fotoPerfil";
+      }
+      if(img1=="5"){
+        document.frmmodulos.foto5.src = "../imagenes/modulos/"+id+"_5.png";
+        document.frmmodulos.foto5.className ="fotoPerfil";
+      }
       $('#modal').modal('show');
-    }
-    function imagenesMod(){
-      document.frmmodulos.imagenes1.value = "";
-      document.frmmodulos.foto1.src = "";
-      document.frmmodulos.foto1.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-      document.frmmodulos.imagenes2.value = "";
-      document.frmmodulos.foto2.src = "";
-      document.frmmodulos.foto2.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-      document.frmmodulos.imagenes3.value = "";
-      document.frmmodulos.foto3.src = "";
-      document.frmmodulos.foto3.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-      document.frmmodulos.imagenes4.value = "";
-      document.frmmodulos.foto4.src = "";
-      document.frmmodulos.foto4.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-      document.frmmodulos.imagenes5.value = "";
-      document.frmmodulos.foto5.src = "";
-      document.frmmodulos.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
-
-
-      $('#modal').modal('show');
-
     }
     
     function caracteresDescripcion(){
@@ -357,26 +468,32 @@ if(isset($_SESSION["loginname"])){
         case 0:
         img.className = "fotoPerfil";
         img.src = source;
+        document.getElementById("cancel0").style="display:inline";
         break;
         case 1:
         img1.className = "fotoPerfil";
         img1.src = source;
+        document.getElementById("cancel1").style="display:inline";
         break;
         case 2:
         img2.className = "fotoPerfil";
         img2.src = source;
+        document.getElementById("cancel2").style="display:inline";
         break;
         case 3:
         img3.className = "fotoPerfil";
         img3.src = source;
+        document.getElementById("cancel3").style="display:inline";
         break;
         case 4:
         img4.className = "fotoPerfil";
         img4.src = source;
+        document.getElementById("cancel4").style="display:inline";
         break;
         case 5:
         img5.className = "fotoPerfil";
         img5.src = source;
+        document.getElementById("cancel5").style="display:inline";
         break;
       }
     }       
@@ -417,6 +534,7 @@ if(isset($_SESSION["loginname"])){
                         document.frmmodulos.foto.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
                         alert("EL tamaño de la imagen se excede del limete de 2MB");
                       }else{
+                        
                         reader.readAsDataURL(file);//carga imagen al div para mostrar
                       }
                    }                 

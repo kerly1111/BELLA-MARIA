@@ -1,5 +1,7 @@
 <?php include 'stilosFunciones.php' ?>
-<?php include 'cabecera.php' ?>
+<?php include 'cabecera.php' 
+   if(isset($_SESSION["loginname"])){
+?>
 
 <script type="text/javascript" src="../js/ajax.js"></script>
 
@@ -139,3 +141,6 @@
 </div>
 </div>
 
+<?php 
+}
+?>

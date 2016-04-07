@@ -1,6 +1,9 @@
-
-
 <?php include 'cabecera.php' ?>
+<?php 
+if(isset($_SESSION["mensaje"])){
+unset($_SESSION["mensaje"]);
+}
+?>
 <section id="contact-page">
 <html>
 <head>

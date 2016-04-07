@@ -1,10 +1,6 @@
 <?php
 session_start(); 
 if(isset($_SESSION["loginname"])){
-if($_SESSION["loginname"]==""){
-echo "<h3>Redireccionando....</h3>";
-echo '<meta http-equiv="refresh" content="1; url=../index.php">';
-}else{
 ?>
 <?php include 'stilosFunciones.php' ?>
 <nav class="navbar navbar-superior navbar-fixed-top " role="navigation">
@@ -55,7 +51,7 @@ echo '<meta http-equiv="refresh" content="1; url=../index.php">';
   <br>
     <ul class="nav navbar-nav navbar-right distanciaFilas">
         <li class="active"><a href="gad.php">GAD</a></li>
-        <li class="active"><a href="contactos.php">CONTACTANOS</a></li>
+        <li class="active"><a href="mensajesContactanos.php">CONTACTANOS</a></li>
     </ul>
  
    
@@ -69,10 +65,24 @@ echo '<meta http-equiv="refresh" content="1; url=../index.php">';
                 <div class="nav-canvas ">
                     <ul class="nav nav-pills nav-stacked main-menu menuAdminletras" >
                         <li class="nav-header"><h3>Menu</h3></li>
-                        <li><a class="ajax-link" href="perfil.php"><i class="glyphicon glyphicon-picture"></i><span> Perfil</span></a>
+                         <?php 
+                            if($_SESSION["loginname"]!="ADMINISTRADOR"){
+                        ?>
+                        <li><a class="ajax-link" href="perfil.php"><i class="glyphicon glyphicon-book"></i><span> Perfil</span></a>
                         </li>
+                        <?php
+                            }
+                        ?>
+                         <?php 
+                            if($_SESSION["loginname"]=="ADMINISTRADOR"){
+                        ?>
+                        <li><a class="ajax-link" href="administrador.php"><i class="glyphicon glyphicon-book"></i><span> Administrador</span></a>
+                        </li>
+                        <?php
+                            }
+                        ?>
                         <?php 
-                            if($_SESSION["logeo"]=="ADMINISTRADOR"){
+                            if($_SESSION["loginname"]=="ADMINISTRADOR"){
                         ?>
                                 <li><a class="ajax-link" href="usuario.php"><i class="glyphicon glyphicon-user"></i><span> Usuarios</span></a>
                                 </li>
@@ -81,8 +91,6 @@ echo '<meta http-equiv="refresh" content="1; url=../index.php">';
                         ?>
                         <li><a class="ajax-link" href="modulo.php"><i class="glyphicon glyphicon-tasks"></i><span> Modulos</span></a>
                         </li>
-                        <li><a class="ajax-link" href="contacto.php"><i class="glyphicon glyphicon-phone-alt"></i><span> Videos</span></a>
-                        </li>
                         <br>
                     </ul>
                 </div>
@@ -90,7 +98,6 @@ echo '<meta http-equiv="refresh" content="1; url=../index.php">';
         </div>
 
 <?php
-}
 }else{
     echo "<h3>Redireccionando....</h3>";
     echo '<meta http-equiv="refresh" content="1; url=../index.php">';

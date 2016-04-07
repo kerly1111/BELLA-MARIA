@@ -1,4 +1,5 @@
 <?php
+   if(isset($_SESSION["loginname"])){
 $id= $_GET['cod'];
 $id=$id.".png";
     foreach($_FILES['images']['error'] as $key => $error){
@@ -8,4 +9,5 @@ $id=$id.".png";
             move_uploaded_file($_FILES['images']['tmp_name'][$key], '../imagenes/fotosPerfil/' . $id);
         }
     }
+}
 ?>

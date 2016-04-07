@@ -1,5 +1,8 @@
 <?php include 'stilosFunciones.php' ?>
-<?php include 'cabecera.php' ?>
+<?php include 'cabecera.php'; 
+   if(isset($_SESSION["loginname"])){
+?>
+
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script src="../js/upload.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -27,6 +30,7 @@
         <table class="table">
           <thead>
             <tr>
+              <th></th>
               <th>Cedula</th>
               <th>Usuario</th>
               <th>Nombres</th>
@@ -39,7 +43,7 @@
             <?php
             require("../clases/conexion.php");
             $con = conectar();
-            $sql = "SELECT id_usuario, use_usuario, cla_usuario, nom_usuario, ape_usuario, nom_fot_usuario, rut_fot_usuario FROM usuario";
+            $sql = "SELECT id_usuario, use_usuario, cla_usuario, nom_usuario, ape_usuario, nom_fot_usuario, rut_fot_usuario FROM usuario WHERE use_usuario != 'ADMINISTRADOR'";
             $stmt = $con->prepare($sql);
       
             $result = $stmt->execute();
@@ -47,6 +51,7 @@
             foreach($rows as $row){
               ?>
               <tr>
+                <td><IMG SRC="../imagenes/fotosPerfil/<?php print($row->nom_fot_usuario); ?>" WIDTH=80 HEIGHT=80 BORDER=3/></td>
                 <td><?php print($row->id_usuario); ?></td>
                 <td><?php print($row->use_usuario); ?></td>
                 <td><?php print($row->nom_usuario); ?></td>
@@ -55,7 +60,7 @@
                 <td>
                   <div>
 
-                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>','<?php print($row->nom_fot_usuario); ?>','<?php print($row->rut_fot_usuario); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
+                    <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->cla_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
 
                     <button type="button" class="btn btn-success btn-xs" onclick="EliminarUsuario('<?php print($row->id_usuario); ?>');"> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
           
@@ -104,18 +109,11 @@
                   <input name="apellido" class="form-control"  required >
                 </div>
 
-                <div class="form-group upload">
-                    <label>Foto</label>
-                    <input  type="file" id="images" name="images[]" accept="image/x-png, image/jpeg" class="from-control" onchange="nomFoto();" required>
-                    <div id="response"></div>
-                    <input type="hidden" name="nomIMG"  id="nomIMG" />
-                    <img  id="foto" name="foto" class="" />
-                </div>
               </div>
             </form>
             <div class="modal-footer">
               <!--<button type="button" class="btn btn-info" onClick="subirFoto(); RegistrarUsuario(accion); return false">-->
-              <button type="button" class="btn btn-info" onClick="cargar(); RegistrarUsuario(accion); return false">
+              <button type="button" class="btn btn-info" onClick="RegistrarUsuario(accion); return false">
                   <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
               </button>
         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
@@ -143,13 +141,10 @@
       document.frmUsuario.clave.value = "";
       document.frmUsuario.nombre.value = "";
       document.frmUsuario.apellido.value = "";
-      document.frmUsuario.images.value = "";
-      document.frmUsuario.foto.src = "";
-      document.frmUsuario.foto.className =document.frmUsuario.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
       $('#modal').modal('show');
 
     }
-    function Editar(cedu, usuario, clave, nombre, apellido,nombreFot,rutaFot){
+    function Editar(cedu, usuario, clave, nombre, apellido){
       accion = 'E';
       document.frmUsuario.cedula.value = cedu;
       document.frmUsuario.usuario.value = usuario;
@@ -157,96 +152,12 @@
       document.frmUsuario.nombre.value = nombre;
       document.frmUsuario.apellido.value= apellido;
       $('#modal').modal('show');
-
-    }
- 
-    function nomFoto(){
-    var foto=document.frmUsuario.images.value;
-    foto = foto.split('\\');
-    var nom=foto[foto.length-1];
-    document.frmUsuario.nomIMG.value=nom;
-    }
-             
+    }             
     </script>
 
-    <script type="text/javascript">
+</div>
+</div>
 
-    valor = document.getElementById("campo").value;
-    if( isNaN(valor) ) {
-    return false;
+<?php 
 }
-
-    </script>
-
-
-</div>
-</div>
-
-
-<script type="text/javascript">
-    var img = document.getElementById('foto');
-    var input = document.getElementById('images'),
-        formdata = false;
-        function cargar(){
-        
-        if(formdata){
-          var ced = document.getElementById('cedula').value;
-                $.ajax({
-                   url : 'subirfotoPerfil.php?cod='+ced,
-                   type : 'POST',
-                   data : formdata,
-                   processData : false, 
-                   contentType : false,
-                   success : function(res){
-                       document.getElementById('response').innerHTML = res;
-                   }                 
-                });
-            }
-
-    } 
-    (function(){
-    
-    function mostrarImagenSubida(source){
-        
-        img.className = "fotoPerfil";
-        img.src = source;
-
-    }   
-    
-    //Revisamos si el navegador soporta el objeto FormData
-    if(window.FormData){
-        formdata = new FormData();    
-    }   
-    //Aplicamos la subida de imágenes al evento change del input file
-    if(input.addEventListener){
-        input.addEventListener('change', function(evt){
-            var i = 0, len = this.files.length, img, reader, file;
-                file = this.files[i];               
-                //Una pequeña validación para subir imágenes
-                if(!!file.type.match(/image.*/)){
-                    //Si el navegador soporta el objeto FileReader
-                    if(window.FileReader){
-                        reader = new FileReader();
-                        //Llamamos a este evento cuando la lectura del archivo es completa
-                        //Después agregamos la imagen en una lista
-                        reader.onloadend = function(e){
-                            mostrarImagenSubida(e.target.result);
-                        };
-                        //Comienza a leer el archivo
-                        //Cuando termina el evento onloadend es llamado
-                        reader.readAsDataURL(file);
-                    }                   
-                    //Si existe una instancia de FormData
-                    if(formdata)
-                        //Usamos el método append, cuyos parámetros son:
-                            //name : El nombre del campo
-                            //value: El valor del campo (puede ser de tipo Blob, File e incluso string)
-                        formdata.append('images[]', file);
-                }       
-            //Por último hacemos uso del método proporcionado por jQuery para hacer la petición ajax
-            //Como datos a enviar, el objeto FormData que contiene la información de las imágenes
-            
-        }, false);
-    }
-}());
-</script>
+?>

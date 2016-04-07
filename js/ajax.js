@@ -21,19 +21,32 @@ apellido= document.frmContacto.apellido.value;
 email= document.frmContacto.email.value;
 mensaje= document.frmContacto.mensaje.value;
 
+var mydate=new Date() 
+        var year=mydate.getYear() 
+        if (year < 1000) 
+        year+=1900 
+        var day=mydate.getDay() 
+        var month=mydate.getMonth() 
+        var daym=mydate.getDate() 
+        if (daym<10) 
+        daym="0"+daym 
+        var dayarray=new Array("Domingo,","Lunes,","Martes,","Miércoles,","Jueves,","Viernes,","Sábado,")
+        var montharray=new Array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre")
+fecha=dayarray[day]+" "+daym+" del "+montharray[month]+" de "+year;
+
 ajax = objetoAjax();
 
 ajax.open("POST", "clases/insertarContacto.php", true);
 
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
-			alert('Los datos fueron guardados con exito!');
+			alert('Mensaje enviado exitosamente!');
       window.location.reload(true);
 		}
 		
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("nombre="+nombre+"&apellido="+apellido+"&email="+email+"&mensaje="+mensaje)
+ajax.send("nombre="+nombre+"&apellido="+apellido+"&email="+email+"&mensaje="+mensaje+"&fecha="+fecha)
 
 }
 
@@ -43,11 +56,7 @@ usuario= document.frmUsuario.usuario.value;
 clave= document.frmUsuario.clave.value;
 nombre= document.frmUsuario.nombre.value;
 apellido= document.frmUsuario.apellido.value;
-if(document.frmUsuario.nomIMG.value==""){
-	nombreFoto= "perfilDefault.png";	
-}else{
-	nombreFoto= document.frmUsuario.cedula.value+".png";
-}
+nombreFoto= "perfilDefault.png";	
 rutaFoto= "../imagenes/fotosPerfil/";
 
 ajax = objetoAjax();
@@ -67,6 +76,25 @@ ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("id_usuario="+cedula+"&use_usuario="+usuario+"&cla_usuario="+clave+"&nom_usuario="+nombre+"&ape_usuario="+apellido+"&nom_fot_usuario="+nombreFoto+"&rut_fot_usuario="+rutaFoto)
 }
 
+function ActualizarPerfil(){
+cedula = document.frmPerfil.cedula.value;
+usuario= document.frmPerfil.usuario.value;
+nombre= document.frmPerfil.nombre.value;
+apellido= document.frmPerfil.apellido.value;
+ajax = objetoAjax();
+ajax.open("POST", "../clases/actualizarPerfil.php", true);
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+		
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("id_usuario="+cedula+"&use_usuario="+usuario+"&nom_usuario="+nombre+"&ape_usuario="+apellido)
+}
+
+
 function CambiarClave(idusu, accion){
 
 cedula = idusu;
@@ -82,7 +110,7 @@ ajax.open("POST", "../clases/actualizarClave.php", true);
 }
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
-			alert('Los datos fueron guardados con exito!');
+			alert('Contraseña guardada con exito!');
       window.location.reload(true);
 		}
 		
@@ -131,7 +159,7 @@ ajax.onreadystatechange=function() {
 		
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-ajax.send("id_modulo"+idModulo+"&fec_modulo="+fecha+"&tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&rutaFoto="+rutaFoto+"&nombreFoto1="+nombreFoto1+"&nombreFoto2="+nombreFoto2+"&nombreFoto3="+nombreFoto3+"&nombreFoto4="+nombreFoto4+"&nombreFoto5="+nombreFoto5)
+ajax.send("id_modulo="+idModulo+"&fec_modulo="+fecha+"&tipo="+tipo+"&titulo="+titulo+"&descripcion="+descripcion+"&rutaFoto="+rutaFoto+"&nombreFoto1="+nombreFoto1+"&nombreFoto2="+nombreFoto2+"&nombreFoto3="+nombreFoto3+"&nombreFoto4="+nombreFoto4+"&nombreFoto5="+nombreFoto5)
 }
 
 function EliminarModulo(idP){
@@ -146,6 +174,23 @@ ajax.onreadystatechange=function() {
 	}
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("id_modulo="+idP)
+}else{
+  //Sin acciones
+}
+}
+
+function EliminarUsuario(idP){
+if(confirm("En realidad desea eliminar este registro?")){
+ajax = objetoAjax();
+ajax.open("POST", "../clases/eliminarUsuario.php", true);
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('El registro fue eliminado con exito!');
+      window.location.reload(true);
+		}
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("id_usuario="+idP)
 }else{
   //Sin acciones
 }

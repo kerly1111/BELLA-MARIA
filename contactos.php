@@ -1,14 +1,16 @@
-
-<?php include 'stilosFunciones.php' ?>
 <?php include 'cabecera.php' ?>
-
+<?php 
+if(isset($_SESSION["mensaje"])){
+unset($_SESSION["mensaje"]);
+}
+?>
 
       <section id="contact-page" class="container">
         <div class="row">
             
             <br>
-            <h4>Contactanos</h4>
-            <hr>
+            <h4 style="color: #fff; font-weight: bold;">CONTACTANOS</h4>
+            <br>
             <form role="form" name="frmContacto" enctype="multipart/form-data">
             <div class="col-md-6">
             

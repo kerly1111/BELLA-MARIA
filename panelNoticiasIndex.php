@@ -3,15 +3,42 @@
 <link rel="stylesheet" type="text/css" href="css/jcarousel.skeleton.css">
 <script type="text/javascript" src="js/jcarousel.skeleton.js"></script>
 <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-<hr> 
-<div id="contenido" class="margenNoticias">
+
+<div>
+
+  <div class="wrapper jcarousel-wrapper margeMenuNoticias">
+  <div class="jcarouselNAV-left"><a class="jcarousel-control-prev"></a></div>
+    <div class="jcarousel jcarouselNAV" style="border-color: #006600;">
+      <ul>
+        <?php
+        require("clases/conexion.php");
+        $con = conectar();
+        $sql1 = "SELECT * FROM modulo  WHERE est_modulo='1' ORDER BY id_modulo DESC";
+        $stmt1 = $con->prepare($sql1);
+  
+        $result1 = $stmt1->execute();
+        $rows1 = $stmt1->fetchAll(\PDO::FETCH_OBJ);
+        foreach($rows1 as $row1){
+          ?>
+
+        <li><a href="modulo.php?saludo=<?php print($row1->id_modulo);?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php print($row1->tit_modulo);?>&nbsp;&nbsp;</a></li> 
+        <?php
+        }
+        ?>          
+      </ul>
+      <div class="jcarouselNAV-right"><a class="jcarousel-control-next"></a></div>
+    </div>
+  </div>
+</div>
+<br>
+<div id="contenido"  class="margenNoticias">
     <div id="myCarousel" class="carousel slide " data-ride="carousel">
     
          <div class="carousel-inner" role="listbox">
          
         <?php
         $contador=0;
-        require("clases/conexion.php");
+        
         $con = conectar();
         $sql = "SELECT * FROM modulo WHERE est_modulo='1' ORDER BY id_modulo DESC";
         $stmt = $con->prepare($sql);
@@ -83,30 +110,4 @@
 </div>
              
 
-<div id="LimpiarLayut ">
-
-  <div class="wrapper jcarousel-wrapper margeMenuNoticias">
-  <div class="jcarouselNAV-left"><a class="jcarousel-control-prev"></a></div>
-    <div class="jcarousel jcarouselNAV">
-      <ul>
-        <?php
-
-        $con = conectar();
-        $sql1 = "SELECT * FROM modulo  WHERE est_modulo='1' ORDER BY id_modulo DESC";
-        $stmt1 = $con->prepare($sql1);
-  
-        $result1 = $stmt1->execute();
-        $rows1 = $stmt1->fetchAll(\PDO::FETCH_OBJ);
-        foreach($rows1 as $row1){
-          ?>
-
-        <li><a href="modulo.php?saludo=<?php print($row1->id_modulo);?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php print($row1->tit_modulo);?>&nbsp;&nbsp;</a></li> 
-        <?php
-        }
-        ?>          
-      </ul>
-      <div class="jcarouselNAV-right"><a class="jcarousel-control-next"></a></div>
-    </div>
-  </div>
-</div>
 

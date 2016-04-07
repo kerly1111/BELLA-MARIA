@@ -1,14 +1,14 @@
 <?php
-$idP = $_POST['idP'];
+$id_usuario = $_POST['id_usuario'];
 
 require("conexion.php");
 
 $con=conectar();
-$sql = 'DELETE FROM persona WHERE ID=:idpr';
+$sql = 'DELETE FROM usuario WHERE id_usuario=:id_usuario';
 
 $sql = $con->prepare($sql);
 
-$sql->execute(array(':idpr'=>$idP));
+$sql->execute(array(':id_usuario'=>$id_usuario));
 
 
 ?>

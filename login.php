@@ -1,5 +1,4 @@
-<?php include 'stilosFunciones.php' ?>
-<?php include 'cabecera.php' ?>
+<?php include 'cabecera.php'; ?>
 <section>
 
     <div class="container" style="margin-top:40px">
@@ -50,8 +49,8 @@
 					<div class="panel-footer" style="background-color:#ff6666; color: #fff;" id="mensajeria">
 					<?php
 
-						if (isset($_SESSION['logeo'])) {
-						 echo $_SESSION["logeo"];
+						if (isset($_SESSION['mensaje'])) {
+						 echo $_SESSION["mensaje"];
 						}
 						?>
 					</div>

@@ -1,4 +1,5 @@
 <?php session_start(); 
+
 $id= $_GET['cod'];
 
 switch ($id) {
@@ -51,34 +52,35 @@ switch ($id) {
 		}
 		break;
 	case '0':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id.".png";
         move_uploaded_file($_FILES['images']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 	case '1':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id."_1.png";
         move_uploaded_file($_FILES['imagenes1']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 	case '2':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id."_2.png";
         move_uploaded_file($_FILES['imagenes2']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 	case '3':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id."_3.png";
         move_uploaded_file($_FILES['imagenes3']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 	case '4':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id."_4.png";
         move_uploaded_file($_FILES['imagenes4']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 	case '5':
-		$id=$_SESSION['codModulo']+1;
+		$id=$_SESSION['codModulo'];
 		$id=$id."_5.png";
         move_uploaded_file($_FILES['imagenes5']['tmp_name'], '../imagenes/modulos/' . $id);
 		break;
 }
+
 ?>

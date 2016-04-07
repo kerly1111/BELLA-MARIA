@@ -1,14 +1,14 @@
 <?php
-$cedula = $_POST['cedula'];
-$usuario = $_POST['usuario'];
-$nombre = $_POST['nombre'];
-$apellido= $_POST['apellido'];
+$cedula = $_POST['id_usuario'];
+$usuario = $_POST['use_usuario'];
+$nombre = $_POST['nom_usuario'];
+$apellido= $_POST['ape_usuario'];
 
 require("conexion.php");
 $con=conectar();
 
 
-$sql = 'UPDATE usuario SET usu_usuario= :usuario,nom_usuario= :nombre,ape_usuario= :apellido WHERE id_usuario=:cedula';
+$sql = 'UPDATE usuario SET use_usuario= :usuario,nom_usuario= :nombre,ape_usuario= :apellido WHERE id_usuario=:cedula';
 
 
 $sql=$con->prepare($sql); //preparamos la sentencia SSQL

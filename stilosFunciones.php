@@ -13,6 +13,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link href="css/bellaMaria.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+
     <!--<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
     <link rel="stylesheet" type="text/css" href="css/ddsmoothmenu.css" />
     <link rel="stylesheet" href="css/estilos.css">  
@@ -51,6 +52,7 @@
     <script src="js/fileinput.js"></script>
     <script src="js/fileinput.min.js"></script>
     <script src="js/jquery.bxslider.min.js"></script>
+    
 
 
             

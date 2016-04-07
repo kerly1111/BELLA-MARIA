@@ -1,9 +1,36 @@
+
+body {
+
+  background-image: url(../imagenes/fondoBellaMaria.png);
+
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  background-attachment: fixed;
+
+
+  background-size: cover;
+
+  background-color: #464646;
+
+}
+
+.borrarMensaje{
+  display: none;
+}
+
 .navbar-superior{
- background-color: rgba(0, 102, 0, 0.9);
+ background-color: rgba(0, 102, 0, 1);
 }
 .imagenPanel {
 width: 95%;
 height: 350px;
+}
+
+.styleBellaMAria{
+  background-color: #006600 !important;
+  color:#ffcc00 !important;
+  font-weight: bold;
 }
 
 .titulo-responsive{
@@ -97,8 +124,18 @@ bottom: -10px;
   font-size: 14px;
   font-weight: bold;
 }
+
 }
   
+@media (max-width: 750px){
+#secundarioColNot{
+  display: none;
+}
+#principalColMod{
+  width: 95% !important;
+}
+}
+
 @media (min-width: 486px) and (max-width: 768px){
 .btn-responsive {
 padding:2px 4px;
@@ -122,7 +159,10 @@ height: 210px;
   font-size: 14px;
   font-weight: bold;
 }
+
+
 }
+
 
 @media (min-width: 769px) and (max-width: 992px) {
 .btn-responsive {
@@ -150,7 +190,7 @@ font-weight: bold;
   border-radius: 5px;
   color: #ffcc00;
   font-weight: bold;
-
+  font-size:95%;
   /*color de letras del li del navbar*/
 }
 .margen-tope-nav{
@@ -169,6 +209,15 @@ margin-top: 10px;
 .margenNoticias{
 margin-right: 4%;
 margin-left: 4%;
+background-color: #fff;
+}
+.margenNoticiasMod{
+margin-right: 1%;
+margin-left: 4%;
+}
+.margenNoticiasModTxt{
+margin-right: 2%;
+margin-left: 2%;
 }
 .sizeDescripcion{
 height: 400px;
@@ -197,6 +246,15 @@ height: 400px;
   width: 30%;
 }
 
+#contenido #principalColMod {
+  float: left;
+  width: 80%;
+}
+#contenido #secundarioColNot {
+  float: left;
+  width: 20%;
+}
+
 #contenido #principalMod {
   float: left;
   width: 60%;
@@ -205,6 +263,8 @@ height: 400px;
   float: left;
   width: 35%;
 }
+
+
 #LimpiarLayut {
   clear: both;
 }
@@ -252,12 +312,14 @@ margin: 10px 5px 0 0;
 .navbar-superior .navbar-nav>li>a:hover{
 color:#fff;
 background-color:#006600;
+
 }
 /*color de recuadros de li*/
 .navbar-superior .navbar-nav>.active>a,
 .navbar-superior .navbar-nav>.active>a:focus{
 color:#006600;
 background-color:#ffcc00;
+
 }
 
 /*iluminacion en la seleccion*/
@@ -311,6 +373,7 @@ background-color:#A9BC00;
 .navbar-superior .navbar-nav .open .dropdown-menu>li>a{
 color:#A9BC00;
 }
+
 .navbar-superior .navbar-nav .open .dropdown-menu>li>a:focus,
 .navbar-superior .navbar-nav .open .dropdown-menu>li>a:hover{
 color:#A9BC00;
@@ -320,6 +383,7 @@ background-color:#A9BC00;
 .navbar-superior .navbar-nav .open .dropdown-menu>.active>a:focus{
 color:#fff;
 background-color:#A9BC00;
+font-weight: bold;
 }
 .navbar-superior .navbar-nav .open .dropdown-menu>.active>a:hover{
 color:#fff;
