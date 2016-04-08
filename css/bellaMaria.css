@@ -291,6 +291,13 @@ border: 1px solid #000;
 margin: 10px 5px 0 0;
 }
 
+.fotoModulo{
+align-items: center;
+height: 250px;
+border: 2px solid #e6e6e6;
+margin: 10px 5px 0 0;
+}
+
 .nav-header > li > a,
 .nav-il > li > a {
   color: #fff;
@@ -523,4 +530,9 @@ padding-right: 5px;
 
 .siseColTITMOD{
   max-width: 200px;
+}
+
+.margenGeneral{
+  margin-left: 2% !important; 
+  margin-right: 2% !important;
 }

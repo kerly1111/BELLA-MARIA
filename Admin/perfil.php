@@ -33,7 +33,7 @@ if(isset($_SESSION["loginname"])){
 			  <div class="col-md-2"><br><br>
           <div >
             <button type="button" class="btn btn-success" onclick="Editar('<?php print($row->id_usuario); ?>','<?php print($row->use_usuario); ?>','<?php print($row->nom_usuario); ?>','<?php print($row->ape_usuario); ?>');">Actualizar datos</button>
-            <button style=" margin-top: 8px;" type="button" class="btn btn-success" onclick="EditarClave();">Cambiar Foto</button>
+            <button style=" margin-top: 8px;" type="button" class="btn btn-success" onclick="cambiarFoto('<?php print($row->nom_fot_usuario); ?>');">Cambiar Foto</button>
             <button style=" margin-top: 8px;" type="button" class="btn btn-success" onclick="EditarClave();">Cambiar Clave</button>
           </div>
         </div>
@@ -132,7 +132,7 @@ if(isset($_SESSION["loginname"])){
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <div class="modal-title" >Datos de perfil</div><br>
+              <div class="modal-title" >Datos de la contraseña</div><br>
             </div>
            <form role="form" name="frmClave" enctype="multipart/form-data">
               <div class="col-lg-12">
@@ -159,7 +159,41 @@ if(isset($_SESSION["loginname"])){
             </form>
 
            <div class="modal-footer">
-              <button type="button" class="btn btn-info" onClick="if(comprobarClave()){CambiarClave(idusu, accion); return false}">
+              <button type="button" class="btn btn-info" onClick="if(comprobarClave()){CambiarClave(idusu); return false}">
+              <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
+    
+              </button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <div class="modal-title" >Datos de la Foto</div><br>
+            </div>
+           <form role="form" name="frmFoto" enctype="multipart/form-data">
+              <div class="col-lg-12">
+                <br>
+                <div class="form-group upload">
+                    <label>Foto de Perfil</label>
+                    <input type="file" id="image" name="image" accept="image/x-png, image/jpeg" class="from-control"  required>
+                    <label style="color: #a6a6a6;">Tamaño máximo para imagenes: 2Mb</label><br>
+                    <div id="controlTam" style="display: none;"></div>
+                    <input type="hidden" name="nomIMG"  id="nomIMG" />
+                    <img  id="foto" name="foto" class="" />
+                    <button id="cancel" type="button" class="btn btn-danger btn-xs form-inline" onclick="quitarIMG(image,foto, this);" style="display: none;"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ></span> Cancelar</button>
+                </div>
+                               
+                </div>
+            </form>
+
+           <div class="modal-footer">
+              <button type="button" class="btn btn-info" onClick="cargar(); CambiarFoto(idusu); return false ">
               <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Grabar
     
               </button>
@@ -172,7 +206,7 @@ if(isset($_SESSION["loginname"])){
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+    var idusu;
     function Editar(cedu, usuario,nombre, apellido ){
       document.frmPerfil.cedula.value = cedu;
       document.frmPerfil.cedula.disabled=true;
@@ -184,7 +218,6 @@ if(isset($_SESSION["loginname"])){
     }
 
     function EditarClave( ){
-      accion = 'E';
       idusu=document.frm.cedula.value;
       document.frmClave.clave.value = "";
       document.frmClave.nueva.value = "";
@@ -192,6 +225,91 @@ if(isset($_SESSION["loginname"])){
       $('#modalClave').modal('show');
       
     }
+
+    function cambiarFoto(foto){
+      idusu=document.frm.cedula.value;;
+      document.frmFoto.foto.src = "../imagenes/fotosPerfil/"+foto;
+      document.frmFoto.foto.className ="fotoPerfil";
+      document.getElementById("cancel").style="display:inline";
+      $('#modalFoto').modal('show');
+    }
+
+    function quitarIMG(imagenes, foto, boton){
+      foto.src = "";
+      foto.className =document.frmFoto.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      boton.style="display:none";
+      imagenes.value="";
+      foto.value="0";
+    }
+
+    var img = document.getElementById('foto');
+    var input = document.getElementById('image'),
+        formdata = false;
+    
+    function cargar(){
+    document.frmFoto.nomIMG.value=document.frmFoto.foto.value; 
+    if(formdata){
+            $.ajax({
+               url : 'subirfotoPerfil.php?cod='+idusu,
+               type : 'POST',
+               data : formdata,
+               processData : false, 
+               contentType : false,
+               success : function(res){
+               }                 
+            });
+        }
+    } 
+
+    (function(){
+    function mostrarImagenSubida(source, num){
+        img.value="1";
+        img.className = "fotoPerfil";
+        img.src = source;
+        document.getElementById("cancel").style="display:inline";
+    }       
+    if(window.FormData){
+        formdata = new FormData();
+    }   
+    if(input.addEventListener){
+        input.addEventListener('change', function(evt){
+            var i = 0, len = this.files.length, img, reader, file;
+                file = this.files[i];                               
+                if(!!file.type.match(/image.*/)){
+                    if(window.FileReader){
+                        reader = new FileReader();
+                        reader.onloadend = function(e){
+                            mostrarImagenSubida(e.target.result,0);
+                        };
+                    }                   
+                    if(formdata)
+                        formdata.append('image', file);
+                }       
+            if(formdata){
+                $.ajax({
+                   url : 'subirfotoPerfil.php?cod=contolSize',
+                   type : 'POST',
+                   data : formdata,
+                   processData : false, 
+                   contentType : false,
+                   success : function(res){ //res resultado del echo del archivo php
+                      document.getElementById('controlTam').innerHTML = res;
+                      if(document.getElementById('controlTam').innerHTML == "0"){
+                        document.frmFoto.image.value = "";
+                        document.frmFoto.foto.src = "";
+                        document.frmFoto.foto.className =document.frmFoto.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+                        document.getElementById("cancel").style="display:none";
+                        alert("EL tamaño de la imagen se excede del limete de 2MB");
+                      }else{
+                        
+                        reader.readAsDataURL(file);//carga imagen al div para mostrar
+                      }
+                   }                 
+                });
+            }
+        }, false);
+    }
+}());
 
     function comprobarClave(){
       if(document.frmClave.nueva.value!="" && document.frmClave.confirmar.value!=""){

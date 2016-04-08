@@ -95,7 +95,7 @@ ajax.send("id_usuario="+cedula+"&use_usuario="+usuario+"&nom_usuario="+nombre+"&
 }
 
 
-function CambiarClave(idusu, accion){
+function CambiarClave(idusu){
 
 cedula = idusu;
 clave = document.frmClave.clave.value;
@@ -103,11 +103,7 @@ nueva= document.frmClave.nueva.value;
 confirmar= document.frmClave.confirmar.value;
 
 ajax = objetoAjax();
-if(accion=='N'){
-ajax.open("POST", "../clases/insertarUsuario.php", true);
-}else if(accion=='E'){
 ajax.open("POST", "../clases/actualizarClave.php", true);
-}
 ajax.onreadystatechange=function() {
 		if (ajax.readyState==4) {
 			alert('Contraseña guardada con exito!');
@@ -118,6 +114,21 @@ ajax.onreadystatechange=function() {
 ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 ajax.send("cedula="+cedula+"&clave="+clave+"&nueva="+nueva+"&confirmar="+confirmar)
 }
+
+function CambiarFoto(idUsu){
+nombreFoto= document.frmFoto.nomIMG.value;
+ajax = objetoAjax();
+ajax.open("POST", "../clases/fotoPerfil.php", true);
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Foto guardada con exito!');
+      window.location.reload(true);
+		}		
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("cedula="+idUsu+"&nombreFoto="+nombreFoto)
+}
+
 
 
 

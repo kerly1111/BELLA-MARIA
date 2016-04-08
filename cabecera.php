@@ -61,6 +61,9 @@ unset($_SESSION["loginname"]);
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">BELLA MARIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
                 <li class="active"><a href="ubicacion.php">HISTORIA DE LA PARROQUIA</a></li>
+                <li class="active"><a href="ubicacion.php">NOTICIAS</a></li>
+                <li class="active"><a href="ubicacion.php">CONVOCATORIAS</a></li>
+                <li class="active"><a href="ubicacion.php">EVENTOS</a></li>
                 <li class="active"><a href="ubicacion.php">COSTUMBRE Y TRADICIONES</a></li>
                 <li class="active"><a href="ubicacion.php">SALUD</a></li>
                 <li class="active"><a href="ubicacion.php">EDUCACIÓN</a></li>

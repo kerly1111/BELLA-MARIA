@@ -31,38 +31,53 @@ if(isset($_SESSION["loginname"])){
           </thead>
           <tbody id="modulosTabla">
             <?php
+            
             require("../clases/conexion.php");
             $con = conectar();
+            $sqlC = "SELECT id_modulo, tip_modulo, tit_modulo, des_modulo FROM modulo";
+            $stmtC = $con->prepare($sqlC);
+            $resultC = $stmtC->execute();
+            $rowsC = $stmtC->fetchAll(\PDO::FETCH_OBJ);
+            foreach($rowsC as $rowC){
+              $_SESSION['codModulo']=($rowC->id_modulo)+1;
+            }
+            
             $sql = "SELECT id_modulo, tip_modulo, tit_modulo, des_modulo FROM modulo WHERE est_modulo='1'";
             $stmt = $con->prepare($sql);
       
             $result = $stmt->execute();
             $rows = $stmt->fetchAll(\PDO::FETCH_OBJ);
             foreach($rows as $row){
+                
                 $img1="0";
                 $img2="0";
                 $img3="0";
                 $img4="0";
                 $img5="0";
-                $sql2 = "SELECT * FROM imagenes WHERE est_modulo='1' and modulo_id_modulo=".($row->id_modulo);
+            $_SESSION['cancelImg1']="0";
+            $_SESSION['cancelImg2']="0";
+            $_SESSION['cancelImg3']="0";
+            $_SESSION['cancelImg4']="0";
+            $_SESSION['cancelImg5']="0";
+                $sql2 = "SELECT * FROM imagenes WHERE modulo_id_modulo=".($row->id_modulo);
                 $stmt2 = $con->prepare($sql2);
                 $result2 = $stmt2->execute();
                 $rows2 = $stmt2->fetchAll(\PDO::FETCH_OBJ);
                 foreach($rows2 as $row2){
                   switch ($row2->nom_imagen) {
-                    case ($row->id_modulo)."_1.png":
+                    case (($row->id_modulo)."_1.png"):
                       $img1="1";
                       break;
-                    case ($row->id_modulo)."_2.png":
+                    case (($row->id_modulo)."_2.png"):
                       $img2="1";
                       break;
-                    case ($row->id_modulo)."_3.png":
+                    case (($row->id_modulo)."_3.png"):
                       $img3="1";
                       break;
-                    case ($row->id_modulo)."_4.png":
+                    case (($row->id_modulo)."_4.png"):
                       $img4="1";
                       break;
-                    case ($row->id_modulo)."_5.png":
+                    case (($row->id_modulo)."_5.png"):
                       $img5="1";
                       break;                    
                   }
@@ -72,13 +87,12 @@ if(isset($_SESSION["loginname"])){
                 <td><?php print($row->tip_modulo); ?></td>
                 <td class="siseColTITMOD"><?php print($row->tit_modulo); ?></td>
                 <td class="siseColDESMOD"><?php print($row->des_modulo); ?></td>
-                <?php $_SESSION['codModulo']=($row->id_modulo)+1;?>
                 <td>
                   <div>
 
                     <button type="button" class="btn btn-success btn-xs" onclick="Editar('<?php print($row->id_modulo); ?>','<?php print($row->tip_modulo); ?>','<?php print($row->tit_modulo); ?>','<?php print($row->des_modulo); ?>','<?php print($img1); ?>','<?php print($img2); ?>','<?php print($img3); ?>','<?php print($img4); ?>','<?php print($img5); ?>');"> <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar</button>
 
-                     <button type="button" class="btn btn-success btn-xs" onclick="VerImagenes('<?php print($row->id_modulo); ?>');"> <span class='glyphicon glyphicon-picture' aria-hidden='true'></span> Galería</button>
+                     <button type="button" class="btn btn-success btn-xs" onclick="VerImagenes('<?php print($row->id_modulo); ?>','<?php print($img1); ?>','<?php print($img2); ?>','<?php print($img3); ?>','<?php print($img4); ?>','<?php print($img5); ?>');"> <span class='glyphicon glyphicon-picture' aria-hidden='true'></span> Galería</button>
 
                     <button type="button" class="btn btn-success btn-xs" onclick="EliminarModulo('<?php print($row->id_modulo); ?>');"> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
           
@@ -240,8 +254,6 @@ if(isset($_SESSION["loginname"])){
           </div>
         </div> 
       </div>
-
-
 <script type="text/javascript">
 
     function quitarIMG(imagenes, foto, boton){
@@ -249,6 +261,7 @@ if(isset($_SESSION["loginname"])){
       foto.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
       boton.style="display:none";
       imagenes.value="";
+      foto.value="0";
     }
 
     function buscar(){
@@ -262,23 +275,46 @@ if(isset($_SESSION["loginname"])){
     var idModulo;
     var accion;
 
-    function VerImagenes(id){
+
+    function VerImagenes(id,img1,img2,img3,img4,img5){
       accion = 'I';
+      document.frmmodulosImagenes.foto1.src = "";
+      document.frmmodulosImagenes.foto1.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulosImagenes.foto2.src = "";
+      document.frmmodulosImagenes.foto2.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulosImagenes.foto3.src = "";
+      document.frmmodulosImagenes.foto3.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulosImagenes.foto4.src = "";
+      document.frmmodulosImagenes.foto4.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulosImagenes.foto5.src = "";
+      document.frmmodulosImagenes.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+
       document.frmmodulosImagenes.foto.src = "../imagenes/modulos/"+id+".png";
       document.frmmodulosImagenes.foto.className ="fotoPerfil";
-      document.frmmodulosImagenes.foto1.src = "../imagenes/modulos/"+id+"_1.png";
-      document.frmmodulosImagenes.foto1.className ="fotoPerfil";
-      document.frmmodulosImagenes.foto2.src = "../imagenes/modulos/"+id+"_2.png";
-      document.frmmodulosImagenes.foto2.className ="fotoPerfil";
-      document.frmmodulosImagenes.foto3.src = "../imagenes/modulos/"+id+"_3.png";
-      document.frmmodulosImagenes.foto3.className ="fotoPerfil";
-      document.frmmodulosImagenes.foto4.src = "../imagenes/modulos/"+id+"_4.png";
-      document.frmmodulosImagenes.foto4.className ="fotoPerfil";
-      document.frmmodulosImagenes.foto5.src = "../imagenes/modulos/"+id+"_5.png";
-      document.frmmodulosImagenes.foto5.className ="fotoPerfil";
+      if(img1=="1"){
+        document.frmmodulosImagenes.foto1.src = "../imagenes/modulos/"+id+"_1.png";
+        document.frmmodulosImagenes.foto1.className ="fotoPerfil";
+      }
+      if(img2=="1"){
+        document.frmmodulosImagenes.foto2.src = "../imagenes/modulos/"+id+"_2.png";
+        document.frmmodulosImagenes.foto2.className ="fotoPerfil";
+      }
+      if(img3=="1"){
+        document.frmmodulosImagenes.foto3.src = "../imagenes/modulos/"+id+"_3.png";
+        document.frmmodulosImagenes.foto3.className ="fotoPerfil";
+      }
+      if(img4=="1"){
+        document.frmmodulosImagenes.foto4.src = "../imagenes/modulos/"+id+"_4.png";
+        document.frmmodulosImagenes.foto4.className ="fotoPerfil";
+      }
+      if(img5=="1"){
+        document.frmmodulosImagenes.foto5.src = "../imagenes/modulos/"+id+"_5.png";
+        document.frmmodulosImagenes.foto5.className ="fotoPerfil";
+      }
 
       $('#modalImagenes').modal('show');
     }
+
 
 
     function Nuevo(){
@@ -314,36 +350,66 @@ if(isset($_SESSION["loginname"])){
     }
 
     function Editar(id, tipo, titulo, descripcion,img1,img2,img3,img4,img5){
-      
+      document.frmmodulos.foto1.src = "";
+      document.frmmodulos.foto1.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes2.value = "";
+      document.frmmodulos.foto2.src = "";
+      document.frmmodulos.foto2.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes3.value = "";
+      document.frmmodulos.foto3.src = "";
+      document.frmmodulos.foto3.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes4.value = "";
+      document.frmmodulos.foto4.src = "";
+      document.frmmodulos.foto4.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.frmmodulos.imagenes5.value = "";
+      document.frmmodulos.foto5.src = "";
+      document.frmmodulos.foto5.className =document.frmmodulos.foto.className.replace( /(?:^|\s)fotoPerfil(?!\S)/g , '' );
+      document.getElementById("cancel0").style="display:none";
+      document.getElementById("cancel1").style="display:none";
+      document.getElementById("cancel2").style="display:none";
+      document.getElementById("cancel3").style="display:none";
+      document.getElementById("cancel4").style="display:none";
+      document.getElementById("cancel5").style="display:none";
+
       accion = 'E';
       idModulo=id;
+      $.post("codigoMod.php", {valorCod: id}, function(mensaje) {
+      }); 
+      
       document.frmmodulos.tipo.value = tipo;
       document.frmmodulos.titulo.value = titulo;
       document.frmmodulos.descripcion.value = descripcion;
       caracteresDescripcion();
       document.frmmodulos.foto.src = "../imagenes/modulos/"+id+".png";
       document.frmmodulos.foto.className ="fotoPerfil";
+      document.getElementById("cancel0").style="display:inline";
       if(img1=="1"){
         document.frmmodulos.foto1.src = "../imagenes/modulos/"+id+"_1.png";
         document.frmmodulos.foto1.className ="fotoPerfil";
+        document.getElementById("cancel1").style="display:inline";
       }
-      if(img1=="2"){
+      if(img2=="1"){
         document.frmmodulos.foto2.src = "../imagenes/modulos/"+id+"_2.png";
         document.frmmodulos.foto2.className ="fotoPerfil";
+        document.getElementById("cancel2").style="display:inline";
       }
-      if(img1=="3"){
+      if(img3=="1"){
         document.frmmodulos.foto3.src = "../imagenes/modulos/"+id+"_3.png";
         document.frmmodulos.foto3.className ="fotoPerfil";
+        document.getElementById("cancel3").style="display:inline";
       }
-      if(img1=="4"){
+      if(img4=="1"){
         document.frmmodulos.foto4.src = "../imagenes/modulos/"+id+"_4.png";
         document.frmmodulos.foto4.className ="fotoPerfil";
+        document.getElementById("cancel4").style="display:inline";
       }
-      if(img1=="5"){
+      if(img5=="1"){
         document.frmmodulos.foto5.src = "../imagenes/modulos/"+id+"_5.png";
         document.frmmodulos.foto5.className ="fotoPerfil";
+        document.getElementById("cancel5").style="display:inline";
       }
       $('#modal').modal('show');
+      //alert('<?php print ($_SESSION['codModulo']); ?>');
     }
     
     function caracteresDescripcion(){
@@ -373,21 +439,12 @@ if(isset($_SESSION["loginname"])){
         formdata5 = false;
 
     function cargar(){
-      if(document.frmmodulos.imagenes1.value!=""){
-        document.frmmodulos.nomIMG1.value="1";
-      }
-      if(document.frmmodulos.imagenes2.value!=""){
-        document.frmmodulos.nomIMG2.value="1";
-      }
-      if(document.frmmodulos.imagenes3.value!=""){
-        document.frmmodulos.nomIMG3.value="1";
-      }
-      if(document.frmmodulos.imagenes4.value!=""){
-        document.frmmodulos.nomIMG4.value="1";
-      }
-      if(document.frmmodulos.imagenes5.value!=""){
-        document.frmmodulos.nomIMG5.value="1";
-      }
+      document.frmmodulos.nomIMG1.value=document.frmmodulos.foto1.value;
+      document.frmmodulos.nomIMG2.value=document.frmmodulos.foto2.value;
+      document.frmmodulos.nomIMG3.value=document.frmmodulos.foto3.value;
+      document.frmmodulos.nomIMG4.value=document.frmmodulos.foto4.value;
+      document.frmmodulos.nomIMG5.value=document.frmmodulos.foto5.value;
+      
     if(formdata){
             $.ajax({
                url : 'subirfotoModulo.php?cod=0',
@@ -471,26 +528,31 @@ if(isset($_SESSION["loginname"])){
         document.getElementById("cancel0").style="display:inline";
         break;
         case 1:
+        img1.value="1";
         img1.className = "fotoPerfil";
         img1.src = source;
         document.getElementById("cancel1").style="display:inline";
         break;
         case 2:
+        img2.value="1";
         img2.className = "fotoPerfil";
         img2.src = source;
         document.getElementById("cancel2").style="display:inline";
         break;
         case 3:
+        img3.value="1";
         img3.className = "fotoPerfil";
         img3.src = source;
         document.getElementById("cancel3").style="display:inline";
         break;
         case 4:
+        img4.value="1";
         img4.className = "fotoPerfil";
         img4.src = source;
         document.getElementById("cancel4").style="display:inline";
         break;
         case 5:
+        img5.value="1";
         img5.className = "fotoPerfil";
         img5.src = source;
         document.getElementById("cancel5").style="display:inline";
