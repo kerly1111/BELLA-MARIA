@@ -3,7 +3,7 @@
 
 
 <div class="panel panel-success">
-  <div class="panel-heading"><h3>Rendición de Cuentas 2015</h3></div>
+  <div class="panel-heading styleBellaMAria"><h3>Rendición de Cuentas 2015</h3></div>
   <div class="panel-body">
     <p style="text-align: justify;">
 
@@ -32,5 +32,6 @@
   </div>
 </div>
 
-
+</section>
 <?php include 'videos.php' ?>
+<?php include 'pie.php' ?>

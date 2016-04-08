@@ -50,6 +50,28 @@ ajax.send("nombre="+nombre+"&apellido="+apellido+"&email="+email+"&mensaje="+men
 
 }
 
+function mensjaePresidente(){
+mensaje = document.frmMensajePred.mensaje.value;
+frase = document.frmMensajePred.frase.value;
+nombrePresidente = document.frmMensajePred.nombrePresidente.value;
+cargo = document.frmMensajePred.cargo.value;
+
+nombreFoto= "mensajePred.png";	
+rutaFoto= "../imagenes/";
+
+ajax = objetoAjax();
+ajax.open("POST", "../clases/insertarMensajePresidente.php", true);
+ajax.onreadystatechange=function() {
+		if (ajax.readyState==4) {
+			alert('Los datos fueron guardados con exito!');
+      window.location.reload(true);
+		}
+		
+	}
+ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+ajax.send("mensaje="+mensaje+"&frase="+frase+"&nombrePresidente="+nombrePresidente+"&cargo="+cargo+"&nombreFoto="+nombreFoto+"&rutaFoto="+rutaFoto)
+}
+
 function RegistrarUsuario(accion){
 cedula = document.frmUsuario.cedula.value;
 usuario= document.frmUsuario.usuario.value;
