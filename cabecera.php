@@ -61,39 +61,38 @@ unset($_SESSION["loginname"]);
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">BELLA MARIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
                 <li class="active"><a href="ubicacion.php">HISTORIA DE LA PARROQUIA</a></li>
-                <li class="active"><a href="ubicacion.php">NOTICIAS</a></li>
-                <li class="active"><a href="ubicacion.php">CONVOCATORIAS</a></li>
-                <li class="active"><a href="ubicacion.php">EVENTOS</a></li>
-                <li class="active"><a href="ubicacion.php">COSTUMBRE Y TRADICIONES</a></li>
-                <li class="active"><a href="ubicacion.php">SALUD</a></li>
-                <li class="active"><a href="ubicacion.php">EDUCACIÓN</a></li>
-                <li class="active"><a href="ubicacion.php">VIVIENDA</a></li>
-                <li class="active"><a href="ubicacion.php">VIALIDAD Y TRANSPORTE</a></li>
-                <li class="active"><a href="ubicacion.php">DATOS GEOGRÁFICOS</a></li>
-                <li class="active"><a href="ubicacion.php">FLORA Y FAUNA</a></li>
-                <li class="active"><a href="ubicacion.php">GALERÍA</a></li>
+                <li class="active"><a href="noticias.php">NOTICIAS</a></li>
+                <li class="active"><a href="convocatoria.php">CONVOCATORIAS</a></li>
+                <li class="active"><a href="eventos.php">EVENTOS</a></li>
+                <li class="active"><a href="costumbres-tradiciones.php">COSTUMBRE Y TRADICIONES</a></li>
+                <li class="active"><a href="salud.php">SALUD</a></li>
+                <li class="active"><a href="educacion.php">EDUCACIÓN</a></li>
+                <li class="active"><a href="vivienda.php">VIVIENDA</a></li>
+                <li class="active"><a href="vialidad-transporte.php">VIALIDAD Y TRANSPORTE</a></li>
+                <li class="active"><a href="datos-geograficos.php">DATOS GEOGRÁFICOS</a></li>
+                <li class="active"><a href="flora-fauna.php">FLORA Y FAUNA</a></li>
+                <li class="active"><a href="galeria.php">GALERÍA</a></li>
             </ul>
         </li>
          <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCCIÓN <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
-                <li class="active"><a href="ubicacion.php">ECONÓMICA</a></li>
-                <li class="active"><a href="ubicacion.php">AGRÍCOLA</a></li>
-                <li class="active"><a href="ubicacion.php">PECUARIA</a></li>
-                <li class="active"><a href="ubicacion.php">ARTESANAL</a></li>
-                <li class="active"><a href="ubicacion.php">COMERCIAL</a></li>
-                <li class="active"><a href="ubicacion.php">PESCA</a></li>
-                <li class="active"><a href="ubicacion.php">MINERÍA</a></li>
-                <li class="active"><a href="ubicacion.php">FORESTAL</a></li>
-                <li class="active"><a href="ubicacion.php">OTRAS</a></li>
+                <li class="active"><a href="economica.php">ECONÓMICA</a></li>
+                <li class="active"><a href="agricola.php">AGRÍCOLA</a></li>
+                <li class="active"><a href="pecuaria.php">PECUARIA</a></li>
+                <li class="active"><a href="artesanal.php">ARTESANAL</a></li>
+                <li class="active"><a href="comercial.php">COMERCIAL</a></li>
+                <li class="active"><a href="pesca.php">PESCA</a></li>
+                <li class="active"><a href="mineria.php">MINERÍA</a></li>
+                <li class="active"><a href="forestal.php">FORESTAL</a></li>
             </ul>
         </li>
         <li  class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TURISMO <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
                 <li class="active"><a href="atractivosTuristicos.php">ATRACTIVOS TURISTICOS</a></li>
-                <li class="active"><a href="comidasTipicas.php">COMIDAS TIPICAS</a></li>
-                <li class="active"><a href="comidasTipicas.php">FIESTAS PARROQUIALES</a></li>
-                <li class="active"><a href="comidasTipicas.php">FIESTAS PATRONALES</a></li>
-                <li class="active"><a href="comidasTipicas.php">CULTURA, DEPORTES Y MAS</a></li>
+                <li class="active"><a href="comidas-tipicas.php">COMIDAS TIPICAS</a></li>
+                <li class="active"><a href="fiestas-parroquiales.php">FIESTAS PARROQUIALES</a></li>
+                <li class="active"><a href="fiestas-patronales.php">FIESTAS PATRONALES</a></li>
+                <li class="active"><a href="cultura-deportes.php">CULTURA, DEPORTES Y MAS</a></li>
             </ul>
         </li>
         <li class="active"><a href="">RENDICIÓN DE CUENTAS</a></li>

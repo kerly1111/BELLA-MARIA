@@ -1,7 +1,7 @@
 <?php include 'cabecera.php';?>
 <?php include 'banner.php'; ?>
 <div class="panel panel-success margenGeneral" >
-<div class="panel-heading styleBellaMAria"><h2>TURISMO</h2></div>
+<div class="panel-heading styleBellaMAria"><h2>NOTICIA</h2></div>
 <div class="panel-body">
 
 <?php 

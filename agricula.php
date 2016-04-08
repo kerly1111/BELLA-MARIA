@@ -1,13 +1,13 @@
 <?php include 'cabecera.php';?>
 <?php include 'banner.php'; ?>
 <div class="panel panel-success margenGeneral" >
-<div class="panel-heading styleBellaMAria"><h2>EVENTOS</h2></div>
+<div class="panel-heading styleBellaMAria"><h2>AGRÍCOLA</h2></div>
 <div class="panel-body">
 
 <?php 
         require("clases/conexion.php");
         $con = conectar();
-        $sql = "SELECT * FROM modulo WHERE tip_modulo='EVENTO' ORDER BY id_modulo DESC";
+        $sql = "SELECT * FROM modulo WHERE tip_modulo='AGRICOLA' ORDER BY id_modulo DESC";
         $stmt = $con->prepare($sql);
   
         $result = $stmt->execute();
