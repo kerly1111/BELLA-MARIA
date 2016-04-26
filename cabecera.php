@@ -54,8 +54,8 @@ unset($_SESSION["loginname"]);
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">GAD <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
                 <li class="active"><a href="gad.php">MENSAJE DEL PRESIDENTE</a></li>
-                <li class="active"><a href="ubicacion.php">VISIÓN y MISIÓN</a></li>
-                <li class="active"><a href="ubicacion.php">PLAN ESTRATÉGICO (OBJETIVOS)</a></li>
+                <li class="active"><a href="visionMision.php">VISIÓN y MISIÓN</a></li>
+                <li class="active"><a href="planEstrategico.php">PLAN ESTRATÉGICO (OBJETIVOS)</a></li>
             </ul>
         </li>
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">BELLA MARIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
@@ -95,7 +95,7 @@ unset($_SESSION["loginname"]);
                 <li class="active"><a href="cultura-deportes.php">CULTURA, DEPORTES Y MAS</a></li>
             </ul>
         </li>
-        <li class="active"><a href="">RENDICIÓN DE CUENTAS</a></li>
+        <li class="active"><a href="rendicionCuentas-2015.php">RENDICIÓN DE CUENTAS</a></li>
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">TRANSPARENCIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
                 <li class="active"><a href="lotaip2012.php">LOTAIP 2012</a></li>

@@ -143,13 +143,13 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading styleBellaMAria">EDUCAIÓN</div>
+  <div class="panel-heading styleBellaMAria">EDUCACIÓN</div>
   <div class="panel-body">
   <center>
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='EDUCAIÓN' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='EDUCACIÓN' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
@@ -231,13 +231,13 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading styleBellaMAria">COSTUMBRE Y TRADICIONES</div>
+  <div class="panel-heading styleBellaMAria">COSTUMBRES Y TRADICIONES</div>
   <div class="panel-body">
   <center>
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='COSTUMBRE Y TRADICIONES' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='COSTUMBRES Y TRADICIONES' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();
@@ -278,13 +278,13 @@
 
   <div class="col-md-4">
   <div class="panel panel-success">
-  <div class="panel-heading styleBellaMAria">AGRICOLA</div>
+  <div class="panel-heading styleBellaMAria">AGRÍCOLA</div>
   <div class="panel-body">
   <center>
    <?php
     $contador=0;
     $con = conectar();
-    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='AGRICOLA' ORDER BY id_modulo DESC";
+    $sql = "SELECT * FROM modulo WHERE est_modulo='1' and tip_modulo='AGRÍCOLA' ORDER BY id_modulo DESC";
     $stmt = $con->prepare($sql);
 
     $result = $stmt->execute();

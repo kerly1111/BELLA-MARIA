@@ -7,7 +7,7 @@
 <?php 
         require("clases/conexion.php");
         $con = conectar();
-        $sql = "SELECT * FROM modulo WHERE tip_modulo='ECONOMICA' ORDER BY id_modulo DESC";
+        $sql = "SELECT * FROM modulo WHERE tip_modulo='ECONÓMICA' ORDER BY id_modulo DESC";
         $stmt = $con->prepare($sql);
   
         $result = $stmt->execute();

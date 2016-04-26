@@ -72,7 +72,7 @@
         <div id="secundario">
         <p class="big-bold titulo-responsive"><?php print($row->tit_modulo);?></p>
         <p style="text-align: justify;" class="txt-responsive">
-         <?php print substr(($row->des_modulo),0,200);?>..... </p>
+         <?php print substr(($row->des_modulo),0,203);?>..... </p>
          <a href="modulo.php?saludo=<?php print($row->id_modulo);?>"><button type="button" class="btn btn-success btn-responsive"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Leer mas...</button></a>
          </div>
         </div>

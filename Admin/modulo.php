@@ -12,7 +12,7 @@ if(isset($_SESSION["loginname"])){
           <input id="buscarInput" name="buscarInput" type="text" class="form-control" placeholder="Buscar" aria-describedby="basic-addon2" onKeyUp="buscar();">
           <span class="glyphicon glyphicon-search input-group-addon" id="basic-addon2"></span>
         </div> &nbsp;
-        <!--<button class="btn btn-success" type="button" ><i class="icon-search"></i></button>-->
+
         <button type="button" onclick="Nuevo();" class="btn btn-success" >
           <span class="glyphicon glyphicon-user"></span> Nuevo
         </button>
@@ -84,8 +84,8 @@ if(isset($_SESSION["loginname"])){
                 }
               ?>
               <tr>
-                <td><?php print($row->tip_modulo); ?></td>
-                <td class="siseColTITMOD"><?php print($row->tit_modulo); ?></td>
+                <td class="siseColTITMOD2"><?php print($row->tip_modulo); ?></td>
+                <td class="siseColTITMOD2"><?php print($row->tit_modulo); ?></td>
                 <td class="siseColDESMOD"><?php print($row->des_modulo); ?></td>
                 <td>
                   <div>
@@ -126,23 +126,27 @@ if(isset($_SESSION["loginname"])){
                   <label>Tipo</label>
                   <SELECT name="tipo" class="form-control"> 
                   <OPTION VALUE="NOTICIA">NOTICIA</OPTION>
-                  <OPTION VALUE="CONVOCATORIA">CONVOCATORIA</OPTION>
-                  <OPTION VALUE="TURISMO">TURISMO</OPTION>
-                  <OPTION VALUE="ATRACTIVOS TURISTICOS">ATRACTIVOS TURISTICOS</OPTION>
-                  <OPTION VALUE="EVENTOS">EVENTOS</OPTION>
+                  <OPTION VALUE="CONVOCATORIAS">CONVOCATORIAS</OPTION>
+                  <OPTION VALUE="EVENTO">EVENTO</OPTION>
+                  <OPTION VALUE="COSTUMBRES Y TRADICIONES">COSTUMBRES Y TRADICIONES</OPTION>
                   <OPTION VALUE="SALUD">SALUD</OPTION>
-                  <OPTION VALUE="EDUCACION">EDUCACION</OPTION>
+                  <OPTION VALUE="EDUCACIÓN">EDUCACIÓN</OPTION>
                   <OPTION VALUE="VIVIENDA">VIVIENDA</OPTION>
                   <OPTION VALUE="VIALIDAD Y TRANSPORTE">VIALIDAD Y TRANSPORTE</OPTION>
-                  <OPTION VALUE="PRODUCCION-ECONÓMICA">PRODUCCION-ECONÓMICA</OPTION>
-                  <OPTION VALUE="PRODUCCION-AGRÍCOLA">PRODUCCION-AGRÍCOLA</OPTION>
-                  <OPTION VALUE="PRODUCCION-PECUARIA">PRODUCCION-PECUARIA</OPTION>
-                  <OPTION VALUE="PRODUCCION-ARTESANAL">PRODUCCION-ARTESANAL</OPTION>
-                  <OPTION VALUE="PRODUCCION-COMERCIAL">PRODUCCION-COMERCIAL</OPTION>
-                  <OPTION VALUE="PRODUCCION-PESCA">PRODUCCION-PESCA</OPTION>
-                  <OPTION VALUE="PRODUCCION-MINERÍA">PRODUCCION-MINERÍA</OPTION>
-                  <OPTION VALUE="PRODUCCION-FORESTAL">PRODUCCION-FORESTAL</OPTION>
-                  <OPTION VALUE="PRODUCCION-PRODUCCIONES">OTRAS-PRODUCCIONES</OPTION>
+
+                  <OPTION VALUE="ECONÓMICA">PRODUCCION-ECONÓMICA</OPTION>
+                  <OPTION VALUE="AGRÍCOLA">PRODUCCION-AGRÍCOLA</OPTION>
+                  <OPTION VALUE="PECUARIA">PRODUCCION-PECUARIA</OPTION>
+                  <OPTION VALUE="ARTESANAL">PRODUCCION-ARTESANAL</OPTION>
+                  <OPTION VALUE="COMERCIAL">PRODUCCION-COMERCIAL</OPTION>
+                  <OPTION VALUE="PESCA">PRODUCCION-PESCA</OPTION>
+                  <OPTION VALUE="MINERÍA">PRODUCCION-MINERÍA</OPTION>
+                  <OPTION VALUE="FORESTAL">PRODUCCION-FORESTAL</OPTION>
+                  
+                  <OPTION VALUE="FIESTAS PARRROQUIALES">FIESTAS PARRROQUIALES</OPTION>
+                  <OPTION VALUE="FIESTAS PATRONALES">FIESTAS PATRONALES</OPTION>
+                  <OPTION VALUE="CULTURA, DEPORTES Y MAS">CULTURA, DEPORTES Y MAS</OPTION>
+
                   </SELECT>
                 </div>
 

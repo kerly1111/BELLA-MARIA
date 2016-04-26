@@ -532,6 +532,11 @@ padding-right: 5px;
   max-width: 200px;
 }
 
+.siseColTITMOD2{
+  max-width: 150px;
+}
+
+
 .margenGeneral{
   margin-left: 2% !important; 
   margin-right: 2% !important;
