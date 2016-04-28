@@ -1,9 +1,9 @@
 <?php include 'cabecera.php' ?>
-<?php include 'panelNoticias.php' ?>
+<?php include 'banner.php' ?>
 
 <div class="panel panel-success">
-  <div class="panel-heading">
-    <h3 class="panel-title">LOTAIP 2012</h3>
+  <div class="panel-heading styleBellaMAria">
+    <h3 >LOTAIP 2012</h3>
   </div>
   <div class="panel-body">
 
@@ -147,46 +147,13 @@
 	 Concurso Público de meritos y Oposición.
 	 Concursos para acceder a este cargo de Público Dentro del GAD Parroquial.
 	 </p>
-	 <div class="row">
-  <div class="col-md-4">
-
-  <div class="panel panel-success">
-  <div class="panel-heading">Video 1</div>
-  <div class="panel-body">
-  
-   <iframe width="375" height="340"src="http://www.youtube.com/embed/00m8uyRqkC4"></iframe>
-
-  </div>
-	</div>
-
-  </div>
-  <div class="col-md-4">
-
-<div class="panel panel-success">
-  <div class="panel-heading">Video 2</div>
-  <div class="panel-body">
-    
-   <iframe width="375" height="340"src="http://www.youtube.com/embed/xpga0VG51Zs"></iframe>
-
-  </div>
-</div>
-
-  </div>
-
-  <div class="col-md-4">
-		<div class="panel panel-success">
-		<div class="panel-heading">Video 3</div>
-		<div class="panel-body">
-
-		    <iframe width="375" height="340"src="http://www.youtube.com/embed/ObsCQ8L7nOc"></iframe>
-
-		</div>
-		</div>
-  </div>
-</div>
+	 
 </div>
 </div>
 
+</section>
+<?php include 'videos.php'; ?>
+<?php include 'pie.php';?>
 
 
 

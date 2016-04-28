@@ -1,11 +1,11 @@
 <?php include 'cabecera.php' ?>
-<?php include 'panelNoticias.php' ?>
+<?php include 'banner.php' ?>
 
 <div class="panel panel-success">
-  <div class="panel-heading">
-    <h1 class="panel-title">Transparencia de agosto</h1>
+  <div class="panel-heading styleBellaMAria">
+    <h2>Transparencia de Agosto</h2>
   </div>
-  
+  <center>
   <a href="#" target="_blank"><img SRC="imagenes/cabecera-mensual-AGOSTO.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a><br><br>
 
   <a href="#" target="_blank"><img SRC="imagenes/literales_01.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a><br><br>
@@ -50,40 +50,10 @@
 
   <a href="#" target="_blank"><img SRC="imagenes/literales_21.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a> 
 
-<div class="row">
-  <div class="col-md-4">
-
-  <div class="panel panel-success">
-  <div class="panel-heading">Video 1</div>
-  <div class="panel-body">
-  
-   <iframe width="375" height="340"src="http://www.youtube.com/embed/00m8uyRqkC4"></iframe>
-
-  </div>
-	</div>
-
-  </div>
-  <div class="col-md-4">
-
-<div class="panel panel-success">
-  <div class="panel-heading">Video 2</div>
-  <div class="panel-body">
-    
-   <iframe width="375" height="340"src="http://www.youtube.com/embed/xpga0VG51Zs"></iframe>
-
-  </div>
+</center>
+<br>
 </div>
+</section>
 
-  </div>
-
-  <div class="col-md-4">
-		<div class="panel panel-success">
-		<div class="panel-heading">Video 3</div>
-		<div class="panel-body">
-
-		    <iframe width="375" height="340"src="http://www.youtube.com/embed/ObsCQ8L7nOc"></iframe>
-
-		</div>
-		</div>
-  </div>
-</div>
+<?php include 'videos.php'; ?>
+<?php include 'pie.php';?>

@@ -17,15 +17,17 @@
  	<u><a href="enero.php" target="_blank">ENERO</a></u><br>
  	<u><a href="febrero.php" target="_blank">FEBRERO</a></u><br>
  	<u><a href="marzo.php" target="_blank">MARZO</a></u><br>
- 	<u><a href="abril.php>" target="_blank">ABRIL</a></u><br>
+ 	<u><a href="abril.php" target="_blank">ABRIL</a></u><br>
  	<u><a href="mayo.php" target="_blank">MAYO</a></u><br>
-  <u><a href="junio.php" target="_blank">JUNIO</a></u><br>
+    <u><a href="junio.php" target="_blank">JUNIO</a></u><br>
  	<u><a href="julio.php" target="_blank">JULIO</a></u><br>
  	<u><a href="agosto.php" target="_blank">AGOSTO</a></u><br>	
  	<u><a href="septiembre.php" target="_blank">SEPTIEMBRE</a></u><br>
  	<u><a href="octubre.php" target="_blank">OCTUBRE</a></u><br>
  	<u><a href="noviembre.php" target="_blank">NOVIEMBRE</a></u><br>
  	<u><a href="diciembre.php" target="_blank">DICIEMBRE</a></u><br>
+ 	</div>
+ 	</section>
 
 <?php include 'videos.php'; ?>
 <?php include 'pie.php';?>

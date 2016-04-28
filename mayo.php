@@ -2,10 +2,10 @@
 <?php include 'banner.php' ?>
 
 <div class="panel panel-success">
-  <div class="panel-heading">
-    <h1 class="panel-title">Transparencia de mayo</h1>
+  <div class="panel-heading styleBellaMAria">
+    <h2>Transparencia de Mayo</h2>
   </div>
-  
+  <center>
   <a href="#" target="_blank"><img SRC="imagenes/cabecera-mensual-MAYO.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a><br><br>
 
   <a href="#" target="_blank"><img SRC="imagenes/literales_01.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a><br><br>
@@ -49,6 +49,8 @@
   <a href="#" target="_blank"><img SRC="imagenes/literales_20.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a><br><br>
 
   <a href="#" target="_blank"><img SRC="imagenes/literales_21.png" text-align:center WIDTH=600 HEIGHT=100 BORDER=3 /></a> 
+</center>
+<br>
 </div>
 </section>
 <?php include 'videos.php'; ?>
