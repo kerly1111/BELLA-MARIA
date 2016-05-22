@@ -60,7 +60,7 @@ unset($_SESSION["loginname"]);
         </li>
         <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">BELLA MARIA <i class="glyphicon glyphicon-chevron-down"></i></a> 
             <ul style="color:#A9BC00; background-color: #A9BC00; border-radius: 4px;" class="dropdown-menu">
-                <li class="active"><a href="ubicacion.php">HISTORIA DE LA PARROQUIA</a></li>
+                <li class="active"><a href="historia-parroquia.php">HISTORIA DE LA PARROQUIA</a></li>
                 <li class="active"><a href="noticias.php">NOTICIAS</a></li>
                 <li class="active"><a href="convocatoria.php">CONVOCATORIAS</a></li>
                 <li class="active"><a href="eventos.php">EVENTOS</a></li>
