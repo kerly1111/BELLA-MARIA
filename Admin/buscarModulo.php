@@ -1,7 +1,7 @@
 <?php
  
   $conexion = mysqli_connect("127.0.0.1","root","","bella-maria");
-  mysqli_set_charset($conexion, "utf8");
+  mysqli_set_charset($conexion, "utf-8");
   $consultaBusqueda = $_POST['valorBusqueda'];
 
   $caracteres_malos = array("<", ">", "\"", "'", "/", "<", ">", "'", "/");
@@ -27,8 +27,8 @@
       //Output
       $mensaje .= "
               <tr>
-                <td>".$tipo."</td>
-                <td class='siseColTITMOD'>".$titulo."</td>
+                <td  class='siseColTITMOD2'>".$tipo."</td>
+                <td class='siseColTITMOD2'>".$titulo."</td>
                 <td class='siseColDESMOD'>".$descripcion."</td>
                 
                 <td>
@@ -37,6 +37,7 @@
                     <span class='glyphicon glyphicon-edit' aria-hidden='true'></span> Actualizar
                     </button>  
                     <button type='button' class='btn btn-success btn-xs' onclick=VerImagenes('".$id."');> <span class='glyphicon glyphicon-picture' aria-hidden='true'></span> Galería</button>
+
                     <button type='button' class='btn btn-success btn-xs' onclick=EliminarModulo('".$id."');> <span class='glyphicon glyphicon-remove-sign' aria-hidden='true'></span> Eliminar</button>
                   </div>
                 </td>
