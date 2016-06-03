@@ -11,7 +11,7 @@ require("conexion.php");
 $con=conectar();
 
 
-$sql = 'UPDATE usuario SET  use_usuario=:use_usuario, nom_usuario=nom_usuario, ape_usuario=ape_usuario WHERE id_usuario=:id_usuario';
+$sql = 'UPDATE usuario SET  use_usuario=:use_usuario, nom_usuario=:nom_usuario, ape_usuario=:ape_usuario WHERE id_usuario=:id_usuario';
 
 
 $sql=$con->prepare($sql); //preparamos la sentencia SSQL

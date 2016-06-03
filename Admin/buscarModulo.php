@@ -4,8 +4,8 @@
   mysqli_set_charset($conexion, "utf-8");
   $consultaBusqueda = $_POST['valorBusqueda'];
 
-  $caracteres_malos = array("<", ">", "\"", "'", "/", "<", ">", "'", "/");
-  $caracteres_buenos = array("&lt;", "&gt;", "&quot;", "&#x27;", "&#x2F;", "&#060;", "&#062;", "&#039;", "&#047;");
+  $caracteres_malos = array("<", ">", "\"", "'", "/", "<", ">", "'", "/",")","(");
+  $caracteres_buenos = array("&lt;", "&gt;", "&quot;", "&#x27;", "&#x2F;", "&#060;", "&#062;", "&#039;", "&#047;","&#41;","&#40;");
   $consultaBusqueda = str_replace($caracteres_malos, $caracteres_buenos, $consultaBusqueda);
   $mensaje="";
 
